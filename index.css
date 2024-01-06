@@ -20,9 +20,7 @@ form {
 #day, #year{
     max-width: 150%;
 }
-#month{
-    min-width: 150%;
-}
+
 
 
 #submitForm{
