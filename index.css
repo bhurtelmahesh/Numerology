@@ -18,7 +18,7 @@ form {
     border: #727272;
     background-color: white;
     border-radius: 10px;
-    min-height: 100px; /* Adjust the value as needed */
+    height: 100px; 
 }
 
 #day, #year {
