@@ -54,11 +54,13 @@ form {
     text-align: left;
     font-size: larger;
     min-height: 300px;
+    width: 100%;
 }
 
 p{
     font-size: small;
     font-weight: 200;
+    width: 100%;
 }
 
 
