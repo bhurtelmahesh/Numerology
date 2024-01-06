@@ -1,5 +1,7 @@
 body{
-    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    /* min-height: 100%; */
     font-family: sans-serif;
     background-color: aliceblue;
     align-content: center;
@@ -58,12 +60,6 @@ p{
     font-weight: 200;
 }
 
-
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-}
 
 header {
     background-color: rgb(255, 136, 0);
