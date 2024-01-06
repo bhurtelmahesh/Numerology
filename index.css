@@ -103,6 +103,7 @@ footer {
 }
 
 footer ul {
+    width: 80vw;
     display: flex;
     justify-content: space-around;
     align-items: center;
