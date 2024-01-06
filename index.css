@@ -5,19 +5,18 @@ body{
     width: 100vw;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-form{
+form {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 70vw;
-    margin-left:15%;
+    margin-left: 15%;
     background-color: aliceblue;
-    display: flex;
-    justify-content: space-around;
-    align-items:center;
     color: black;
-    height: 105%;
+    /* Adjusted height property */
+    min-height: 300px; /* Adjust the value as needed */
 }
+
 
 #submitForm{
     border-radius: 9px;
