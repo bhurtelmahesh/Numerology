@@ -26,7 +26,7 @@ form {
 
 
 #submitForm{
-    background-color: white;
+    background-color: aliceblue;
     border-radius: 9px;
     height: 50px;
     width: 30%;
@@ -35,7 +35,7 @@ form {
     font-weight: 400;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     transition: ease-in-out 0.2s;
-    border: #fff;
+    border: #727272;
 }
 #submitForm:hover{
     background-color: rgb(255, 136, 0);
