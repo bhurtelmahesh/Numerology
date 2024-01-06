@@ -74,7 +74,9 @@ header {
     font-family: 'Trebuchet MS';
     font-size: x-large;
     font-weight: bold;
+    width: 40%;
 }
+
 
 nav ul {
     list-style: none;
