@@ -71,6 +71,9 @@ header {
 }
 
 .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: 'Trebuchet MS';
     font-size: x-large;
     font-weight: bold;
