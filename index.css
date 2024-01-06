@@ -42,7 +42,11 @@ form {
     border: aliceblue;
 }
 
-
+#generativeArea{
+    background-color: aliceblue;
+    padding-left: 5%;
+    text-align: left;
+}
 
 p{
     font-size: small;
