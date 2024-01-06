@@ -48,7 +48,7 @@ form {
     border: aliceblue;
 }
 
-#generativeArea{
+#generativeArea p{
     padding: 3%;
     text-align: left;
     font-size: larger;
