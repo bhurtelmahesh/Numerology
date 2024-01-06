@@ -9,6 +9,7 @@ body{
     width: 100vw;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
 form {
     display: flex;
     align-items:center;
@@ -68,6 +69,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.logo{
+    font-family:Trebuchet MS;
+    font-size: x-large;
+    font-weight: bold;
 }
 
 nav ul {
