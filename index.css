@@ -14,7 +14,7 @@ form {
     background-color: aliceblue;
     color: black;
     /* Adjusted height property */
-    min-height: 300px; /* Adjust the value as needed */
+    min-height: 100px; /* Adjust the value as needed */
 }
 
 
