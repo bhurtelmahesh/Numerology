@@ -45,7 +45,9 @@ form {
 
 #generativeArea{
     background-color: aliceblue;
-    padding-left: 5%;
+    padding-left: 3%;
+    padding-right: 3%;
+    text-align: justify;
     text-align: left;
 }
 
