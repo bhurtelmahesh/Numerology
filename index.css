@@ -66,7 +66,7 @@ body {
 }
 
 header {
-    background-color: #333;
+    background-color: rgb(255, 136, 0);
     color: #fff;
     padding: 10px 20px;
     display: flex;
@@ -102,7 +102,7 @@ nav a {
 /* Add styles for the rest of the sections and footer */
 
 footer {
-    background-color: #333;
+    background-color: rgb(255, 136, 0);
     color: #fff;
     text-align: center;
     padding: 20px;
