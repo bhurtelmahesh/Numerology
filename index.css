@@ -46,8 +46,9 @@ form {
 }
 
 #generativeArea {
-    margin: 0px;
-    padding: 3%;
+    width: 80vw;
+    margin-left: 10%;
+    padding: 0;
     text-align: left;
     font-size: larger;
 }
