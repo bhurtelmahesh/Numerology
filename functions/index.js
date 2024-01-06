@@ -157,7 +157,9 @@ console.log("Your Life Path Number: " + lifePathNumber);
 
     let generativeArea = document.getElementById("generativeArea");
     generativeArea.innerHTML = `
-    <h4 class="birthdayNumber">Your Birthday Number is ${birthdayNumber} <br> <p> </p>
+    <h4 class="birthdayNumber">Your Birthday Number is ${birthdayNumber} 
+        <br>
+        <p>hi</p>
     </h4>
     <h4 class="lifePathNumber">Your Life Path Number is ${lifePathNumber} 
         <br>
