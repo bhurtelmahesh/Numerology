@@ -17,8 +17,11 @@ form {
     /* Adjusted height property */
     min-height: 100px; /* Adjust the value as needed */
 }
-#day, #month, #year{
+#day, #year{
     max-width: 150%;
+}
+#month{
+    min-width: 150%;
 }
 
 
