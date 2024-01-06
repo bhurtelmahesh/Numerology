@@ -1,6 +1,4 @@
-/* body{
-    background-color: rgb(9, 7, 42);
-    color: white;
+body{
     font-family: sans-serif;
     align-content: center;
     text-align: center;
@@ -86,14 +84,7 @@ nav a {
     padding: 100px 20px;
 }
 
-#submitForm{
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #ffcc00;
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-}
+
 
 /* Add styles for the rest of the sections and footer */
 
