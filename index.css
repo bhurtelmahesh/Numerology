@@ -48,17 +48,14 @@ form {
     border: aliceblue;
 }
 
-#generativeArea p{
+#generativeArea{
     padding: 3%;
     text-align: left;
     font-size: larger;
-    width: 94%;
 }
 
-p{
+#generativeArea p{
     font-size: small;
-    font-weight: 200;
-    width: 100%;
 }
 
 
