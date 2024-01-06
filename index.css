@@ -39,9 +39,7 @@ form {
     transition: ease-in-out 0.2s;
 }
 
-#generativeArea{
-    text-align: left;
-} 
+
 
 p{
     font-size: small;
