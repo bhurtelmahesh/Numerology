@@ -120,7 +120,7 @@ console.log("Your Life Path Number: " + lifePathNumber);
 
     calculatePinnacleYear(SUM);
 
-
+    var pinnacleAges = [];
     function getPinnacleAges(SUM) {
         // Define the starting age for the first pinnacle
         var startingAge = 0;
@@ -162,7 +162,7 @@ console.log("Your Life Path Number: " + lifePathNumber);
         }
     
         // Create an array of objects representing age periods for each pinnacle
-        var pinnacleAges = [];
+        
         for (var i = 0; i < ageRanges.length; i++) {
             pinnacleAges.push({
                 pinnacle: i + 1,
