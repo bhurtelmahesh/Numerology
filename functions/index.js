@@ -5,14 +5,14 @@
     var month = parseInt(document.getElementById("month").value,10);
     var day = parseInt(document.getElementById("day").value,10);
 
-    console.log(day, month, year);
-    console.log(day+month+year);
+    // console.log(day, month, year);
+    // console.log(day+month+year);
     
 // Calculate life path number by adding up the digits
 var lifePathNumber = calculateLifePathNumber(year+month+day);
-console.log("Your Life Path Number: " + lifePathNumber);
+// console.log("Your Life Path Number: " + lifePathNumber);
     let birthdayNumber = day;
-    console.log("Your Birthday Number: " + birthdayNumber);
+    // console.log("Your Birthday Number: " + birthdayNumber);
 
     // Function to calculate the sum of the digits of a number
     function calculateLifePathNumber(number) {
@@ -96,8 +96,8 @@ console.log("Your Life Path Number: " + lifePathNumber);
         // console.log("Life Path Number " + lifePathNumber + ":");
     
         for (var i = 0; i < ageRanges.length; i++) {
-            console.log("The Ages of Your " + getPinnacleOrdinal(i + 1) + " Pinnacle: " +
-                startingAge + " to " + ageRanges[i]);
+            // console.log("The Ages of Your " + getPinnacleOrdinal(i + 1) + " Pinnacle: " +
+            //     startingAge + " to " + ageRanges[i]);
             startingAge = ageRanges[i] + 1;
         }
     
@@ -192,20 +192,20 @@ console.log("Your Life Path Number: " + lifePathNumber);
     let thirdPinnacleNumber = reduceToSingle(firstPinnacleNumber + secondPinnacleNumber);
     let fourthPinnacleNumber = reduceToSingle(month + year);
     console.log(pinnacleAgePeriod);
-    console.log("Your first pinnacle number is: " + firstPinnacleNumber);
-    console.log("Your second pinnacle number is: " + secondPinnacleNumber);
-    console.log("Your third pinnacle number is: " + thirdPinnacleNumber);
-    console.log("Your fourth pinnacle number is: " + fourthPinnacleNumber);
+    // console.log("Your first pinnacle number is: " + firstPinnacleNumber);
+    // console.log("Your second pinnacle number is: " + secondPinnacleNumber);
+    // console.log("Your third pinnacle number is: " + thirdPinnacleNumber);
+    // console.log("Your fourth pinnacle number is: " + fourthPinnacleNumber);
 
     //Calculate Pinnacle numbers:
     let firstChallengeNumber = reduceToSingle(Math.abs(day-month));
     let secondChallengeNumber = reduceToSingle(Math.abs(year-day));
     let thirdChallengeNumber = reduceToSingle(Math.abs(firstChallengeNumber - secondChallengeNumber));
     let fourthChallengeNumber = reduceToSingle(Math.abs(year-month));
-    console.log("Your first challenge number is: " + firstChallengeNumber);
-    console.log("Your second challenge number is: " + secondChallengeNumber);
-    console.log("Your third challenge number is: " + thirdChallengeNumber);
-    console.log("Your fourth challenge number is: " + fourthChallengeNumber);
+    // console.log("Your first challenge number is: " + firstChallengeNumber);
+    // console.log("Your second challenge number is: " + secondChallengeNumber);
+    // console.log("Your third challenge number is: " + thirdChallengeNumber);
+    // console.log("Your fourth challenge number is: " + fourthChallengeNumber);
 
     function generateDetailsForLifePath(){
 
