@@ -180,7 +180,7 @@ console.log("Your Life Path Number: " + lifePathNumber);
         return pinnacleAges;
     }
 
-    let pinnacleAgePeriod = pinnacleAges.forEach(function (pinnacle) {
+    let pinnacleAgePeriod = pinnacleAges.map(function (pinnacle) {
         return ("Your " + getPinnacleOrdinal(pinnacle.pinnacle) + " Pinnacle Age Period: " + pinnacle.agePeriod);
     });
 
