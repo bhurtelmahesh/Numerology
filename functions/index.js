@@ -180,7 +180,7 @@ var lifePathNumber = calculateLifePathNumber(year+month+day);
         return pinnacleAges;
     }
 
-    let pinnacleAgePeriod = pinnacleAges.map(function (pinnacle) {
+    let pinnacleAgePeriod = pinnacleAges.forEach(function (pinnacle) {
         return ("Your " + getPinnacleOrdinal(pinnacle.pinnacle) + " Pinnacle Age Period: " + pinnacle.agePeriod);
     });
 
