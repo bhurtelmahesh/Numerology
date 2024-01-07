@@ -1,16 +1,19 @@
+let detailsForFirstPinnacle, detailsForSecondPinnacle, detailsForThirdPinnacle, detailsForFourthPinnacle;
+let combinedDetails;
 
-  // Function to handle form submission
-  function submitForm() {
-    var year = parseInt(document.getElementById("year").value,10);
-    var month = parseInt(document.getElementById("month").value,10);
-    var day = parseInt(document.getElementById("day").value,10);
+// Function to handle form submission
+function submitForm() {
+    var year = parseInt(document.getElementById("year").value, 10);
+    var month = parseInt(document.getElementById("month").value, 10);
+    var day = parseInt(document.getElementById("day").value, 10);
 
     // console.log(day, month, year);
     // console.log(day+month+year);
-    
-// Calculate life path number by adding up the digits
-var lifePathNumber = calculateLifePathNumber(year+month+day);
-// console.log("Your Life Path Number: " + lifePathNumber);
+
+
+    // Calculate life path number by adding up the digits
+    var lifePathNumber = calculateLifePathNumber(year + month + day);
+    // console.log("Your Life Path Number: " + lifePathNumber);
     let birthdayNumber = day;
     // console.log("Your Birthday Number: " + birthdayNumber);
 
@@ -25,7 +28,7 @@ var lifePathNumber = calculateLifePathNumber(year+month+day);
                 sum += number % 10;
                 number = Math.floor(number / 10);
             }
-    
+
             // If the sum is greater than 9, recursively calculate the life path number
             if (sum > 9) {
                 return calculateLifePathNumber(sum);
@@ -41,7 +44,7 @@ var lifePathNumber = calculateLifePathNumber(year+month+day);
             sum += number % 10;
             number = Math.floor(number / 10);
         }
-    
+
         // If the sum is greater than 9, recursively calculate the life path number
         if (sum > 9) {
             return reduceToSingle(sum);
@@ -50,15 +53,16 @@ var lifePathNumber = calculateLifePathNumber(year+month+day);
         }
     }
 
-    let SUM = reduceToSingle(day+month+year);
-    console.log("SUM: "+SUM);
+    let SUM = reduceToSingle(day + month + year);
+    console.log("SUM: " + SUM);
+
     function calculatePinnacleYear(SUM) {
         // Define the starting age for the first pinnacle
         var startingAge = 0;
-    
+
         // Define the age ranges for each pinnacle based on life path number
         var ageRanges = [];
-    
+
         switch (SUM) {
             case 1:
                 ageRanges = [35, 44, 53];
@@ -91,20 +95,20 @@ var lifePathNumber = calculateLifePathNumber(year+month+day);
                 console.error("Invalid life path number");
                 return;
         }
-    
+
         // Output the information based on the life path number
         // console.log("Life Path Number " + lifePathNumber + ":");
-    
+
         for (var i = 0; i < ageRanges.length; i++) {
             // console.log("The Ages of Your " + getPinnacleOrdinal(i + 1) + " Pinnacle: " +
             //     startingAge + " to " + ageRanges[i]);
             startingAge = ageRanges[i] + 1;
         }
-    
+
         // Output the age range for the fourth pinnacle
         // console.log("The Ages of Your 4th Pinnacle: " + startingAge + "+");
     }
-    
+
     //Helper function to get the ordinal suffix for the pinnacle
     function getPinnacleOrdinal(number) {
         var suffix = "th";
@@ -120,14 +124,15 @@ var lifePathNumber = calculateLifePathNumber(year+month+day);
 
     calculatePinnacleYear(SUM);
 
-    var pinnacleAges = [];
+    let pinnacleAges = [];
+
     function getPinnacleAges(SUM) {
         // Define the starting age for the first pinnacle
         var startingAge = 0;
-    
-        // Define the age ranges for each pinnacle based on life path number
+
+        // Declare the ageRanges variable outside the switch statement
         var ageRanges = [];
-    
+
         switch (SUM) {
             case 1:
                 ageRanges = [35, 44, 53];
@@ -160,9 +165,7 @@ var lifePathNumber = calculateLifePathNumber(year+month+day);
                 console.error("Invalid life path number");
                 return;
         }
-    
-        // Create an array of objects representing age periods for each pinnacle
-        
+
         for (var i = 0; i < ageRanges.length; i++) {
             pinnacleAges.push({
                 pinnacle: i + 1,
@@ -170,53 +173,106 @@ var lifePathNumber = calculateLifePathNumber(year+month+day);
             });
             startingAge = ageRanges[i] + 1;
         }
-    
+
         // Add the age range for the fourth pinnacle
         pinnacleAges.push({
             pinnacle: 4,
             agePeriod: startingAge + "+"
         });
-    
+
         return pinnacleAges;
     }
 
-    let pinnacleAgePeriod = pinnacleAges.forEach(function (pinnacle) {
-        return ("Your " + getPinnacleOrdinal(pinnacle.pinnacle) + " Pinnacle Age Period: " + pinnacle.agePeriod);
-    });
+    let pinnacleAgePeriod = getPinnacleAges(SUM).map(function(pinnacle) {
+        return (
+            "Your " +
+            getPinnacleOrdinal(pinnacle.pinnacle) +
+            " Pinnacle Age Period: " +
+            pinnacle.agePeriod
+        );
+    }).join('<br>');
 
+    // Now pinnacleAgePeriod is a string that you can include in your HTML
 
+    // Now pinnacleAgePeriod is a string that you can include in your HTML
     //Calculate Pinnacle numbers:
     let firstPinnacleNumber = reduceToSingle(month + day);
-    
     let secondPinnacleNumber = reduceToSingle(day + year);
     let thirdPinnacleNumber = reduceToSingle(firstPinnacleNumber + secondPinnacleNumber);
     let fourthPinnacleNumber = reduceToSingle(month + year);
-    console.log(pinnacleAgePeriod);
+
+    generateDetailsForPinnacles(firstPinnacleNumber, secondPinnacleNumber, thirdPinnacleNumber, fourthPinnacleNumber);
+
+
+
+    function generateDetailsForPinnacles(firstPinnacleNumber, secondPinnacleNumber, thirdPinnacleNumber, fourthPinnacleNumber) {
+        // Function to generate "hi" based on pinnacle number
+        function generateDetailsForNumber(pinnacleNumber) {
+            switch (pinnacleNumber) {
+                case 1:
+                    return "<p>Hi for number 1</p>";
+                case 2:
+                    return "<p>Hi for number 2</p>";
+                case 3:
+                    return "<p>Hi for number 3</p>";
+                case 4:
+                    return "<p>Hi for number 4</p>";
+                case 5:
+                    return "<p>Hi for number 5</p>";
+                case 6:
+                    return "<p>Hi for number 6</p>";
+                case 7:
+                    return "<p>Hi for number 7</p>";
+                case 8:
+                    return "<p>Hi for number 8</p>";
+                case 9:
+                    return "<p>Hi for number 9</p>";
+                default:
+                    return "<p>Unavailable</p>";
+            }
+        }
+
+        // Generate "hi" for each pinnacle number
+        detailsForFirstPinnacle = generateDetailsForNumber(firstPinnacleNumber);
+        detailsForSecondPinnacle = generateDetailsForNumber(secondPinnacleNumber);
+        detailsForThirdPinnacle = generateDetailsForNumber(thirdPinnacleNumber);
+        detailsForFourthPinnacle = generateDetailsForNumber(fourthPinnacleNumber);
+
+        combinedDetails = `${detailsForFirstPinnacle}<br>${detailsForSecondPinnacle}<br>${detailsForThirdPinnacle}<br>${detailsForFourthPinnacle}`;
+
+        console.log(combinedDetails);
+    }
+
+
     // console.log("Your first pinnacle number is: " + firstPinnacleNumber);
     // console.log("Your second pinnacle number is: " + secondPinnacleNumber);
     // console.log("Your third pinnacle number is: " + thirdPinnacleNumber);
     // console.log("Your fourth pinnacle number is: " + fourthPinnacleNumber);
 
     //Calculate Pinnacle numbers:
-    let firstChallengeNumber = reduceToSingle(Math.abs(day-month));
-    let secondChallengeNumber = reduceToSingle(Math.abs(year-day));
+    let firstChallengeNumber = reduceToSingle(Math.abs(day - month));
+    let secondChallengeNumber = reduceToSingle(Math.abs(year - day));
     let thirdChallengeNumber = reduceToSingle(Math.abs(firstChallengeNumber - secondChallengeNumber));
-    let fourthChallengeNumber = reduceToSingle(Math.abs(year-month));
+    let fourthChallengeNumber = reduceToSingle(Math.abs(year - month));
     // console.log("Your first challenge number is: " + firstChallengeNumber);
     // console.log("Your second challenge number is: " + secondChallengeNumber);
     // console.log("Your third challenge number is: " + thirdChallengeNumber);
     // console.log("Your fourth challenge number is: " + fourthChallengeNumber);
 
-    function generateDetailsForLifePath(){
+    function generateDetailsForLifePath() {
 
     }
-    function generateDetailsForLifeBirthday(){
+
+    function generateDetailsForLifeBirthday() {
 
     }
-    function generateDetailsForPinnacles(){
 
-    }
-    function generateDetailsForChallenges(){
+
+
+    // Example usage with your pinnacle numbers
+    //generateHiForPinnacles(firstPinnacleNumber, secondPinnacleNumber, thirdPinnacleNumber, fourthPinnacleNumber);
+
+    function generateDetailsForChallenges() {
 
     }
 
@@ -231,8 +287,8 @@ var lifePathNumber = calculateLifePathNumber(year+month+day);
         <br>
         <p>hello</p>
     </h4>
-    <h4 class="pinnacleAgePeriod"> Your Pinnacle age period: <br>
-        <p>${pinnacleAgePeriod}<p>
+    <h4 class="pinnacleAgePeriod"> Your Pinnacle age period:
+        <h5>${pinnacleAgePeriod}</h5>
     </h4>
     <h4 class="firstPinnacleNumber">Your 1st Pinnacle Number is ${firstPinnacleNumber} <br> <p> </p>
     </h4>
@@ -242,6 +298,7 @@ var lifePathNumber = calculateLifePathNumber(year+month+day);
     </h4>
     <h4 class="fourthPinnacleNumber">Your 4th Pinnacle Number is ${fourthPinnacleNumber} <br> <p> </p>
     </h4>
+    <h4>${combinedDetails}</h4>
     <h4 class="firstChallengeNumber">Your 1st Challenge Number is ${firstChallengeNumber} <br> <p> </p>
     </h4>
     <h4 class="secondChallengeNumber">Your 2nd Challenge Number is ${secondChallengeNumber} <br> <p> </p>
