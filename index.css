@@ -157,6 +157,10 @@ footer p {
         width: 90vw;
         /* Adjust the width of generativeArea for better fit on smartphones */
     }
+    #generativeArea h4 p {
+        font-size: small;
+        font-weight: 100;
+    }
     header {
         padding: 10px;
         /* Reduce header padding for a more compact header on smartphones */
