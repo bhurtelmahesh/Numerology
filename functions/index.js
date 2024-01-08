@@ -1,8 +1,6 @@
 let detailsForFirstPinnacle, detailsForSecondPinnacle, detailsForThirdPinnacle, detailsForFourthPinnacle;
-let combinedDetails;
 
 let detailsForFirstChallenge, detailsForSecondChallenge, detailsForThirdChallenge, detailsForFourthChallenge
-let combinedDetailsForChallenges
 
 // Function to handle form submission
 function submitForm() {
@@ -10,12 +8,8 @@ function submitForm() {
     var month = parseInt(document.getElementById("month").value, 10);
     var day = parseInt(document.getElementById("day").value, 10);
 
-
     // Calculate life path number by adding up the digits
     var lifePathNumber = calculateLifePathNumber(addDigit(year) + addDigit(month) + addDigit(day));
-
-
-
 
     let birthdayNumber = day;
 
@@ -81,7 +75,6 @@ function submitForm() {
         }
         return sum;
     }
-
 
     function reduceToSingle(number) {
         var sum = 0;
@@ -318,38 +311,116 @@ function submitForm() {
 
     function generateDetailsForPinnacles(firstPinnacleNumber, secondPinnacleNumber, thirdPinnacleNumber, fourthPinnacleNumber) {
         // Function to generate "hi" based on pinnacle number
-        function generateDetailsForNumber(pinnacleNumber) {
-            switch (pinnacleNumber) {
+        function generateDetailsForFirstPinnacleNumber(firstPinnacleNumber) {
+            switch (firstPinnacleNumber) {
                 case 1:
-                    return "<p>Hi for number 1</p>";
+                    return "<p>Your early years become a dedicated pursuit of building a sturdy foundation for independence and self-reliance. While navigating the intricacies of the world, you find the need to cultivate the skills required to assert yourself in a tactful manner. Possessing Pinnacle Number 1 as your initial Pinnacle may make you resolute and hesitant to seek advice from others. It's important to be mindful of not letting a sense of ego or self-importance take over as you strive to accomplish tasks independently.</p>";
                 case 2:
-                    return "<p>Hi for number 2</p>";
+                    return "<p>You may find yourself to be quite sensitive, and your feelings can be easily hurt. It's advisable to focus on gathering facts, honing your skills, and acquiring a good education. Learning to cooperate with others without being overbearing or aggressive is crucial for personal growth and success.</p>";
                 case 3:
-                    return "<p>Hi for number 3</p>";
+                    return "<p>You may find it beneficial to adopt a more disciplined approach, recognizing that success is not handed out freely, and hard work is often a prerequisite. Early exploration of artistic or creative outlets can serve as a means of self-expression, even if they don't necessarily translate into a career later on.</p>";
                 case 4:
-                    return "<p>Hi for number 4</p>";
+                    return "<p>You might exhibit a serious demeanor with a strong work ethic, possibly prompting you to start working at an early age if financial constraints or concerns arise. Organizational skills are key, emphasizing the importance of maintaining a schedule and adhering to it.</p>";
                 case 5:
-                    return "<p>Hi for number 5</p>";
+                    return "<p>You might experience a sense of restlessness and uncertainty. Embracing change early in life can serve as an asset in later years. Amidst the hustle and bustle around you, this is an opportune time to develop skills and apply yourself.</p>";
                 case 6:
-                    return "<p>Hi for number 6</p>";
+                    return "<p>You embrace a profound sense of duty both at home and in your career, potentially shouldering responsibilities for siblings or parents. While this period may bring financial stability and success, it's crucial to heed the voice of your heart when it comes to matters of love.</p>";
                 case 7:
-                    return "<p>Hi for number 7</p>";
+                    return "<p>HYou might experience a sense of being misunderstood by others, and if your feelings are hurt, there's a tendency to withdraw, potentially causing strain on personal relationships. Challenges encountered during this period can serve as valuable teaching tools for your future growth, emphasizing the importance of receiving a good education.</p>";
                 case 8:
-                    return "<p>Hi for number 8</p>";
+                    return "<p>Maintain control over your emotions and strive for balance by leading an organized life: dedicate 8 hours to work, 8 hours to play, and 8 hours to rest. Maximize every minute, avoiding wasteful expenditure of energy, time, or money.</p>";
                 case 9:
-                    return "<p>Hi for number 9</p>";
+                    return "<p>Embrace a humanitarian spirit, seeking to understand and serve others. In the face of endings or disappointments, practice the art of letting go and resist the urge to dwell on the past. Recognize that as one door closes, a bigger and better one often opens, bringing something more promising your way.</p>";
                 default:
                     return "<p>Unavailable</p>";
             }
+
         }
 
-        // Generate "hi" for each pinnacle number
-        detailsForFirstPinnacle = generateDetailsForNumber(firstPinnacleNumber);
-        detailsForSecondPinnacle = generateDetailsForNumber(secondPinnacleNumber);
-        detailsForThirdPinnacle = generateDetailsForNumber(thirdPinnacleNumber);
-        detailsForFourthPinnacle = generateDetailsForNumber(fourthPinnacleNumber);
+        function generateDetailsForSecondPinnacleNumber(secondPinnacleNumber) {
+            switch (secondPinnacleNumber) {
+                case 1:
+                    return "<p>Opportunities arise for you to tackle challenges and assume leadership roles. This period allows you to reimagine existing concepts and present them in innovative ways. Additionally, you have the chance to discover and nurture talents that may have been overlooked previously.</p>";
+                case 2:
+                    return "<p>In both your business and personal spheres, opportunities for partnerships abound. Adopting a balanced approach of give and take, along with a mindset geared towards mutual benefit, is key to fostering successful and lasting relationships.</p>";
+                case 3:
+                    return "<p>Opportunities abound for the development of your talents, but it's essential to steer clear of get-rich-quick schemes and excessive indulgence. In both financial matters and relationships, maintaining a grounded perspective is crucial. Remaining faithful to your spouse or partner is advised, as excessive displays of affection may lead to complications.</p>";
+                case 4:
+                    return "<p>Responsibilities, whether in your career or family, may demand your attention. Adopt a hands-on approach, dive into the tasks at hand, and patiently await positive outcomes.</p>";
+                case 5:
+                    return "<p>Maintain faith that any financial concerns are temporary and that resources will be available when needed. This phase brings forth opportunities in advertising, civic interests, legal pursuits, or some form of public life. Exercise caution when entering into agreements, ensuring careful thought and evaluation.</p>";
+                case 6:
+                    return "<p>In the realm of relationships, you experience both love and protection, intertwined with a strong sense of duty and responsibility. Should disagreements arise, approach them with a spirit of compromise and love.</p>";
+                case 7:
+                    return "<p>To attain ultimate goals and success in life, be a paragon of patience, integrity, and honesty. Embrace the philosophy that happiness is akin to a butterfly – by sitting quietly and allowing opportunities to come to you.</p>";
+                case 8:
+                    return "<p>This period allows for the attainment of material success. Encounter intriguing individuals and establish influential business contacts, potentially leading to a prioritization of career over romance.</p>";
+                case 9:
+                    return "<p>Cultivate tolerance and understanding towards others. Open your mind to diverse opinions, and be patient. Financial losses can be recouped, and with patience, love will find its way to you.</p>";
+                default:
+                    return "<p>Unavailable</p>";
+            }
 
-        // combinedDetails = `${detailsForFirstPinnacle}${detailsForSecondPinnacle}${detailsForThirdPinnacle}${detailsForFourthPinnacle}`;
+        }
+
+        // function generateDetailsForThirdPinnacleNumber(thirdPinnacleNumber) {
+        //     switch (thirdPinnacleNumber) {
+        //         case 1:
+        //             return "<p>Opportunities arise for you to tackle challenges and assume leadership roles. This period allows you to reimagine existing concepts and present them in innovative ways. Additionally, you have the chance to discover and nurture talents that may have been overlooked previously.</p>";
+        //         case 2:
+        //             return "<p>In both your business and personal spheres, opportunities for partnerships abound. Adopting a balanced approach of give and take, along with a mindset geared towards mutual benefit, is key to fostering successful and lasting relationships.</p>";
+        //         case 3:
+        //             return "<p>Hi for number 3</p>";
+        //         case 4:
+        //             return "<p>Hi for number 4</p>";
+        //         case 5:
+        //             return "<p>Hi for number 5</p>";
+        //         case 6:
+        //             return "<p>Hi for number 6</p>";
+        //         case 7:
+        //             return "<p>Hi for number 7</p>";
+        //         case 8:
+        //             return "<p>Hi for number 8</p>";
+        //         case 9:
+        //             return "<p>Hi for number 9</p>";
+        //         default:
+        //             return "<p>Unavailable</p>";
+        //     }
+
+        // }
+
+        function generateDetailsForFourthPinnacleNumber(fourthPinnacleNumber) {
+            switch (fourthPinnacleNumber) {
+                case 1:
+                    return "<p>Courage becomes a key theme, and your determination becomes a driving force for excellence in all your pursuits. Staying vigilant, you can leverage your initiative and pioneering spirit to explore novel ideas. Keeping yourself mentally and physically active becomes crucial during this phase of exploration and achievement.</p>";
+                case 2:
+                    return "<p>As you navigate through life, you can take solace in the knowledge that any hurt feelings and relationship challenges from your past are on a path toward resolution. Embrace the comfort that comes with the prospect of healing and harmonizing your connections with others.</p>";
+                case 3:
+                    return "<p>Despite life's challenges, you are bestowed with moments of joy and the ability to savor its great pleasures. Nurture an optimistic outlook, steer clear of unnecessary worry, and leverage your amiable personality for self-expression and socialization. However, exercise caution to avoid being swept off your feet, and be diligent in managing your finances, recognizing that money doesn't grow on trees.</p>";
+                case 4:
+                    return "<p>In the face of challenges, utilize a budget to translate your practical ideas into reality. Be open to assisting others, and consider that a hobby could potentially generate tangible income. Take pride in all your endeavors, recognizing your contributions and acknowledging yourself for a life well-lived./p>";
+                case 5:
+                    return "<p>Embrace an era characterized by enjoyment and freedom. If faced with numerous changes or feelings of restlessness, remain flexible, but avoid impulsive actions or hasty decisions.</p>";
+                case 6:
+                    return "<p>Surrounded by affection, you find others acknowledging you for the wisdom you've shared, the benevolent deeds you've undertaken, and the contributions you've made to humanity.</p>";
+                case 7:
+                    return "<p>Tap into your inner power to discern hidden meanings through nonverbal cues and messages. Pursue knowledge and generously share your wisdom with others. By leading an honest and honorable life, you pave the way for good fortune to find its way to you.</p>";
+                case 8:
+                    return "<p>Revel in the enjoyment of your possessions and potential wealth. Your self-mastery yields rich rewards, allowing you to savor the fruits of your labor and relish the culmination of past successes.</p>";
+                case 9:
+                    return "<p>During this period, bask in the recognition you receive for your generous deeds. Find contentment through travel and the arts, enriching your experiences and bringing joy into your life.</p>";
+                default:
+                    return "<p>Unavailable</p>";
+            }
+
+        }
+
+        // Generate details for each pinnacle number
+        detailsForFirstPinnacle = generateDetailsForFirstPinnacleNumber(firstPinnacleNumber);
+        detailsForSecondPinnacle = generateDetailsForSecondPinnacleNumber(secondPinnacleNumber);
+        detailsForThirdPinnacle = generateDetailsForSecondPinnacleNumber(thirdPinnacleNumber);
+        detailsForFourthPinnacle = generateDetailsForFourthPinnacleNumber(fourthPinnacleNumber);
+
     }
 
 
@@ -358,25 +429,25 @@ function submitForm() {
         function generateDetailsForNumber(challengeNumber) {
             switch (challengeNumber) {
                 case 0:
-                    return "<p>Details for Challenge 0</p>";
+                    return "<p>If you possess a Challenge Number of 0, many metaphysicians believe you to be an old soul who either faces no challenges or has already encountered Challenge Numbers 1 through 8 in this and past lifetimes.</p>";
                 case 1:
-                    return "<p>Details for Challenge 1</p>";
+                    return "<p>Circumstances demand independence, urging you to stand up for yourself without becoming domineering. Embrace the expression of your individuality and do not shy away from voicing your original ideas. Foster self-reliance and avoid expecting excessive help from others. Take responsibility for your actions, steering clear of passing the buck.</p>";
                 case 2:
-                    return "<p>Details for Challenge 2</p>";
+                    return "<p>Circumstances dictate that you overcome fear. Acknowledge your sensitive nature, yet refrain from taking everything personally. Prioritize gathering facts and consider decisions carefully before expressing yourself. Exhibit precision when handling details, and adopt a cooperative and diplomatic approach when working with others.</p>";
                 case 3:
-                    return "<p>Details for Challenge 3</p>";
+                    return "<p>Circumstances necessitate the utilization of your imagination, creativity, and artistic or musical talents. Cultivate confidence in yourself, balanced with the ability to accept constructive criticism. Utilize your gift of words for self-expression, but ensure your communication remains constructive and avoids causing harm to others. Display genuine interest in others, avoiding monopolizing the limelight.</p>";
                 case 4:
-                    return "<p>Details for Challenge 4</p>";
+                    return "<p>Circumstances call for the development of a code of ethics and a strong sense of values. Learn to stay focused on a project until its completion. Acknowledge the need to work for financial security. Tone down strong opinions, allowing others the space to voice theirs. Cultivate patience and exercise good judgment.</p>";
                 case 5:
-                    return "<p>Details for Challenge 5</p>";
+                    return "<p>Circumstances urge you to be more curious and ask questions. Embrace flexibility and avoid rigid adherence to your ways. Cherish your freedom without neglecting responsibilities. Guard against restlessness and impatience. Allow yourself to have more fun, explore new experiences, and take calculated risks from time to time.</p>";
                 case 6:
-                    return "<p>Details for Challenge 6</p>";
+                    return "<p>Circumstances demand that you take responsibility for your actions. Cultivate an appreciation for others and find joy in giving without attaching strings. Strive to avoid arguments, instead, be a peacemaker and help smooth ruffled feathers. Uphold honor and fulfill your commitments with diligence.</p>";
                 case 7:
-                    return "<p>Details for Challenge 7</p>";
+                    return "<p>Circumstances necessitate overcoming feelings of loneliness, transforming them into gratitude. Embrace obstacles as opportunities for inner growth and spiritual development. Confront your feelings directly, steering clear of using food, alcohol, or other substances as coping mechanisms. This period is a time for profound self-discovery and spiritual advancement.</p>";
                 case 8:
-                    return "<p>Details for Challenge 8</p>";
+                    return "<p>Circumstances necessitate learning to empower others instead of taking charge most of the time. Be open to working diligently for material success, recognizing that life's richness extends beyond a hefty bank balance. Prioritize attention to your health and diet, seeking balance in all aspects of your life, particularly in the realm of emotions.</p>";
                 case 9:
-                    return "<p>Details for Challenge 9</p>";
+                    return "<p>Having a Challenge Number of 9 is impossible! Since the largest digit used in numerology is 9, and Challenge Numbers are derived by subtracting, the difference between the two numbers must be between 0 and 8. If you find yourself with a 9, recheck your calculations.</p>";
                 default:
                     return "<p>Unavailable</p>";
             }
