@@ -1,6 +1,5 @@
 let detailsForFirstPinnacle, detailsForSecondPinnacle, detailsForThirdPinnacle, detailsForFourthPinnacle;
-
-let detailsForFirstChallenge, detailsForSecondChallenge, detailsForThirdChallenge, detailsForFourthChallenge
+let detailsForFirstChallenge, detailsForSecondChallenge, detailsForThirdChallenge, detailsForFourthChallenge;
 
 // Function to handle form submission
 function submitForm() {
@@ -160,7 +159,6 @@ function submitForm() {
                 return "<p>No details available for the given birthday number</p>";
         }
     }
-
 
     let SUM = reduceToSingle(day + month + year);
 
@@ -476,21 +474,21 @@ function submitForm() {
     <h4 class="pinnacleAgePeriod"> Your Pinnacle age period:
         <h5>${pinnacleAgePeriod}</h5>
     </h4>
-    <h4 class="firstPinnacleNumber">Your 1st Pinnacle Number is ${firstPinnacleNumber} <br> <p>${detailsForFirstPinnacle} </p>
+    <h4 class="firstPinnacleNumber">Your 1st Pinnacle Number is ${firstPinnacleNumber} ${detailsForFirstPinnacle}
     </h4>
-    <h4 class="secondPinnacleNumber">Your 2nd Pinnacle Number is ${secondPinnacleNumber} <br> <p> ${detailsForSecondPinnacle}</p>
+    <h4 class="secondPinnacleNumber">Your 2nd Pinnacle Number is ${secondPinnacleNumber} ${detailsForSecondPinnacle}
     </h4>
-    <h4 class="thirdPinnacleNumber">Your 3rd Pinnacle Number is ${thirdPinnacleNumber} <br> <p>${detailsForThirdPinnacle} </p>
+    <h4 class="thirdPinnacleNumber">Your 3rd Pinnacle Number is ${thirdPinnacleNumber} ${detailsForThirdPinnacle}
     </h4>
-    <h4 class="fourthPinnacleNumber">Your 4th Pinnacle Number is ${fourthPinnacleNumber} <br> <p> ${detailsForFourthPinnacle}</p>
+    <h4 class="fourthPinnacleNumber">Your 4th Pinnacle Number is ${fourthPinnacleNumber} ${detailsForFourthPinnacle}
     </h4>
-    <h4 class="firstChallengeNumber">Your 1st Challenge Number is ${firstChallengeNumber} <br> <p> ${detailsForFirstChallenge}</p>
+    <h4 class="firstChallengeNumber">Your 1st Challenge Number is ${firstChallengeNumber} ${detailsForFirstChallenge}
     </h4>
-    <h4 class="secondChallengeNumber">Your 2nd Challenge Number is ${secondChallengeNumber} <br> <p>${detailsForSecondChallenge} </p>
+    <h4 class="secondChallengeNumber">Your 2nd Challenge Number is ${secondChallengeNumber}${detailsForSecondChallenge} 
     </h4>
-    <h4 class="thirdChallengeNumber">Your 3rd Challenge Number is ${thirdChallengeNumber} <br> <p> ${detailsForThirdChallenge}</p>
+    <h4 class="thirdChallengeNumber">Your 3rd Challenge Number is ${thirdChallengeNumber}  ${detailsForThirdChallenge}
     </h4>
-    <h4 class="fourthChallengeNumber">Your 4th Challenge Number is ${fourthChallengeNumber} <br> <p>${detailsForFourthChallenge} </p>
+    <h4 class="fourthChallengeNumber">Your 4th Challenge Number is ${fourthChallengeNumber}${detailsForFourthChallenge} 
     </h4>
     `;
 }
