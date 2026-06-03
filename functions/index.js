@@ -66,6 +66,17 @@ const CORE_DESCRIPTIONS = {
   rationalThought: 'First name plus birth day: the decision-making and practical thinking style.'
 };
 
+const CORE_PERSONAL_PROMPTS = {
+  lifePath: 'Use this as the broad road-map: the situations you repeatedly meet, the lesson that keeps returning, and the kind of growth that tends to make life feel on track.',
+  birthday: 'Read this as an easy-access talent. It often describes a natural style you do not have to force, but still need to use maturely.',
+  expression: 'This describes your working toolkit: how your name pattern suggests you build, communicate, lead, support, analyze, or create in the world.',
+  soulUrge: 'This points to what feels emotionally satisfying. When ignored, it can show up as restlessness even when life looks fine from outside.',
+  personality: 'This is the first layer others often meet. It is useful for understanding your social impression, not your whole self.',
+  maturity: 'This is the integration number: what your chart is asking you to grow into with age, experience, and repeated choices.',
+  balance: 'This is a stress-response hint. It suggests what kind of behavior can bring you back to center when pressure rises.',
+  rationalThought: 'This is the practical thinking pattern: how you tend to approach decisions, plans, details, and problem solving.'
+};
+
 const WORKSHEET_COVERAGE = [
   ['Letters correspond to numbers', 'Alphabet value table, selected by Pythagorean or Chaldean-inspired mode.'],
   ['Adding and reducing numbers', 'Digit reduction with master numbers 11, 22, and 33 preserved where appropriate.'],
@@ -409,9 +420,36 @@ function renderCoverageCard(title, items, wide = false) {
   `;
 }
 
+function renderReportSummary(chart) {
+  const path = meaning(chart.core.lifePath);
+  const inner = meaning(chart.core.soulUrge);
+  const outer = meaning(chart.core.personality);
+  const year = meaning(chart.cycles.personalYear);
+  const choice = chart.advanced.choice;
+  return `
+    <div>
+      <p class="eyebrow">Reading report</p>
+      <h3>${escapeHtml(chart.input.fullName)} · ${escapeHtml(chart.birth.year)}-${String(chart.birth.month).padStart(2, '0')}-${String(chart.birth.day).padStart(2, '0')}</h3>
+      <p>
+        Your chart centers on Life Path ${chart.core.lifePath}, the ${escapeHtml(path.title.toLowerCase())} pattern.
+        In plain words, this reading is about ${escapeHtml(path.keywords)}. Your Heart ${chart.core.soulUrge}
+        (${escapeHtml(inner.title)}) describes what privately motivates you, while Personality ${chart.core.personality}
+        (${escapeHtml(outer.title)}) describes the style others meet first.
+      </p>
+    </div>
+    <ul>
+      <li><b>This year:</b> Personal Year ${chart.cycles.personalYear} brings a ${escapeHtml(year.title.toLowerCase())} tone: ${escapeHtml(year.keywords)}.</li>
+      <li><b>Growth direction:</b> Maturity ${chart.core.maturity} asks you to integrate ${escapeHtml(meaning(chart.core.maturity).keywords)} over time.</li>
+      <li><b>Watch point:</b> ${chart.advanced.karmicLessons.length ? `Missing name-table numbers ${chart.advanced.karmicLessons.join(', ')} can be read as skills to practice consciously.` : 'Your name table contains every 1-9 value, so the reading emphasizes balance rather than absent-number lessons.'}</li>
+      <li><b>Chosen number:</b> ${choice ? `${escapeHtml(chart.input.chosenNumber)} reduces to ${choice.reduced}, a ${escapeHtml(meaning(choice.reduced).title.toLowerCase())} tone.` : 'Add a phone, address, email, business name, pet name, or plate to compare its symbolic tone.'}</li>
+    </ul>
+  `;
+}
+
 function renderChart(chart) {
   document.getElementById('resultsEmpty').hidden = true;
   document.getElementById('results').hidden = false;
+  document.getElementById('reportSummary').innerHTML = renderReportSummary(chart);
   const coreLabels = [
     ['Life Path', 'lifePath'],
     ['Birthday', 'birthday'],
@@ -429,7 +467,9 @@ function renderChart(chart) {
       <article class="number-card" data-number="${value}">
         <span>${label}</span>
         <strong>${value}</strong>
-        <p>${escapeHtml(CORE_DESCRIPTIONS[key])}</p>
+        <h4>${escapeHtml(data.title)} · ${escapeHtml(data.keywords)}</h4>
+        <p><b>What it is:</b> ${escapeHtml(CORE_DESCRIPTIONS[key])}</p>
+        <p><b>What it means to you:</b> ${escapeHtml(CORE_PERSONAL_PROMPTS[key])}</p>
       </article>
     `;
   }).join('');
