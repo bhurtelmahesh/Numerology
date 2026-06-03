@@ -9,6 +9,7 @@ A static, responsive numerology profile builder and reference library.
 - Life Path, Birthday, Expression, Soul Urge, Personality, Maturity, Balance, and Rational Thought numbers
 - Personal Year, Personal Month, Personal Day, Universal Year, Triad, Overtone, Pinnacles, and Challenges
 - Advanced name-pattern values such as Karmic Lessons, Hidden Passion, Subconscious Self, Point of Security, first vowel, cornerstone, capstone, and inclusion table
+- Full worksheet coverage for Name/Heart/Personality combinations, chosen phone/email/house/business/pet/plate numbers, milestone years, highlight years, red-letter years, overtone numbers, progressed letters, essence and hidden essence, hidden cross, intensification, karma, type traits, and malefic/karmic-debt watch numbers
 - World traditions library with method, culture, and evidence filters
 - Evidence-aware notes that separate historical/cultural use from scientific proof
 - Fully static: works on GitHub Pages without a backend

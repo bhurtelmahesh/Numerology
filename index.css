@@ -293,6 +293,10 @@ h3 {
   grid-column: 1 / -1;
 }
 
+.profile-form label.full {
+  grid-column: 1 / -1;
+}
+
 .profile-form span {
   color: #4f5c63;
   font-size: 13px;
@@ -444,7 +448,8 @@ h3 {
 }
 
 .cycle-grid,
-.advanced-grid {
+.advanced-grid,
+.worksheet-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
@@ -452,6 +457,10 @@ h3 {
 
 .advanced-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.worksheet-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .metric {
@@ -480,6 +489,21 @@ h3 {
   margin-top: 5px;
   color: #6e7b82;
   line-height: 1.45;
+}
+
+.metric.wide {
+  grid-column: 1 / -1;
+}
+
+.coverage-list {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.coverage-list li + li {
+  margin-top: 4px;
 }
 
 .timeline {
@@ -687,6 +711,7 @@ h3 {
   .profile-form,
   .cycle-grid,
   .advanced-grid,
+  .worksheet-grid,
   .number-grid,
   .timeline,
   .library-grid,

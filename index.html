@@ -21,6 +21,7 @@
     <nav id="siteNav" class="site-nav" aria-label="Main navigation">
       <a href="#calculator">Calculator</a>
       <a href="#chart">Chart</a>
+      <a href="#worksheet">Worksheet</a>
       <a href="#systems">World systems</a>
       <a href="#evidence">Evidence</a>
       <a href="#sources">Sources</a>
@@ -74,6 +75,10 @@
             <option value="chaldean">Chaldean-inspired</option>
           </select>
         </label>
+        <label class="full">
+          <span>Optional life number to evaluate</span>
+          <input id="chosenNumber" name="chosenNumber" type="text" placeholder="Phone, email, house, business name, pet name, license plate...">
+        </label>
         <button type="submit">Calculate full profile</button>
       </form>
     </section>
@@ -119,6 +124,45 @@
           </div>
           <div id="timeline" class="timeline"></div>
         </section>
+        <section id="worksheet" class="panel">
+          <div class="panel-head">
+            <h3>Complete worksheet coverage</h3>
+            <span class="pill">All number families</span>
+          </div>
+          <div id="worksheetGrid" class="worksheet-grid"></div>
+        </section>
+        <div class="analysis-layout">
+          <section class="panel">
+            <div class="panel-head">
+              <h3>Name, Heart, and Personality combination</h3>
+              <span class="pill">Inner / outer blend</span>
+            </div>
+            <div id="combinationGrid" class="stack"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <h3>Important year numbers</h3>
+              <span class="pill">Milestone / highlight / red-letter</span>
+            </div>
+            <div id="importantYearGrid" class="cycle-grid"></div>
+          </section>
+        </div>
+        <div class="analysis-layout">
+          <section class="panel">
+            <div class="panel-head">
+              <h3>Progressed letters and essence</h3>
+              <span class="pill">Advanced timing</span>
+            </div>
+            <div id="progressionGrid" class="cycle-grid"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <h3>Chosen numbers in life</h3>
+              <span class="pill">Phone / address / business / pet</span>
+            </div>
+            <div id="choiceGrid" class="cycle-grid"></div>
+          </section>
+        </div>
       </div>
     </section>
 

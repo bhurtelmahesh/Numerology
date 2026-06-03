@@ -49,6 +49,9 @@ const LIBRARY = [
   { type: 'evidence', title: 'The Forer / Barnum effect', text: 'A 1949 psychology study showed that people often rate broad personality descriptions as highly accurate. This matters when reading any personality system, including numerology.', link: 'https://pubmed.ncbi.nlm.nih.gov/18110193/' },
   { type: 'evidence', title: 'What counts as proof?', text: 'Historical use proves cultural significance. It does not prove that birth dates or names cause personality or predict events. The app separates calculation, symbolism, and evidence level.' },
   { type: 'method', title: 'Advanced chart vocabulary', text: 'Beginner and advanced manuals commonly add personal cycles, triads, maturity, progressed letters, essence, inclusion tables, karmic lessons, hidden passion, and challenge numbers.' },
+  { type: 'method', title: 'Important year numbers', text: 'Calendar readings often distinguish Personal Year, Universal Year, milestone years, highlight years, red-letter years, and overtone numbers. This app groups them together so the timing layer is visible.' },
+  { type: 'method', title: 'Progressed letters and essence', text: 'Advanced name work treats letters as moving through time. The implementation here uses a transparent working convention: active letters are selected by age and letter values, then reduced into Essence and Hidden Essence numbers.' },
+  { type: 'method', title: 'Inclusion, hidden cross, and other name-pattern numbers', text: 'The inclusion table counts how many times each 1-9 value appears in a name. Related readings include intensification, karmic lessons, subconscious response, point of security, type traits, hidden cross, and malefic watch numbers.' },
   { type: 'evidence', title: 'Reflective use case', text: 'A numerology chart can still be useful as a reflective prompt: it asks what you are building, avoiding, repeating, completing, or ready to choose.' }
 ];
 
@@ -62,6 +65,32 @@ const CORE_DESCRIPTIONS = {
   balance: 'Initials reduced: a balancing response under stress.',
   rationalThought: 'First name plus birth day: the decision-making and practical thinking style.'
 };
+
+const WORKSHEET_COVERAGE = [
+  ['Letters correspond to numbers', 'Alphabet value table, selected by Pythagorean or Chaldean-inspired mode.'],
+  ['Adding and reducing numbers', 'Digit reduction with master numbers 11, 22, and 33 preserved where appropriate.'],
+  ['Name Number', 'Shown as Expression / Name in the core chart.'],
+  ['Heart Number', 'Shown as Soul Urge / Heart, calculated from vowels.'],
+  ['Personality Number', 'Calculated from consonants.'],
+  ['Name + Heart + Personality combinations', 'Rendered as a combined inner/outer synthesis.'],
+  ['Choosing names and life numbers', 'Optional evaluator for phone, email, address, business, pet, or plate text.'],
+  ['Birthday Number', 'Day-of-month number in the core chart.'],
+  ['Life Path Number', 'Full birth-date reduction.'],
+  ['Pinnacles and Challenges', 'Four life periods with matching challenge values.'],
+  ['Personal Year, Month, Day', 'Reading-date cycle values.'],
+  ['Triad Numbers', 'Personal Year / Month / Day shown together.'],
+  ['Important Year Numbers', 'Milestone, highlight, red-letter, maturity, universal, and overtone values.'],
+  ['Progressed Letters', 'Current active letter by age using a common letter-duration convention.'],
+  ['Essence and Hidden Essence', 'Current active-letter sum plus a secondary personal-cycle blend.'],
+  ['Hidden Cross', 'Name inclusion cross using 2, 4, 5, 6, and 8.'],
+  ['Inclusion Table', 'Counts of name letters by 1-9 values.'],
+  ['Intensification Number', 'Most repeated number in the inclusion table.'],
+  ['Karma Number / Karmic Lessons', 'Missing values in the inclusion table.'],
+  ['Subconscious Response', 'How many number types are present in the inclusion table.'],
+  ['Point of Security', 'Reduced subconscious response.'],
+  ['Type and Traits Chart', 'Grouped distribution across practical, mental, emotional, and intuitive planes.'],
+  ['Malefic / karmic-debt watch numbers', 'Flags raw totals such as 13, 14, 16, and 19 when present.']
+];
 
 const today = new Date();
 const isoToday = today.toISOString().slice(0, 10);
@@ -183,6 +212,71 @@ function missingEntries(counts) {
   return Object.entries(counts).filter(([, count]) => count === 0).map(([number]) => Number(number));
 }
 
+function ageOnDate(birth, reading) {
+  let age = reading.year - birth.year;
+  if (reading.month < birth.month || (reading.month === birth.month && reading.day < birth.day)) age -= 1;
+  return Math.max(0, age);
+}
+
+function currentProgressedLetters(name, system, age) {
+  return words(name).map((part) => {
+    const values = letterValues(part, system);
+    if (!values.length) return { word: part, letter: '-', value: 0, position: 0 };
+    const cycleLength = values.reduce((total, item) => total + Math.max(1, item.value), 0);
+    let cursor = age % Math.max(1, cycleLength);
+    for (let index = 0; index < values.length; index += 1) {
+      const span = Math.max(1, values[index].value);
+      if (cursor < span) return { word: part, letter: values[index].letter, value: values[index].value, position: index + 1 };
+      cursor -= span;
+    }
+    const last = values[values.length - 1];
+    return { word: part, letter: last.letter, value: last.value, position: values.length };
+  });
+}
+
+function chosenNumberValue(value, system) {
+  const text = String(value || '').trim();
+  if (!text) return null;
+  const digits = (text.match(/\d/g) || []).map(Number);
+  const letters = nameTotal(text, system, 'all').raw;
+  const raw = digits.reduce((total, digit) => total + digit, 0) + letters;
+  return { raw, reduced: reduce(raw), digits: digits.length, letters: cleanLetters(text).length };
+}
+
+function typeTraitCounts(counts) {
+  const read = (number) => Number(counts[String(number)] || 0);
+  return {
+    practical: read(4) + read(5),
+    mental: read(1) + read(8),
+    emotional: read(2) + read(3) + read(6),
+    intuitive: read(7) + read(9)
+  };
+}
+
+function hiddenCross(counts) {
+  const crossNumbers = [2, 4, 5, 6, 8];
+  const total = crossNumbers.reduce((sum, number) => sum + Number(counts[String(number)] || 0), 0);
+  return { total, reduced: reduce(total), details: crossNumbers.map((number) => `${number}:${counts[String(number)] || 0}`).join('  ') };
+}
+
+function karmicDebtFlags(rawValues) {
+  const debtNumbers = new Set([13, 14, 16, 19]);
+  return Object.entries(rawValues)
+    .filter(([, value]) => debtNumbers.has(Number(value)))
+    .map(([label, value]) => `${label} ${value}`);
+}
+
+function milestoneInfo(birth, reading) {
+  const age = ageOnDate(birth, reading);
+  const nextAge = Math.ceil((age + 1) / 9) * 9;
+  return {
+    age,
+    nextAge,
+    nextYear: birth.year + nextAge,
+    currentMilestone: age > 0 && age % 9 === 0
+  };
+}
+
 function calculateChart(form) {
   const birth = dateParts(form.birthDate);
   const reading = dateParts(form.readingDate);
@@ -222,6 +316,19 @@ function calculateChart(form) {
   const firstVowel = letterValues(form.fullName, form.nameSystem).find((item) => item.vowel);
   const cornerstone = letters[0] || '-';
   const capstone = letters[letters.length - 1] || '-';
+  const age = ageOnDate(birth, reading);
+  const progressed = currentProgressedLetters(form.fullName, form.nameSystem, age);
+  const essence = reduce(progressed.reduce((total, item) => total + Number(item.value || 0), 0));
+  const hiddenEssence = reduce(essence + personalYear);
+  const milestone = milestoneInfo(birth, reading);
+  const choice = chosenNumberValue(form.chosenNumber, form.nameSystem);
+  const rawValues = {
+    name: allName.raw,
+    heart: vowels.raw,
+    personality: consonants.raw,
+    birthday: birth.day,
+    lifePathBridge: digitSum(birth.year) + digitSum(birth.month) + digitSum(birth.day)
+  };
   return {
     input: form,
     birth,
@@ -243,17 +350,27 @@ function calculateChart(form) {
       universalYear,
       triad: [personalYear, personalMonth, personalDay],
       redLetterYear: personalYear === lp || personalYear === expression || personalYear === birthday,
-      overtone: reduce(personalYear + universalYear)
+      overtone: reduce(personalYear + universalYear),
+      highlightYear: reduce(lp + personalYear),
+      milestone
     },
     advanced: {
       karmicLessons: missingEntries(counts),
       hiddenPassion: topEntries(counts),
+      intensification: topEntries(counts),
       subconsciousSelf: Object.values(counts).filter(Boolean).length,
       pointOfSecurity: reduce(Object.values(counts).filter(Boolean).length),
       firstVowel: firstVowel ? `${firstVowel.letter} (${firstVowel.value})` : '-',
       cornerstone,
       capstone,
-      inclusion: counts
+      inclusion: counts,
+      hiddenCross: hiddenCross(counts),
+      typeTraits: typeTraitCounts(counts),
+      progressed,
+      essence,
+      hiddenEssence,
+      malefic: karmicDebtFlags(rawValues),
+      choice
     },
     timeline: pinnacleNumbers.map((number, index) => ({
       period: pinnacleAges(lp)[index],
@@ -281,13 +398,24 @@ function renderMetric(label, value, note = '') {
   return `<div class="metric"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong>${note ? `<small>${escapeHtml(note)}</small>` : ''}</div>`;
 }
 
+function renderCoverageCard(title, items, wide = false) {
+  return `
+    <div class="metric${wide ? ' wide' : ''}">
+      <span>${escapeHtml(title)}</span>
+      <ul class="coverage-list">
+        ${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+      </ul>
+    </div>
+  `;
+}
+
 function renderChart(chart) {
   document.getElementById('resultsEmpty').hidden = true;
   document.getElementById('results').hidden = false;
   const coreLabels = [
     ['Life Path', 'lifePath'],
     ['Birthday', 'birthday'],
-    ['Expression / Name', 'expression'],
+    ['Name Number / Expression', 'expression'],
     ['Soul Urge / Heart', 'soulUrge'],
     ['Personality', 'personality'],
     ['Maturity', 'maturity'],
@@ -347,6 +475,56 @@ function renderChart(chart) {
       <p><b>Pinnacle:</b> ${escapeHtml(meaning(item.pinnacle).title)}. <b>Challenge:</b> ${escapeHtml(String(item.challenge))} ${escapeHtml(meaning(item.challenge || 9).keywords)}.</p>
     </article>
   `).join('');
+
+  const groupedCoverage = [
+    ['Name numbers', WORKSHEET_COVERAGE.slice(0, 8).map(([name]) => name)],
+    ['Birth and calendar numbers', WORKSHEET_COVERAGE.slice(8, 15).map(([name]) => name)],
+    ['Advanced and other numbers', WORKSHEET_COVERAGE.slice(15).map(([name]) => name)]
+  ];
+  document.getElementById('worksheetGrid').innerHTML = groupedCoverage.map(([title, items]) => renderCoverageCard(title, items)).join('');
+
+  const combo = [
+    `Name ${chart.core.expression}: ${meaning(chart.core.expression).title} shows the public toolkit.`,
+    `Heart ${chart.core.soulUrge}: ${meaning(chart.core.soulUrge).title} describes private motivation.`,
+    `Personality ${chart.core.personality}: ${meaning(chart.core.personality).title} colors the first impression.`,
+    `Blend: ${chart.core.expression}-${chart.core.soulUrge}-${chart.core.personality} asks whether outer action, inner desire, and social style are cooperating or pulling in different directions.`
+  ];
+  document.getElementById('combinationGrid').innerHTML = renderCoverageCard('Combination synthesis', combo, true);
+
+  const milestone = chart.cycles.milestone;
+  document.getElementById('importantYearGrid').innerHTML = [
+    renderMetric('Current age', milestone.age, milestone.currentMilestone ? 'Milestone year now' : `Next 9-year milestone age ${milestone.nextAge}`),
+    renderMetric('Next milestone year', milestone.nextYear, 'Nine-year rhythm marker'),
+    renderMetric('Highlight year', chart.cycles.highlightYear, 'Life Path blended with Personal Year'),
+    renderMetric('Red-letter year', chart.cycles.redLetterYear ? 'Yes' : 'No', 'Personal Year matching a core chart number'),
+    renderMetric('Maturity number', chart.core.maturity, 'Life Path plus Name Number'),
+    renderMetric('Universal year', chart.cycles.universalYear, 'Collective calendar reduction'),
+    renderMetric('Overtone number', chart.cycles.overtone, 'Personal Year plus Universal Year'),
+    renderMetric('Triad numbers', chart.cycles.triad.join(' / '), 'Personal Year, Month, Day')
+  ].join('');
+
+  const activeLetters = chart.advanced.progressed.map((item) => `${item.word}: ${item.letter}${item.value ? ` (${item.value})` : ''}`).join('  ');
+  document.getElementById('progressionGrid').innerHTML = [
+    renderMetric('Progressed letters', activeLetters || '-', 'Active name letters by current age'),
+    renderMetric('Essence number', chart.advanced.essence, meaning(chart.advanced.essence).keywords),
+    renderMetric('Hidden essence', chart.advanced.hiddenEssence, 'Essence blended with Personal Year'),
+    renderMetric('Hidden cross', chart.advanced.hiddenCross.reduced, chart.advanced.hiddenCross.details),
+    renderMetric('Type and traits', Object.entries(chart.advanced.typeTraits).map(([k, v]) => `${k}:${v}`).join('  '), 'Grouped inclusion-table distribution'),
+    renderMetric('Malefic / karmic-debt flags', chart.advanced.malefic.length ? chart.advanced.malefic.join(', ') : 'None', 'Watches raw 13, 14, 16, and 19 totals')
+  ].join('');
+
+  const choice = chart.advanced.choice;
+  document.getElementById('choiceGrid').innerHTML = choice ? [
+    renderMetric('Chosen item', chart.input.chosenNumber, 'Phone, email, address, business, pet, or plate'),
+    renderMetric('Chosen raw total', choice.raw, `${choice.letters} letters and ${choice.digits} digits counted`),
+    renderMetric('Chosen reduced number', choice.reduced, meaning(choice.reduced).keywords),
+    renderMetric('Use case note', meaning(choice.reduced).title, 'Compare the tone with the practical purpose of the item')
+  ].join('') : [
+    renderMetric('No chosen item entered', 'Optional', 'Add a phone, email, address, business name, pet name, or plate to evaluate it.'),
+    renderMetric('Baby naming / business naming', 'Supported', 'Enter the proposed name in this field or the full-name field.'),
+    renderMetric('House / office / P.O. box', 'Supported', 'Digits and letters are both reduced.'),
+    renderMetric('Pets and vanity plates', 'Supported', 'Works as a symbolic label check.')
+  ].join('');
 }
 
 function renderMeanings() {
