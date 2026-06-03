@@ -239,6 +239,24 @@
     <a href="#top">Back to top</a>
   </footer>
 
+  <button id="askToggle" class="ask-toggle" type="button" aria-expanded="false" aria-controls="askPanel">
+    Ask
+  </button>
+  <aside id="askPanel" class="ask-panel" aria-label="Numerology helper chat" hidden>
+    <header>
+      <div>
+        <strong>Ask B8</strong>
+        <span>Chart guide</span>
+      </div>
+      <button id="askClose" type="button" aria-label="Close ask panel">×</button>
+    </header>
+    <div id="askMessages" class="ask-messages" aria-live="polite"></div>
+    <form id="askForm" class="ask-form">
+      <input id="askInput" type="text" placeholder="Ask about Life Path, Karmic Lessons, Essence..." autocomplete="off">
+      <button type="submit">Send</button>
+    </form>
+  </aside>
+
   <script src="./functions/index.js"></script>
 </body>
 </html>

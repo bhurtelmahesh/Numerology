@@ -55,6 +55,38 @@ const LIBRARY = [
   { type: 'evidence', title: 'Reflective use case', text: 'A numerology chart can still be useful as a reflective prompt: it asks what you are building, avoiding, repeating, completing, or ready to choose.' }
 ];
 
+const ASK_KNOWLEDGE = [
+  { terms: ['life path', 'lifepath'], title: 'Life Path', answer: 'Life Path is the main birth-date theme. Read it as the broad road-map: repeated lessons, the kind of growth that makes life feel aligned, and the situations that keep teaching you.' },
+  { terms: ['birthday', 'birth day'], title: 'Birthday Number', answer: 'Birthday Number is the day-of-month gift. It is usually an easy-access talent or natural style. It shows what comes naturally, not the whole personality.' },
+  { terms: ['name number', 'expression', 'destiny'], title: 'Name Number / Expression', answer: 'Name Number, also called Expression, comes from the full name. It describes your outer toolkit: how you express ability, work, create, communicate, or build in the world.' },
+  { terms: ['heart', 'soul urge', 'vowel'], title: 'Heart / Soul Urge', answer: 'Heart Number or Soul Urge comes from vowels. Read it as private motivation: what feels emotionally satisfying even when other people cannot see it.' },
+  { terms: ['personality', 'consonant'], title: 'Personality Number', answer: 'Personality Number comes from consonants. It describes the first layer others meet: social style, first impression, and the protective surface.' },
+  { terms: ['maturity'], title: 'Maturity Number', answer: 'Maturity combines Life Path and Name Number. Read it as what you grow into with age, choices, and experience.' },
+  { terms: ['pinnacle', 'pinnacles'], title: 'Pinnacles', answer: 'Pinnacles divide life into four growth periods. Each pinnacle shows the environment or opportunity theme of that period.' },
+  { terms: ['challenge', 'challenges'], title: 'Challenges', answer: 'Challenges sit beside pinnacles. They show the skill being tested during a life period: not a punishment, but the friction that asks for development.' },
+  { terms: ['personal year'], title: 'Personal Year', answer: 'Personal Year is the main theme of the current year for you. Use it for planning the season: beginnings, patience, expression, discipline, change, care, study, power, or completion.' },
+  { terms: ['personal month'], title: 'Personal Month', answer: 'Personal Month is the current monthly chapter inside the Personal Year. It is useful for short-term focus.' },
+  { terms: ['personal day'], title: 'Personal Day', answer: 'Personal Day is the immediate daily tone. Treat it as a mood/action prompt, not a prediction.' },
+  { terms: ['triad'], title: 'Triad Numbers', answer: 'Triad means Personal Year / Personal Month / Personal Day together. Read left to right: background season, current chapter, today’s trigger.' },
+  { terms: ['milestone'], title: 'Milestone Years', answer: 'Milestone years are checkpoint ages in a nine-year rhythm. Use them for review, adjustment, and noticing repeating life themes.' },
+  { terms: ['highlight'], title: 'Highlight Year', answer: 'Highlight Year blends Life Path with Personal Year. It shows which core lesson is being emphasized in the current year.' },
+  { terms: ['red-letter', 'red letter'], title: 'Red-letter Year', answer: 'A Red-letter Year appears when the Personal Year repeats an important core number. It suggests the year may feel more personal or noticeable.' },
+  { terms: ['overtone'], title: 'Overtone Number', answer: 'Overtone blends Personal Year and Universal Year. Use it as the atmosphere around the year: personal timing plus collective timing.' },
+  { terms: ['universal year'], title: 'Universal Year', answer: 'Universal Year is the reduced calendar year. It is the collective tone, useful for comparing your personal rhythm with the wider year.' },
+  { terms: ['progressed letter', 'progressed letters', 'progression'], title: 'Progressed Letters', answer: 'Progressed Letters are active name letters by age. Read them as qualities temporarily emphasized in the current life stage.' },
+  { terms: ['essence', 'hidden essence'], title: 'Essence / Hidden Essence', answer: 'Essence reduces the active progressed letters. Hidden Essence blends that with Personal Year. Read them as current atmosphere and quieter undercurrent.' },
+  { terms: ['hidden cross'], title: 'Hidden Cross', answer: 'Hidden Cross summarizes the inclusion-table cross values 2, 4, 5, 6, and 8. It gives a compact view of support, structure, change, care, and power patterns.' },
+  { terms: ['inclusion', 'inclusion table'], title: 'Inclusion Table', answer: 'Inclusion Table counts how often each 1-9 value appears in the name. Repeated numbers are emphasized habits; missing numbers are qualities to practice consciously.' },
+  { terms: ['intensification', 'hidden passion'], title: 'Hidden Passion / Intensification', answer: 'Hidden Passion or Intensification is the most repeated value in the name. It is the loudest habit: a strength when used well, a distortion when overused.' },
+  { terms: ['karma', 'karmic', 'karmic lessons'], title: 'Karmic Lessons', answer: 'Karmic Lessons are missing values in the name table. Read them as growth skills, not as punishment or doom.' },
+  { terms: ['subconscious'], title: 'Subconscious Response', answer: 'Subconscious Response counts how many different number types appear in the name. A higher count suggests a broader automatic response range.' },
+  { terms: ['point of security', 'security'], title: 'Point of Security', answer: 'Point of Security reduces the Subconscious Response. Read it as a stabilizing behavior when stress rises.' },
+  { terms: ['type', 'traits', 'type and traits'], title: 'Type and Traits', answer: 'Type and Traits groups the name values into practical, mental, emotional, and intuitive planes. Strongest group shows default mode; weakest group shows a development area.' },
+  { terms: ['malefic', 'debt', 'karmic debt'], title: 'Malefic / Karmic-debt Watch Numbers', answer: 'These are raw totals such as 13, 14, 16, and 19. Use them as caution themes around discipline, humility, freedom, effort, and independence, not fear-based predictions.' },
+  { terms: ['chosen', 'phone', 'email', 'house', 'address', 'business', 'pet', 'plate'], title: 'Chosen Numbers', answer: 'Chosen Numbers evaluate labels you can choose, such as phone, email, house, business, pet, or plate. Compare the reduced tone with the item’s purpose.' },
+  { terms: ['proof', 'science', 'evidence'], title: 'Evidence note', answer: 'Historical sources support that number symbolism is widespread. Scientific proof for prediction is limited, and broad readings can feel personal because of the Forer/Barnum effect. Use the chart as reflection, not certainty.' }
+];
+
 const CORE_DESCRIPTIONS = {
   lifePath: 'The major birth-date theme: lessons, direction, and recurring life terrain.',
   birthday: 'The day-of-month talent: an obvious gift or style that tends to show early.',
@@ -605,6 +637,46 @@ function renderLibrary() {
   `).join('');
 }
 
+function addAskMessage(role, html) {
+  const messages = document.getElementById('askMessages');
+  const item = document.createElement('div');
+  item.className = `ask-message ${role}`;
+  item.innerHTML = html;
+  messages.appendChild(item);
+  messages.scrollTop = messages.scrollHeight;
+}
+
+function askAnswer(question) {
+  const normalized = question.toLowerCase();
+  const hit = ASK_KNOWLEDGE.find((item) => item.terms.some((term) => normalized.includes(term)));
+  if (hit) {
+    return `<strong>${escapeHtml(hit.title)}</strong>${escapeHtml(hit.answer)} <a href="#worksheet">See worksheet guide</a>`;
+  }
+  const worksheetHit = WORKSHEET_COVERAGE.find((item) => {
+    const text = `${item.name} ${item.purpose} ${item.read}`.toLowerCase();
+    return normalized.split(/\s+/).filter((word) => word.length > 3).some((word) => text.includes(word));
+  });
+  if (worksheetHit) {
+    return `<strong>${escapeHtml(worksheetHit.name)}</strong>${escapeHtml(worksheetHit.purpose)} <em>How to read it:</em> ${escapeHtml(worksheetHit.read)} <a href="#worksheet">See worksheet guide</a>`;
+  }
+  return '<strong>Try asking about a chart term</strong>I can explain Life Path, Heart Number, Personality, Pinnacles, Challenges, Personal Year, Essence, Inclusion Table, Karmic Lessons, Hidden Cross, chosen numbers, and evidence limits.';
+}
+
+function openAskPanel() {
+  const panel = document.getElementById('askPanel');
+  panel.hidden = false;
+  document.getElementById('askToggle').setAttribute('aria-expanded', 'true');
+  if (!document.getElementById('askMessages').children.length) {
+    addAskMessage('bot', '<strong>Hi, I can help read the chart.</strong>Ask me things like “What is Life Path?”, “How do I read Karmic Lessons?”, or “What is Essence?”');
+  }
+  document.getElementById('askInput').focus();
+}
+
+function closeAskPanel() {
+  document.getElementById('askPanel').hidden = true;
+  document.getElementById('askToggle').setAttribute('aria-expanded', 'false');
+}
+
 function setDefaults() {
   document.getElementById('readingDate').value = isoToday;
   document.getElementById('birthDate').value = '1990-01-01';
@@ -635,6 +707,20 @@ function bindEvents() {
       document.body.classList.remove('nav-open');
       document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
     });
+  });
+  document.getElementById('askToggle').addEventListener('click', () => {
+    if (document.getElementById('askPanel').hidden) openAskPanel();
+    else closeAskPanel();
+  });
+  document.getElementById('askClose').addEventListener('click', closeAskPanel);
+  document.getElementById('askForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const input = document.getElementById('askInput');
+    const question = input.value.trim();
+    if (!question) return;
+    addAskMessage('user', `<strong>You</strong>${escapeHtml(question)}`);
+    input.value = '';
+    setTimeout(() => addAskMessage('bot', askAnswer(question)), 120);
   });
 }
 
