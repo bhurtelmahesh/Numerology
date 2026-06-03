@@ -78,29 +78,29 @@ const CORE_PERSONAL_PROMPTS = {
 };
 
 const WORKSHEET_COVERAGE = [
-  ['Letters correspond to numbers', 'Alphabet value table, selected by Pythagorean or Chaldean-inspired mode.'],
-  ['Adding and reducing numbers', 'Digit reduction with master numbers 11, 22, and 33 preserved where appropriate.'],
-  ['Name Number', 'Shown as Expression / Name in the core chart.'],
-  ['Heart Number', 'Shown as Soul Urge / Heart, calculated from vowels.'],
-  ['Personality Number', 'Calculated from consonants.'],
-  ['Name + Heart + Personality combinations', 'Rendered as a combined inner/outer synthesis.'],
-  ['Choosing names and life numbers', 'Optional evaluator for phone, email, address, business, pet, or plate text.'],
-  ['Birthday Number', 'Day-of-month number in the core chart.'],
-  ['Life Path Number', 'Full birth-date reduction.'],
-  ['Pinnacles and Challenges', 'Four life periods with matching challenge values.'],
-  ['Personal Year, Month, Day', 'Reading-date cycle values.'],
-  ['Triad Numbers', 'Personal Year / Month / Day shown together.'],
-  ['Important Year Numbers', 'Milestone, highlight, red-letter, maturity, universal, and overtone values.'],
-  ['Progressed Letters', 'Current active letter by age using a common letter-duration convention.'],
-  ['Essence and Hidden Essence', 'Current active-letter sum plus a secondary personal-cycle blend.'],
-  ['Hidden Cross', 'Name inclusion cross using 2, 4, 5, 6, and 8.'],
-  ['Inclusion Table', 'Counts of name letters by 1-9 values.'],
-  ['Intensification Number', 'Most repeated number in the inclusion table.'],
-  ['Karma Number / Karmic Lessons', 'Missing values in the inclusion table.'],
-  ['Subconscious Response', 'How many number types are present in the inclusion table.'],
-  ['Point of Security', 'Reduced subconscious response.'],
-  ['Type and Traits Chart', 'Grouped distribution across practical, mental, emotional, and intuitive planes.'],
-  ['Malefic / karmic-debt watch numbers', 'Flags raw totals such as 13, 14, 16, and 19 when present.']
+  { group: 'Foundation', name: 'Letters correspond to numbers', purpose: 'Turns a written name into a number pattern.', read: 'Use this as the base map. If the name system changes, name-based numbers can change too.' },
+  { group: 'Foundation', name: 'Adding and reducing numbers', purpose: 'Condenses a total into a symbolic vibration.', read: 'Read the final digit as the main tone and raw totals as supporting context, especially 11, 22, 33, 13, 14, 16, and 19.' },
+  { group: 'Name numbers', name: 'Name Number / Expression', purpose: 'Shows the tools, talents, and public capacity carried by the full name.', read: 'Ask: What am I built to express or develop in the outside world?' },
+  { group: 'Name numbers', name: 'Heart Number / Soul Urge', purpose: 'Shows private motivation through vowels.', read: 'Ask: What do I need emotionally even when nobody is watching?' },
+  { group: 'Name numbers', name: 'Personality Number', purpose: 'Shows first impression and social surface through consonants.', read: 'Ask: How do people initially experience my style, defense, or presence?' },
+  { group: 'Name numbers', name: 'Name + Heart + Personality combinations', purpose: 'Compares outer ability, inner desire, and social mask.', read: 'A smooth combination feels aligned. A contrasting combination shows inner/outer tension to understand.' },
+  { group: 'Chosen numbers', name: 'Choosing names and life numbers', purpose: 'Evaluates optional labels such as phone, email, address, business name, pet, or plate.', read: 'Compare the reduced tone with the practical purpose of the item. It is a symbolic fit check, not a guarantee.' },
+  { group: 'Birth numbers', name: 'Birthday Number', purpose: 'Shows an obvious gift or style from the day of birth.', read: 'Read it as a natural talent that may come easily but still needs maturity.' },
+  { group: 'Birth numbers', name: 'Life Path Number', purpose: 'Shows the broad life-road theme from the full birth date.', read: 'Use it as the main lens for lessons, repeated situations, and long-term growth.' },
+  { group: 'Life periods', name: 'Pinnacles and Challenges', purpose: 'Splits life into four development periods with opportunity and friction themes.', read: 'Pinnacle shows the period’s growth environment; Challenge shows the skill being tested.' },
+  { group: 'Calendar cycles', name: 'Personal Year, Month, Day', purpose: 'Reads the current timing tone for year, month, and day.', read: 'Use Year for the main season, Month for the current focus, Day for immediate mood/action.' },
+  { group: 'Calendar cycles', name: 'Triad Numbers', purpose: 'Shows Personal Year / Month / Day as one timing stack.', read: 'Read left to right: background season, current chapter, today’s trigger.' },
+  { group: 'Important years', name: 'Important Year Numbers', purpose: 'Collects milestone, highlight, red-letter, maturity, universal, and overtone values.', read: 'Use this section to see whether the current year repeats important chart themes.' },
+  { group: 'Advanced timing', name: 'Progressed Letters', purpose: 'Uses age to identify active letters in the name.', read: 'Read active letters as temporary qualities being emphasized in the current life stage.' },
+  { group: 'Advanced timing', name: 'Essence and Hidden Essence', purpose: 'Reduces active progressed letters, then blends with Personal Year.', read: 'Essence is the present inner atmosphere; Hidden Essence is the quieter undercurrent.' },
+  { group: 'Other numbers', name: 'Hidden Cross', purpose: 'Looks at the inclusion-table cross numbers 2, 4, 5, 6, and 8.', read: 'Use it as a compact view of support, structure, change, care, and power patterns in the name.' },
+  { group: 'Other numbers', name: 'Inclusion Table', purpose: 'Counts how often each 1-9 value appears in the name.', read: 'Repeated numbers show emphasized habits; missing numbers show qualities to practice consciously.' },
+  { group: 'Other numbers', name: 'Intensification Number', purpose: 'Shows the most repeated value in the name.', read: 'This is the loudest name habit. It can be a strength or something overused.' },
+  { group: 'Other numbers', name: 'Karma Number / Karmic Lessons', purpose: 'Shows values absent from the name.', read: 'Treat missing values as growth skills, not punishments.' },
+  { group: 'Other numbers', name: 'Subconscious Response', purpose: 'Counts how many different number types appear.', read: 'More types suggest broader instinctive range; fewer types suggest a narrower automatic response.' },
+  { group: 'Other numbers', name: 'Point of Security', purpose: 'Reduces the Subconscious Response.', read: 'This points to what helps the person feel stable under pressure.' },
+  { group: 'Other numbers', name: 'Type and Traits Chart', purpose: 'Groups name values into practical, mental, emotional, and intuitive planes.', read: 'The strongest plane shows the default mode; the weakest plane shows an area to develop.' },
+  { group: 'Other numbers', name: 'Malefic / karmic-debt watch numbers', purpose: 'Flags raw totals often read as 13, 14, 16, and 19 lessons.', read: 'Use them as caution themes: effort, discipline, humility, independence, and wise use of freedom.' }
 ];
 
 const today = new Date();
@@ -409,12 +409,19 @@ function renderMetric(label, value, note = '') {
   return `<div class="metric"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong>${note ? `<small>${escapeHtml(note)}</small>` : ''}</div>`;
 }
 
+function metricNote(purpose, read) {
+  return `${purpose} How to read it: ${read}`;
+}
+
 function renderCoverageCard(title, items, wide = false) {
   return `
     <div class="metric${wide ? ' wide' : ''}">
       <span>${escapeHtml(title)}</span>
       <ul class="coverage-list">
-        ${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+        ${items.map((item) => {
+          if (typeof item === 'string') return `<li>${escapeHtml(item)}</li>`;
+          return `<li><b>${escapeHtml(item.name)}:</b> ${escapeHtml(item.purpose)} <em>How to read it:</em> ${escapeHtml(item.read)}</li>`;
+        }).join('')}
       </ul>
     </div>
   `;
@@ -487,25 +494,25 @@ function renderChart(chart) {
   }).join('');
 
   document.getElementById('cycleGrid').innerHTML = [
-    renderMetric('Personal Year', chart.cycles.personalYear, meaning(chart.cycles.personalYear).keywords),
-    renderMetric('Personal Month', chart.cycles.personalMonth, meaning(chart.cycles.personalMonth).keywords),
-    renderMetric('Personal Day', chart.cycles.personalDay, meaning(chart.cycles.personalDay).keywords),
-    renderMetric('Universal Year', chart.cycles.universalYear, 'Collective calendar tone'),
-    renderMetric('Triad', chart.cycles.triad.join(' / '), 'Year, month, and day together'),
-    renderMetric('Overtone', chart.cycles.overtone, chart.cycles.redLetterYear ? 'Red-letter year match detected' : 'Personal and universal blend')
+    renderMetric('Personal Year', chart.cycles.personalYear, metricNote('The main theme of this calendar year for you.', `Plan around ${meaning(chart.cycles.personalYear).keywords}.`)),
+    renderMetric('Personal Month', chart.cycles.personalMonth, metricNote('The current month’s focus inside the year theme.', `Use it for short-term priorities: ${meaning(chart.cycles.personalMonth).keywords}.`)),
+    renderMetric('Personal Day', chart.cycles.personalDay, metricNote('The immediate daily tone.', `Use it for today’s action style: ${meaning(chart.cycles.personalDay).keywords}.`)),
+    renderMetric('Universal Year', chart.cycles.universalYear, metricNote('The collective calendar tone.', 'Compare it with your Personal Year to see if your private rhythm matches or contrasts the wider year.')),
+    renderMetric('Triad', chart.cycles.triad.join(' / '), metricNote('Year, month, and day together.', 'Read left to right: season, chapter, immediate trigger.')),
+    renderMetric('Overtone', chart.cycles.overtone, metricNote('Personal Year plus Universal Year.', chart.cycles.redLetterYear ? 'A core number repeats this year, so the theme may feel more personal.' : 'Use it as the background blend between personal and collective timing.'))
   ].join('');
 
   const missing = chart.advanced.karmicLessons.length ? chart.advanced.karmicLessons.join(', ') : 'None';
   const passion = chart.advanced.hiddenPassion.length ? chart.advanced.hiddenPassion.join(', ') : 'None';
   document.getElementById('advancedGrid').innerHTML = [
-    renderMetric('Karmic lessons', missing, 'Numbers absent from the name table'),
-    renderMetric('Hidden passion', passion, 'Most repeated name-table numbers'),
-    renderMetric('Subconscious self', chart.advanced.subconsciousSelf, 'How many number types appear'),
-    renderMetric('Point of security', chart.advanced.pointOfSecurity, 'Reduced subconscious response'),
-    renderMetric('First vowel', chart.advanced.firstVowel, 'Instinctive emotional tone'),
-    renderMetric('Cornerstone', chart.advanced.cornerstone, 'How the name begins'),
-    renderMetric('Capstone', chart.advanced.capstone, 'How the name completes'),
-    renderMetric('Inclusion table', Object.entries(chart.advanced.inclusion).map(([n, c]) => `${n}:${c}`).join('  '), 'Letter counts by number')
+    renderMetric('Karmic lessons', missing, metricNote('Numbers absent from the name table.', 'Treat them as skills to practice consciously, not as a punishment.')),
+    renderMetric('Hidden passion / Intensification', passion, metricNote('Most repeated name-table numbers.', 'This is the loudest habit in the name: useful as a strength, risky if overused.')),
+    renderMetric('Subconscious response', chart.advanced.subconsciousSelf, metricNote('How many number types appear.', 'A wider count suggests a broader automatic response range.')),
+    renderMetric('Point of security', chart.advanced.pointOfSecurity, metricNote('Reduced subconscious response.', 'Use it as a stabilizing behavior when pressure rises.')),
+    renderMetric('First vowel', chart.advanced.firstVowel, metricNote('The first vowel is read as instinctive emotional tone.', 'It hints at the first private reaction before the public mask appears.')),
+    renderMetric('Cornerstone', chart.advanced.cornerstone, metricNote('The first letter of the name.', 'It suggests how the person begins, approaches, or initiates.')),
+    renderMetric('Capstone', chart.advanced.capstone, metricNote('The final letter of the name.', 'It suggests how the person completes, exits, or finishes.')),
+    renderMetric('Inclusion table', Object.entries(chart.advanced.inclusion).map(([n, c]) => `${n}:${c}`).join('  '), metricNote('Letter counts by number.', 'Repeated numbers show emphasis; missing numbers show development areas.'))
   ].join('');
 
   document.getElementById('timeline').innerHTML = chart.timeline.map((item, index) => `
@@ -516,11 +523,9 @@ function renderChart(chart) {
     </article>
   `).join('');
 
-  const groupedCoverage = [
-    ['Name numbers', WORKSHEET_COVERAGE.slice(0, 8).map(([name]) => name)],
-    ['Birth and calendar numbers', WORKSHEET_COVERAGE.slice(8, 15).map(([name]) => name)],
-    ['Advanced and other numbers', WORKSHEET_COVERAGE.slice(15).map(([name]) => name)]
-  ];
+  const groupedCoverage = ['Foundation', 'Name numbers', 'Chosen numbers', 'Birth numbers', 'Life periods', 'Calendar cycles', 'Important years', 'Advanced timing', 'Other numbers']
+    .map((group) => [group, WORKSHEET_COVERAGE.filter((item) => item.group === group)])
+    .filter(([, items]) => items.length);
   document.getElementById('worksheetGrid').innerHTML = groupedCoverage.map(([title, items]) => renderCoverageCard(title, items)).join('');
 
   const combo = [
@@ -533,37 +538,37 @@ function renderChart(chart) {
 
   const milestone = chart.cycles.milestone;
   document.getElementById('importantYearGrid').innerHTML = [
-    renderMetric('Current age', milestone.age, milestone.currentMilestone ? 'Milestone year now' : `Next 9-year milestone age ${milestone.nextAge}`),
-    renderMetric('Next milestone year', milestone.nextYear, 'Nine-year rhythm marker'),
-    renderMetric('Highlight year', chart.cycles.highlightYear, 'Life Path blended with Personal Year'),
-    renderMetric('Red-letter year', chart.cycles.redLetterYear ? 'Yes' : 'No', 'Personal Year matching a core chart number'),
-    renderMetric('Maturity number', chart.core.maturity, 'Life Path plus Name Number'),
-    renderMetric('Universal year', chart.cycles.universalYear, 'Collective calendar reduction'),
-    renderMetric('Overtone number', chart.cycles.overtone, 'Personal Year plus Universal Year'),
-    renderMetric('Triad numbers', chart.cycles.triad.join(' / '), 'Personal Year, Month, Day')
+    renderMetric('Current age', milestone.age, metricNote('Used for milestone and progression timing.', milestone.currentMilestone ? 'You are in a milestone age now.' : `Next 9-year milestone age is ${milestone.nextAge}.`)),
+    renderMetric('Next milestone year', milestone.nextYear, metricNote('A nine-year rhythm marker.', 'Use it as a checkpoint year for review and redirection.')),
+    renderMetric('Highlight year', chart.cycles.highlightYear, metricNote('Life Path blended with Personal Year.', 'It shows which core life lesson is highlighted this year.')),
+    renderMetric('Red-letter year', chart.cycles.redLetterYear ? 'Yes' : 'No', metricNote('Personal Year matching a core chart number.', 'If yes, the year repeats a major personal theme.')),
+    renderMetric('Maturity number', chart.core.maturity, metricNote('Life Path plus Name Number.', 'Read it as what experience asks you to grow into.')),
+    renderMetric('Universal year', chart.cycles.universalYear, metricNote('Collective calendar reduction.', 'Compare collective climate with your personal cycle.')),
+    renderMetric('Overtone number', chart.cycles.overtone, metricNote('Personal Year plus Universal Year.', 'Use it as the blended atmosphere around the current year.')),
+    renderMetric('Triad numbers', chart.cycles.triad.join(' / '), metricNote('Personal Year, Month, Day.', 'Use this as a timing stack rather than three unrelated numbers.'))
   ].join('');
 
   const activeLetters = chart.advanced.progressed.map((item) => `${item.word}: ${item.letter}${item.value ? ` (${item.value})` : ''}`).join('  ');
   document.getElementById('progressionGrid').innerHTML = [
-    renderMetric('Progressed letters', activeLetters || '-', 'Active name letters by current age'),
-    renderMetric('Essence number', chart.advanced.essence, meaning(chart.advanced.essence).keywords),
-    renderMetric('Hidden essence', chart.advanced.hiddenEssence, 'Essence blended with Personal Year'),
-    renderMetric('Hidden cross', chart.advanced.hiddenCross.reduced, chart.advanced.hiddenCross.details),
-    renderMetric('Type and traits', Object.entries(chart.advanced.typeTraits).map(([k, v]) => `${k}:${v}`).join('  '), 'Grouped inclusion-table distribution'),
-    renderMetric('Malefic / karmic-debt flags', chart.advanced.malefic.length ? chart.advanced.malefic.join(', ') : 'None', 'Watches raw 13, 14, 16, and 19 totals')
+    renderMetric('Progressed letters', activeLetters || '-', metricNote('Active name letters by current age.', 'Read them as qualities temporarily emphasized in this life stage.')),
+    renderMetric('Essence number', chart.advanced.essence, metricNote('Reduced total of active progressed letters.', `This period asks for ${meaning(chart.advanced.essence).keywords}.`)),
+    renderMetric('Hidden essence', chart.advanced.hiddenEssence, metricNote('Essence blended with Personal Year.', 'Read it as the quieter undercurrent beneath the visible year.')),
+    renderMetric('Hidden cross', chart.advanced.hiddenCross.reduced, metricNote('Cross values 2, 4, 5, 6, and 8 in the inclusion table.', chart.advanced.hiddenCross.details)),
+    renderMetric('Type and traits', Object.entries(chart.advanced.typeTraits).map(([k, v]) => `${k}:${v}`).join('  '), metricNote('Grouped distribution across practical, mental, emotional, and intuitive planes.', 'The strongest group is the default mode; the weakest group is a development area.')),
+    renderMetric('Malefic / karmic-debt flags', chart.advanced.malefic.length ? chart.advanced.malefic.join(', ') : 'None', metricNote('Watches raw 13, 14, 16, and 19 totals.', 'Use flags as caution themes, not fear-based predictions.'))
   ].join('');
 
   const choice = chart.advanced.choice;
   document.getElementById('choiceGrid').innerHTML = choice ? [
-    renderMetric('Chosen item', chart.input.chosenNumber, 'Phone, email, address, business, pet, or plate'),
-    renderMetric('Chosen raw total', choice.raw, `${choice.letters} letters and ${choice.digits} digits counted`),
-    renderMetric('Chosen reduced number', choice.reduced, meaning(choice.reduced).keywords),
-    renderMetric('Use case note', meaning(choice.reduced).title, 'Compare the tone with the practical purpose of the item')
+    renderMetric('Chosen item', chart.input.chosenNumber, metricNote('Phone, email, address, business, pet, or plate.', 'This is a symbolic tone check for something you can choose or rename.')),
+    renderMetric('Chosen raw total', choice.raw, metricNote(`${choice.letters} letters and ${choice.digits} digits counted.`, 'Raw total preserves extra context before reduction.')),
+    renderMetric('Chosen reduced number', choice.reduced, metricNote('The main symbolic tone of the chosen item.', `Read it as ${meaning(choice.reduced).keywords}.`)),
+    renderMetric('Use case note', meaning(choice.reduced).title, metricNote('Compares the number with the item’s purpose.', 'For example, a business name may want clarity, trust, growth, or authority depending on your goal.'))
   ].join('') : [
-    renderMetric('No chosen item entered', 'Optional', 'Add a phone, email, address, business name, pet name, or plate to evaluate it.'),
-    renderMetric('Baby naming / business naming', 'Supported', 'Enter the proposed name in this field or the full-name field.'),
-    renderMetric('House / office / P.O. box', 'Supported', 'Digits and letters are both reduced.'),
-    renderMetric('Pets and vanity plates', 'Supported', 'Works as a symbolic label check.')
+    renderMetric('No chosen item entered', 'Optional', metricNote('This section evaluates numbers you can choose.', 'Add a phone, email, address, business name, pet name, or plate to evaluate it.')),
+    renderMetric('Baby naming / business naming', 'Supported', metricNote('Names can be compared before choosing them.', 'Enter the proposed name here or in the full-name field.')),
+    renderMetric('House / office / P.O. box', 'Supported', metricNote('Addresses and boxes often contain digits and letters.', 'The app reduces both into one symbolic tone.')),
+    renderMetric('Pets and vanity plates', 'Supported', metricNote('Labels can carry playful or personal symbolism.', 'Use this as a fit check, not a rule.'))
   ].join('');
 }
 
