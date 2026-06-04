@@ -23,18 +23,18 @@ const CHALDEAN = {
 };
 
 const MEANINGS = {
-  1: { title: 'Originator', keywords: 'initiative, identity, leadership', text: 'A one vibration focuses attention on independence, direction, courage, and the need to act without waiting for permission.' },
-  2: { title: 'Diplomat', keywords: 'cooperation, tact, sensitivity', text: 'Two works through relationship, listening, mediation, rhythm, and the skill of creating peace without disappearing.' },
-  3: { title: 'Messenger', keywords: 'expression, joy, imagination', text: 'Three is linked with language, creativity, performance, humor, and the discipline needed to finish what inspiration begins.' },
-  4: { title: 'Builder', keywords: 'structure, work, reliability', text: 'Four emphasizes systems, patience, loyalty, craft, and the practical effort required to turn ideas into something usable.' },
-  5: { title: 'Explorer', keywords: 'change, freedom, versatility', text: 'Five brings movement, curiosity, sensory intelligence, travel, risk, and lessons around responsible freedom.' },
-  6: { title: 'Guardian', keywords: 'care, beauty, responsibility', text: 'Six is associated with home, repair, teaching, harmony, service, and the boundary between care and over-responsibility.' },
-  7: { title: 'Seeker', keywords: 'analysis, solitude, wisdom', text: 'Seven points toward research, spiritual inquiry, skepticism, privacy, study, and learning to trust quiet knowledge.' },
-  8: { title: 'Executor', keywords: 'power, finance, authority', text: 'Eight speaks to management, ambition, material results, endurance, and the ethical handling of influence.' },
-  9: { title: 'Humanitarian', keywords: 'completion, compassion, breadth', text: 'Nine widens the frame toward empathy, art, endings, forgiveness, global perspective, and service beyond the self.' },
-  11: { title: 'Illuminator', keywords: 'intuition, vision, inspiration', text: 'Master 11 intensifies the two: sensitivity, symbolic insight, nervous voltage, and the call to inspire rather than withdraw.' },
-  22: { title: 'Master builder', keywords: 'scale, strategy, manifestation', text: 'Master 22 intensifies the four: large plans, real-world building, organization, and the pressure of high expectations.' },
-  33: { title: 'Master teacher', keywords: 'compassion, healing, devotion', text: 'Master 33 intensifies the six: selfless service, creative teaching, emotional maturity, and care with wisdom.' }
+  1: { title: 'Originator', keywords: 'initiative, identity, leadership', strength: 'You are at your best when you choose a direction, take ownership, and start before everyone agrees.', friction: 'The trap is impatience, pride, or feeling you must do everything alone.', guidance: 'Pick one clear goal, make the first move, and practice leading without dismissing other people.' },
+  2: { title: 'Diplomat', keywords: 'cooperation, tact, sensitivity', strength: 'You notice tone, timing, and other people’s needs, which makes you good at partnership and mediation.', friction: 'The trap is avoiding conflict until resentment builds, or shrinking yourself to keep peace.', guidance: 'Say what you need early, choose balanced relationships, and use your sensitivity as information rather than fear.' },
+  3: { title: 'Messenger', keywords: 'expression, joy, imagination', strength: 'You bring ideas to life through words, humor, creativity, and emotional color.', friction: 'The trap is scattering energy, talking about the idea more than finishing it, or hiding behind charm.', guidance: 'Choose one creative outlet, finish small pieces often, and say the true thing simply.' },
+  4: { title: 'Builder', keywords: 'structure, work, reliability', strength: 'You can turn vague ideas into real systems through discipline, patience, and practical effort.', friction: 'The trap is rigidity, fear of change, or measuring your worth only by productivity.', guidance: 'Build routines that support you, leave room for flexibility, and let slow progress count.' },
+  5: { title: 'Explorer', keywords: 'change, freedom, versatility', strength: 'You adapt quickly, learn through experience, and bring life into stale situations.', friction: 'The trap is restlessness, overpromising, or escaping when commitment becomes boring.', guidance: 'Give yourself variety, but set a few non-negotiable anchors so freedom does not turn into chaos.' },
+  6: { title: 'Guardian', keywords: 'care, beauty, responsibility', strength: 'You naturally protect, repair, teach, and improve the environment around you.', friction: 'The trap is carrying everyone, judging what is imperfect, or confusing love with control.', guidance: 'Help where help is welcome, keep your standards kind, and make your own peace part of the duty list.' },
+  7: { title: 'Seeker', keywords: 'analysis, solitude, wisdom', strength: 'You are strong at research, pattern recognition, inner work, and seeing beneath surface explanations.', friction: 'The trap is isolation, suspicion, overthinking, or waiting for perfect certainty.', guidance: 'Protect quiet study time, then share what you learn in plain language and test ideas in real life.' },
+  8: { title: 'Executor', keywords: 'power, finance, authority', strength: 'You can handle responsibility, resources, pressure, and large practical goals.', friction: 'The trap is control, burnout, status anxiety, or treating life like a scoreboard.', guidance: 'Define success ethically, delegate earlier, and use power to create stability rather than tension.' },
+  9: { title: 'Humanitarian', keywords: 'completion, compassion, breadth', strength: 'You see the bigger picture and can care about people beyond your immediate circle.', friction: 'The trap is rescuing, disappointment, unfinished endings, or giving until you feel empty.', guidance: 'Choose causes carefully, finish old emotional chapters, and serve without losing your boundaries.' },
+  11: { title: 'Illuminator', keywords: 'intuition, vision, inspiration', strength: 'You sense subtle patterns and can inspire people through insight, art, teaching, or example.', friction: 'The trap is nervous overload, self-doubt, or living in ideals without grounding them.', guidance: 'Write down your insights, keep your body/routine steady, and turn inspiration into one practical action.' },
+  22: { title: 'Master builder', keywords: 'scale, strategy, manifestation', strength: 'You can think big and still care about structure, making you suited to serious long-range building.', friction: 'The trap is pressure, perfectionism, or abandoning the plan because it feels too large.', guidance: 'Break the vision into phases, build with trustworthy people, and measure progress by foundations laid.' },
+  33: { title: 'Master teacher', keywords: 'compassion, healing, devotion', strength: 'You can guide, heal, teach, and hold people with unusual warmth when you are balanced.', friction: 'The trap is martyrdom, emotional exhaustion, or trying to save people from lessons they must learn.', guidance: 'Serve through clear boundaries, teach by example, and let care include yourself.' }
 };
 
 const LIBRARY = [
@@ -56,14 +56,14 @@ const LIBRARY = [
 ];
 
 const ASK_KNOWLEDGE = [
-  { terms: ['life path', 'lifepath'], title: 'Life Path', answer: 'Life Path is the main birth-date theme. Read it as the broad road-map: repeated lessons, the kind of growth that makes life feel aligned, and the situations that keep teaching you.' },
-  { terms: ['birthday', 'birth day'], title: 'Birthday Number', answer: 'Birthday Number is the day-of-month gift. It is usually an easy-access talent or natural style. It shows what comes naturally, not the whole personality.' },
-  { terms: ['name number', 'expression', 'destiny'], title: 'Name Number / Expression', answer: 'Name Number, also called Expression, comes from the full name. It describes your outer toolkit: how you express ability, work, create, communicate, or build in the world.' },
-  { terms: ['heart', 'soul urge', 'vowel'], title: 'Heart / Soul Urge', answer: 'Heart Number or Soul Urge comes from vowels. Read it as private motivation: what feels emotionally satisfying even when other people cannot see it.' },
-  { terms: ['personality', 'consonant'], title: 'Personality Number', answer: 'Personality Number comes from consonants. It describes the first layer others meet: social style, first impression, and the protective surface.' },
-  { terms: ['maturity'], title: 'Maturity Number', answer: 'Maturity combines Life Path and Name Number. Read it as what you grow into with age, choices, and experience.' },
-  { terms: ['pinnacle', 'pinnacles'], title: 'Pinnacles', answer: 'Pinnacles divide life into four growth periods. Each pinnacle shows the environment or opportunity theme of that period.' },
-  { terms: ['challenge', 'challenges'], title: 'Challenges', answer: 'Challenges sit beside pinnacles. They show the skill being tested during a life period: not a punishment, but the friction that asks for development.' },
+  { terms: ['life path', 'lifepath'], title: 'Life Path', answer: 'Life Path is the first number to read. It tells you the main kind of lesson or situation life keeps bringing back. Use it to decide what behavior makes you stronger, and what pattern you should stop repeating.' },
+  { terms: ['birthday', 'birth day'], title: 'Birthday Number', answer: 'Birthday Number is your easy natural gift. It answers: “What do I already know how to do without trying too hard?” Use it when you need a quick strength to lean on.' },
+  { terms: ['name number', 'expression', 'destiny'], title: 'Name Number / Expression', answer: 'Expression shows your practical toolkit. Use it for work, public life, and skill development. It answers: “What am I meant to build, express, or become good at?”' },
+  { terms: ['heart', 'soul urge', 'vowel'], title: 'Heart / Soul Urge', answer: 'Heart Number shows private happiness. It answers: “What do I actually need inside?” If life looks successful but feels empty, check this number.' },
+  { terms: ['personality', 'consonant'], title: 'Personality Number', answer: 'Personality Number shows first impression. It answers: “How do people read me before they know me?” Use it to understand your public mask and social style.' },
+  { terms: ['maturity'], title: 'Maturity Number', answer: 'Maturity Number is the later-life target. It answers: “What do I grow into when I finally integrate my lessons and abilities?”' },
+  { terms: ['pinnacle', 'pinnacles'], title: 'Pinnacles', answer: 'Pinnacles show the main opportunity of a life period. Read each one as the kind of environment life is pushing you to grow through during that age range.' },
+  { terms: ['challenge', 'challenges'], title: 'Challenges', answer: 'Challenges show the friction inside each life period. They answer: “What skill do I need to build so this period does not keep hurting me?”' },
   { terms: ['personal year'], title: 'Personal Year', answer: 'Personal Year is the main theme of the current year for you. Use it for planning the season: beginnings, patience, expression, discipline, change, care, study, power, or completion.' },
   { terms: ['personal month'], title: 'Personal Month', answer: 'Personal Month is the current monthly chapter inside the Personal Year. It is useful for short-term focus.' },
   { terms: ['personal day'], title: 'Personal Day', answer: 'Personal Day is the immediate daily tone. Treat it as a mood/action prompt, not a prediction.' },
@@ -99,14 +99,14 @@ const CORE_DESCRIPTIONS = {
 };
 
 const CORE_PERSONAL_PROMPTS = {
-  lifePath: 'Use this as the broad road-map: the situations you repeatedly meet, the lesson that keeps returning, and the kind of growth that tends to make life feel on track.',
-  birthday: 'Read this as an easy-access talent. It often describes a natural style you do not have to force, but still need to use maturely.',
-  expression: 'This describes your working toolkit: how your name pattern suggests you build, communicate, lead, support, analyze, or create in the world.',
-  soulUrge: 'This points to what feels emotionally satisfying. When ignored, it can show up as restlessness even when life looks fine from outside.',
-  personality: 'This is the first layer others often meet. It is useful for understanding your social impression, not your whole self.',
-  maturity: 'This is the integration number: what your chart is asking you to grow into with age, experience, and repeated choices.',
-  balance: 'This is a stress-response hint. It suggests what kind of behavior can bring you back to center when pressure rises.',
-  rationalThought: 'This is the practical thinking pattern: how you tend to approach decisions, plans, details, and problem solving.'
+  lifePath: 'Use this first. It tells you the main kind of problem life keeps asking you to solve and the kind of behavior that makes you feel aligned.',
+  birthday: 'Use this as your quick natural gift. If you are stuck, this number shows the style that usually comes easiest to you.',
+  expression: 'Use this for career, public work, and long-term ability. It shows what tools your name suggests you are here to develop and use.',
+  soulUrge: 'Use this for private happiness. It shows what you need emotionally, even if your public personality acts differently.',
+  personality: 'Use this for first impressions. It tells you how you may look from outside before people understand your deeper motives.',
+  maturity: 'Use this as your later-life target. It shows what your chart becomes stronger at when experience starts integrating your lessons.',
+  balance: 'Use this when stressed. It suggests the quickest behavior that can bring you back to center.',
+  rationalThought: 'Use this for decisions. It shows the style your mind often uses when solving practical problems.'
 };
 
 const WORKSHEET_COVERAGE = [
@@ -471,14 +471,17 @@ function renderReportSummary(chart) {
       <h3>${escapeHtml(chart.input.fullName)} · ${escapeHtml(chart.birth.year)}-${String(chart.birth.month).padStart(2, '0')}-${String(chart.birth.day).padStart(2, '0')}</h3>
       <p>
         Your chart centers on Life Path ${chart.core.lifePath}, the ${escapeHtml(path.title.toLowerCase())} pattern.
-        In plain words, this reading is about ${escapeHtml(path.keywords)}. Your Heart ${chart.core.soulUrge}
-        (${escapeHtml(inner.title)}) describes what privately motivates you, while Personality ${chart.core.personality}
-        (${escapeHtml(outer.title)}) describes the style others meet first.
+        This means your strongest growth comes from this practical lesson: ${escapeHtml(path.guidance)}
+        Your Heart ${chart.core.soulUrge} (${escapeHtml(inner.title)}) shows what keeps you emotionally fed:
+        ${escapeHtml(inner.strength)} Your Personality ${chart.core.personality} (${escapeHtml(outer.title)})
+        shows the style others may notice first.
       </p>
     </div>
     <ul>
-      <li><b>This year:</b> Personal Year ${chart.cycles.personalYear} brings a ${escapeHtml(year.title.toLowerCase())} tone: ${escapeHtml(year.keywords)}.</li>
-      <li><b>Growth direction:</b> Maturity ${chart.core.maturity} asks you to integrate ${escapeHtml(meaning(chart.core.maturity).keywords)} over time.</li>
+      <li><b>Your useful strength:</b> ${escapeHtml(path.strength)}</li>
+      <li><b>Your likely friction:</b> ${escapeHtml(path.friction)}</li>
+      <li><b>This year:</b> Personal Year ${chart.cycles.personalYear} asks you to practice this: ${escapeHtml(year.guidance)}</li>
+      <li><b>Growth direction:</b> Maturity ${chart.core.maturity} points toward ${escapeHtml(meaning(chart.core.maturity).guidance)}</li>
       <li><b>Watch point:</b> ${chart.advanced.karmicLessons.length ? `Missing name-table numbers ${chart.advanced.karmicLessons.join(', ')} can be read as skills to practice consciously.` : 'Your name table contains every 1-9 value, so the reading emphasizes balance rather than absent-number lessons.'}</li>
       <li><b>Chosen number:</b> ${choice ? `${escapeHtml(chart.input.chosenNumber)} reduces to ${choice.reduced}, a ${escapeHtml(meaning(choice.reduced).title.toLowerCase())} tone.` : 'Add a phone, address, email, business name, pet name, or plate to compare its symbolic tone.'}</li>
     </ul>
@@ -509,6 +512,9 @@ function renderChart(chart) {
         <h4>${escapeHtml(data.title)} · ${escapeHtml(data.keywords)}</h4>
         <p><b>What it is:</b> ${escapeHtml(CORE_DESCRIPTIONS[key])}</p>
         <p><b>What it means to you:</b> ${escapeHtml(CORE_PERSONAL_PROMPTS[key])}</p>
+        <p><b>Strength:</b> ${escapeHtml(data.strength)}</p>
+        <p><b>Friction:</b> ${escapeHtml(data.friction)}</p>
+        <p><b>Use it like this:</b> ${escapeHtml(data.guidance)}</p>
       </article>
     `;
   }).join('');
@@ -520,7 +526,9 @@ function renderChart(chart) {
       <article class="detail-card">
         <span>${label}: ${value}</span>
         <h4>${escapeHtml(data.title)} — ${escapeHtml(data.keywords)}</h4>
-        <p>${escapeHtml(data.text)}</p>
+        <p><b>Strength:</b> ${escapeHtml(data.strength)}</p>
+        <p><b>Friction:</b> ${escapeHtml(data.friction)}</p>
+        <p><b>Practical guidance:</b> ${escapeHtml(data.guidance)}</p>
       </article>
     `;
   }).join('');
@@ -612,7 +620,10 @@ function renderMeanings() {
         <strong>${number}</strong>
         <div>
           <h3>${escapeHtml(item.title)}</h3>
-          <p><b>${escapeHtml(item.keywords)}.</b> ${escapeHtml(item.text)}</p>
+          <p><b>${escapeHtml(item.keywords)}.</b></p>
+          <p><b>Strength:</b> ${escapeHtml(item.strength)}</p>
+          <p><b>Friction:</b> ${escapeHtml(item.friction)}</p>
+          <p><b>Guidance:</b> ${escapeHtml(item.guidance)}</p>
         </div>
       </article>
     `;
