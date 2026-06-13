@@ -98,7 +98,9 @@ const UI_TEXT = {
     'Open reference': 'Abrir referencia',
     'You': 'Tú',
     'See worksheet guide': 'Ver guía de hoja',
-    'Try asking about a chart term': 'Prueba preguntando por un término del chart'
+    'Try asking about a chart term': 'Prueba preguntando por un término del chart',
+    'askFallback': 'Puedo explicar Camino de Vida, Número del Corazón, Personalidad, Pináculos, Desafíos, Año Personal, Esencia, Tabla de Inclusión, Lecciones Kármicas, Cruz Oculta, números elegidos y límites de evidencia.',
+    'askWelcome': 'Pregunta cosas como “¿Qué es Camino de Vida?”, “¿Cómo leo Lecciones Kármicas?” o “¿Qué es Esencia?”'
   },
   hi: {
     'Life Path': 'जीवन पथ',
@@ -174,7 +176,9 @@ const UI_TEXT = {
     'Open reference': 'संदर्भ खोलें',
     'You': 'आप',
     'See worksheet guide': 'वर्कशीट गाइड देखें',
-    'Try asking about a chart term': 'किसी चार्ट शब्द के बारे में पूछें'
+    'Try asking about a chart term': 'किसी चार्ट शब्द के बारे में पूछें',
+    'askFallback': 'मैं जीवन पथ, हृदय नंबर, व्यक्तित्व, शिखर, चुनौतियां, व्यक्तिगत वर्ष, सार, समावेशन तालिका, कर्मिक पाठ, छिपा क्रॉस, चुने गए नंबर और प्रमाण सीमाएं समझा सकता हूँ।',
+    'askWelcome': 'ऐसे पूछें: “जीवन पथ क्या है?”, “कर्मिक पाठ कैसे पढ़ें?” या “सार क्या है?”'
   },
   ja: {
     'Life Path': 'ライフパス',
@@ -250,7 +254,9 @@ const UI_TEXT = {
     'Open reference': '参考を開く',
     'You': 'あなた',
     'See worksheet guide': 'ワークシートガイドを見る',
-    'Try asking about a chart term': 'チャート用語について質問してみてください'
+    'Try asking about a chart term': 'チャート用語について質問してみてください',
+    'askFallback': 'ライフパス、ハート数、人格、ピナクル、チャレンジ、個人年、エッセンス、インクルージョン表、カルマレッスン、隠れたクロス、選んだ数字、根拠の限界を説明できます。',
+    'askWelcome': '「ライフパスとは？」「カルマレッスンはどう読む？」「エッセンスとは？」のように質問できます。'
   },
   ne: {
     'Life Path': 'जीवन पथ',
@@ -326,7 +332,9 @@ const UI_TEXT = {
     'Open reference': 'सन्दर्भ खोल्नुहोस्',
     'You': 'तपाईं',
     'See worksheet guide': 'वर्कसिट गाइड हेर्नुहोस्',
-    'Try asking about a chart term': 'चार्ट शब्दबारे सोधेर हेर्नुहोस्'
+    'Try asking about a chart term': 'चार्ट शब्दबारे सोधेर हेर्नुहोस्',
+    'askFallback': 'म जीवन पथ, हृदय नम्बर, व्यक्तित्व, पिनाकल, चुनौती, व्यक्तिगत वर्ष, सार, समावेश तालिका, कर्मिक पाठ, लुकेको क्रस, छानिएका नम्बर र प्रमाण सीमाहरू बुझाउन सक्छु।',
+    'askWelcome': '“जीवन पथ के हो?”, “कर्मिक पाठ कसरी पढ्ने?” वा “सार के हो?” जस्ता कुरा सोध्नुहोस्।'
   }
 };
 
@@ -1286,7 +1294,7 @@ function askAnswer(question) {
   if (worksheetHit) {
     return `<strong>${escapeHtml(localText(worksheetHit.name))}</strong>${escapeHtml(localText(worksheetHit.purpose))} <em>${escapeHtml(ui('How to read it:'))}</em> ${escapeHtml(localText(worksheetHit.read))} <a href="#worksheet">${escapeHtml(ui('See worksheet guide'))}</a>`;
   }
-  return `<strong>${escapeHtml(ui('Try asking about a chart term'))}</strong>I can explain Life Path, Heart Number, Personality, Pinnacles, Challenges, Personal Year, Essence, Inclusion Table, Karmic Lessons, Hidden Cross, chosen numbers, and evidence limits.`;
+  return `<strong>${escapeHtml(ui('Try asking about a chart term'))}</strong>${escapeHtml(ui('askFallback'))}`;
 }
 
 function openAskPanel() {
@@ -1294,7 +1302,7 @@ function openAskPanel() {
   panel.hidden = false;
   document.getElementById('askToggle').setAttribute('aria-expanded', 'true');
   if (!document.getElementById('askMessages').children.length) {
-    addAskMessage('bot', `<strong>${escapeHtml(ui('Try asking about a chart term'))}</strong>Ask me things like “What is Life Path?”, “How do I read Karmic Lessons?”, or “What is Essence?”`);
+    addAskMessage('bot', `<strong>${escapeHtml(ui('Try asking about a chart term'))}</strong>${escapeHtml(ui('askWelcome'))}`);
   }
   document.getElementById('askInput').focus();
 }
