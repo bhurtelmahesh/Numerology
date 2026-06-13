@@ -22,6 +22,507 @@ const CHALDEAN = {
   F: 8, P: 8
 };
 
+const PAGE_LANG = document.documentElement.lang || 'en';
+const UI_TEXT = {
+  es: {
+    'Life Path': 'Camino de Vida',
+    'Birthday': 'Cumpleaños',
+    'Name Number / Expression': 'Número del Nombre / Expresión',
+    'Soul Urge / Heart': 'Impulso del Alma / Corazón',
+    'Personality': 'Personalidad',
+    'Maturity': 'Madurez',
+    'Balance': 'Equilibrio',
+    'Rational Thought': 'Pensamiento Racional',
+    'What it is:': 'Qué es:',
+    'What it means to you:': 'Qué significa para ti:',
+    'Strength:': 'Fortaleza:',
+    'Friction:': 'Fricción:',
+    'Use it like this:': 'Úsalo así:',
+    'Practical guidance:': 'Guía práctica:',
+    'Personal Year': 'Año Personal',
+    'Personal Month': 'Mes Personal',
+    'Personal Day': 'Día Personal',
+    'Universal Year': 'Año Universal',
+    'Triad': 'Tríada',
+    'Overtone': 'Sobretono',
+    'Karmic lessons': 'Lecciones Kármicas',
+    'Hidden passion / Intensification': 'Pasión Oculta / Intensificación',
+    'Subconscious response': 'Respuesta Subconsciente',
+    'Point of security': 'Punto de Seguridad',
+    'First vowel': 'Primera Vocal',
+    'Cornerstone': 'Piedra Angular',
+    'Capstone': 'Letra Final',
+    'Inclusion table': 'Tabla de Inclusión',
+    'Pinnacle:': 'Pináculo:',
+    'Challenge:': 'Desafío:',
+    'Foundation': 'Fundamentos',
+    'Name numbers': 'Números del Nombre',
+    'Chosen numbers': 'Números Elegidos',
+    'Birth numbers': 'Números de Nacimiento',
+    'Life periods': 'Períodos de Vida',
+    'Calendar cycles': 'Ciclos del Calendario',
+    'Important years': 'Años Importantes',
+    'Advanced timing': 'Temporalidad Avanzada',
+    'Other numbers': 'Otros Números',
+    'Combination synthesis': 'Síntesis de Combinación',
+    'Current age': 'Edad Actual',
+    'Next milestone year': 'Próximo Año Hito',
+    'Highlight year': 'Año Destacado',
+    'Red-letter year': 'Año Señalado',
+    'Maturity number': 'Número de Madurez',
+    'Overtone number': 'Número de Sobretono',
+    'Triad numbers': 'Números de Tríada',
+    'Progressed letters': 'Letras Progresadas',
+    'Essence number': 'Número de Esencia',
+    'Hidden essence': 'Esencia Oculta',
+    'Hidden cross': 'Cruz Oculta',
+    'Type and traits': 'Tipo y Rasgos',
+    'Malefic / karmic-debt flags': 'Señales Maléficas / Deuda Kármica',
+    'Chosen item': 'Elemento Elegido',
+    'Chosen raw total': 'Total Bruto Elegido',
+    'Chosen reduced number': 'Número Reducido Elegido',
+    'Use case note': 'Nota de Uso',
+    'No chosen item entered': 'No se ingresó elemento elegido',
+    'Baby naming / business naming': 'Nombres de bebé / negocio',
+    'House / office / P.O. box': 'Casa / oficina / apartado postal',
+    'Pets and vanity plates': 'Mascotas y placas personalizadas',
+    'Reading report': 'Informe de lectura',
+    'summaryIntro': 'Tu carta se centra en Camino de Vida {lifePath}, el patrón {path}. Esto significa que tu crecimiento más fuerte viene de esta lección práctica: {guidance} Tu Corazón {soulUrge} ({inner}) muestra lo que te alimenta emocionalmente: {innerStrength} Tu Personalidad {personality} ({outer}) muestra el estilo que otros pueden notar primero.',
+    'Your useful strength:': 'Tu fortaleza útil:',
+    'Your likely friction:': 'Tu fricción probable:',
+    'This year:': 'Este año:',
+    'Growth direction:': 'Dirección de crecimiento:',
+    'Watch point:': 'Punto de atención:',
+    'Chosen number:': 'Número elegido:',
+    'How to read it:': 'Cómo leerlo:',
+    'Open reference': 'Abrir referencia',
+    'You': 'Tú',
+    'See worksheet guide': 'Ver guía de hoja',
+    'Try asking about a chart term': 'Prueba preguntando por un término del chart'
+  },
+  hi: {
+    'Life Path': 'जीवन पथ',
+    'Birthday': 'जन्मदिन',
+    'Name Number / Expression': 'नाम नंबर / अभिव्यक्ति',
+    'Soul Urge / Heart': 'आत्म आग्रह / हृदय',
+    'Personality': 'व्यक्तित्व',
+    'Maturity': 'परिपक्वता',
+    'Balance': 'संतुलन',
+    'Rational Thought': 'तार्किक विचार',
+    'What it is:': 'यह क्या है:',
+    'What it means to you:': 'आपके लिए अर्थ:',
+    'Strength:': 'ताकत:',
+    'Friction:': 'घर्षण:',
+    'Use it like this:': 'इसे ऐसे उपयोग करें:',
+    'Practical guidance:': 'व्यावहारिक मार्गदर्शन:',
+    'Personal Year': 'व्यक्तिगत वर्ष',
+    'Personal Month': 'व्यक्तिगत महीना',
+    'Personal Day': 'व्यक्तिगत दिन',
+    'Universal Year': 'सार्वभौमिक वर्ष',
+    'Triad': 'त्रय',
+    'Overtone': 'ओवरटोन',
+    'Karmic lessons': 'कर्मिक पाठ',
+    'Hidden passion / Intensification': 'छिपा जुनून / तीव्रता',
+    'Subconscious response': 'अवचेतन प्रतिक्रिया',
+    'Point of security': 'सुरक्षा बिंदु',
+    'First vowel': 'पहला स्वर',
+    'Cornerstone': 'आरंभ अक्षर',
+    'Capstone': 'अंतिम अक्षर',
+    'Inclusion table': 'समावेशन तालिका',
+    'Pinnacle:': 'शिखर:',
+    'Challenge:': 'चुनौती:',
+    'Foundation': 'आधार',
+    'Name numbers': 'नाम नंबर',
+    'Chosen numbers': 'चुने गए नंबर',
+    'Birth numbers': 'जन्म नंबर',
+    'Life periods': 'जीवन काल',
+    'Calendar cycles': 'कैलेंडर चक्र',
+    'Important years': 'महत्वपूर्ण वर्ष',
+    'Advanced timing': 'उन्नत समय',
+    'Other numbers': 'अन्य नंबर',
+    'Combination synthesis': 'संयोजन सार',
+    'Current age': 'वर्तमान आयु',
+    'Next milestone year': 'अगला मील का पत्थर वर्ष',
+    'Highlight year': 'प्रमुख वर्ष',
+    'Red-letter year': 'विशेष वर्ष',
+    'Maturity number': 'परिपक्वता नंबर',
+    'Overtone number': 'ओवरटोन नंबर',
+    'Triad numbers': 'त्रय नंबर',
+    'Progressed letters': 'प्रगत अक्षर',
+    'Essence number': 'सार नंबर',
+    'Hidden essence': 'छिपा सार',
+    'Hidden cross': 'छिपा क्रॉस',
+    'Type and traits': 'प्रकार और गुण',
+    'Malefic / karmic-debt flags': 'मालेफ़िक / कर्मिक ऋण संकेत',
+    'Chosen item': 'चुना गया आइटम',
+    'Chosen raw total': 'चुना गया कच्चा योग',
+    'Chosen reduced number': 'चुना गया घटाया नंबर',
+    'Use case note': 'उपयोग नोट',
+    'No chosen item entered': 'कोई चुना आइटम दर्ज नहीं',
+    'Baby naming / business naming': 'बच्चे / व्यवसाय का नाम',
+    'House / office / P.O. box': 'घर / कार्यालय / पी.ओ. बॉक्स',
+    'Pets and vanity plates': 'पालतू और विशेष प्लेट',
+    'Reading report': 'रीडिंग रिपोर्ट',
+    'summaryIntro': 'आपका चार्ट जीवन पथ {lifePath}, {path} पैटर्न पर केंद्रित है। इसका अर्थ है कि आपकी सबसे मजबूत वृद्धि इस व्यावहारिक पाठ से आती है: {guidance} आपका हृदय {soulUrge} ({inner}) दिखाता है कि आपको भावनात्मक रूप से क्या पोषण देता है: {innerStrength} आपका व्यक्तित्व {personality} ({outer}) वह शैली दिखाता है जिसे लोग पहले देख सकते हैं।',
+    'Your useful strength:': 'आपकी उपयोगी ताकत:',
+    'Your likely friction:': 'आपका संभावित घर्षण:',
+    'This year:': 'इस वर्ष:',
+    'Growth direction:': 'विकास दिशा:',
+    'Watch point:': 'ध्यान बिंदु:',
+    'Chosen number:': 'चुना गया नंबर:',
+    'How to read it:': 'कैसे पढ़ें:',
+    'Open reference': 'संदर्भ खोलें',
+    'You': 'आप',
+    'See worksheet guide': 'वर्कशीट गाइड देखें',
+    'Try asking about a chart term': 'किसी चार्ट शब्द के बारे में पूछें'
+  },
+  ja: {
+    'Life Path': 'ライフパス',
+    'Birthday': '誕生日',
+    'Name Number / Expression': '名前数 / 表現',
+    'Soul Urge / Heart': 'ソウルアージ / ハート',
+    'Personality': '人格',
+    'Maturity': '成熟',
+    'Balance': 'バランス',
+    'Rational Thought': '合理的思考',
+    'What it is:': 'これは何か:',
+    'What it means to you:': 'あなたへの意味:',
+    'Strength:': '強み:',
+    'Friction:': '摩擦:',
+    'Use it like this:': '使い方:',
+    'Practical guidance:': '実用的な指針:',
+    'Personal Year': '個人年',
+    'Personal Month': '個人月',
+    'Personal Day': '個人日',
+    'Universal Year': 'ユニバーサル年',
+    'Triad': 'トライアド',
+    'Overtone': 'オーバートーン',
+    'Karmic lessons': 'カルマレッスン',
+    'Hidden passion / Intensification': '隠れた情熱 / 強調',
+    'Subconscious response': '潜在意識の反応',
+    'Point of security': '安心ポイント',
+    'First vowel': '最初の母音',
+    'Cornerstone': 'コーナーストーン',
+    'Capstone': 'キャップストーン',
+    'Inclusion table': 'インクルージョン表',
+    'Pinnacle:': 'ピナクル:',
+    'Challenge:': 'チャレンジ:',
+    'Foundation': '基礎',
+    'Name numbers': '名前の数字',
+    'Chosen numbers': '選んだ数字',
+    'Birth numbers': '出生の数字',
+    'Life periods': '人生期間',
+    'Calendar cycles': 'カレンダー周期',
+    'Important years': '重要な年',
+    'Advanced timing': '高度なタイミング',
+    'Other numbers': 'その他の数字',
+    'Combination synthesis': '組み合わせの要約',
+    'Current age': '現在の年齢',
+    'Next milestone year': '次の節目年',
+    'Highlight year': 'ハイライト年',
+    'Red-letter year': '特別年',
+    'Maturity number': '成熟数',
+    'Overtone number': 'オーバートーン数',
+    'Triad numbers': 'トライアド数',
+    'Progressed letters': '進行文字',
+    'Essence number': 'エッセンス数',
+    'Hidden essence': '隠れたエッセンス',
+    'Hidden cross': '隠れたクロス',
+    'Type and traits': 'タイプと特性',
+    'Malefic / karmic-debt flags': '凶数 / カルマ債務フラグ',
+    'Chosen item': '選択項目',
+    'Chosen raw total': '選択項目の合計',
+    'Chosen reduced number': '選択項目の還元数',
+    'Use case note': '使い方メモ',
+    'No chosen item entered': '選択項目なし',
+    'Baby naming / business naming': '赤ちゃん名 / ビジネス名',
+    'House / office / P.O. box': '家 / オフィス / 私書箱',
+    'Pets and vanity plates': 'ペットとカスタムプレート',
+    'Reading report': 'リーディングレポート',
+    'summaryIntro': 'あなたのチャートはライフパス{lifePath}、{path}のパターンを中心にしています。つまり、最も強い成長はこの実践的な課題から生まれます: {guidance} ハート{soulUrge}（{inner}）は、感情的に満たされるものを示します: {innerStrength} 人格{personality}（{outer}）は、周囲が最初に気づきやすいスタイルを示します。',
+    'Your useful strength:': '役立つ強み:',
+    'Your likely friction:': '起こりやすい摩擦:',
+    'This year:': '今年:',
+    'Growth direction:': '成長の方向:',
+    'Watch point:': '注意点:',
+    'Chosen number:': '選択番号:',
+    'How to read it:': '読み方:',
+    'Open reference': '参考を開く',
+    'You': 'あなた',
+    'See worksheet guide': 'ワークシートガイドを見る',
+    'Try asking about a chart term': 'チャート用語について質問してみてください'
+  },
+  ne: {
+    'Life Path': 'जीवन पथ',
+    'Birthday': 'जन्मदिन',
+    'Name Number / Expression': 'नाम नम्बर / अभिव्यक्ति',
+    'Soul Urge / Heart': 'आत्म आग्रह / हृदय',
+    'Personality': 'व्यक्तित्व',
+    'Maturity': 'परिपक्वता',
+    'Balance': 'सन्तुलन',
+    'Rational Thought': 'तार्किक विचार',
+    'What it is:': 'यो के हो:',
+    'What it means to you:': 'तपाईंका लागि अर्थ:',
+    'Strength:': 'बल:',
+    'Friction:': 'घर्षण:',
+    'Use it like this:': 'यसरी प्रयोग गर्नुहोस्:',
+    'Practical guidance:': 'व्यावहारिक मार्गदर्शन:',
+    'Personal Year': 'व्यक्तिगत वर्ष',
+    'Personal Month': 'व्यक्तिगत महिना',
+    'Personal Day': 'व्यक्तिगत दिन',
+    'Universal Year': 'विश्वव्यापी वर्ष',
+    'Triad': 'त्रय',
+    'Overtone': 'ओभरटोन',
+    'Karmic lessons': 'कर्मिक पाठ',
+    'Hidden passion / Intensification': 'लुकेको चाहना / तीव्रता',
+    'Subconscious response': 'अवचेतन प्रतिक्रिया',
+    'Point of security': 'सुरक्षा बिन्दु',
+    'First vowel': 'पहिलो स्वर',
+    'Cornerstone': 'आरम्भ अक्षर',
+    'Capstone': 'अन्तिम अक्षर',
+    'Inclusion table': 'समावेश तालिका',
+    'Pinnacle:': 'पिनाकल:',
+    'Challenge:': 'चुनौती:',
+    'Foundation': 'आधार',
+    'Name numbers': 'नाम नम्बर',
+    'Chosen numbers': 'छानिएका नम्बर',
+    'Birth numbers': 'जन्म नम्बर',
+    'Life periods': 'जीवन अवधि',
+    'Calendar cycles': 'क्यालेन्डर चक्र',
+    'Important years': 'महत्त्वपूर्ण वर्ष',
+    'Advanced timing': 'उन्नत समय',
+    'Other numbers': 'अन्य नम्बर',
+    'Combination synthesis': 'संयोजन सार',
+    'Current age': 'हालको उमेर',
+    'Next milestone year': 'अर्को माइलस्टोन वर्ष',
+    'Highlight year': 'हाइलाइट वर्ष',
+    'Red-letter year': 'विशेष वर्ष',
+    'Maturity number': 'परिपक्वता नम्बर',
+    'Overtone number': 'ओभरटोन नम्बर',
+    'Triad numbers': 'त्रय नम्बर',
+    'Progressed letters': 'प्रगत अक्षर',
+    'Essence number': 'सार नम्बर',
+    'Hidden essence': 'लुकेको सार',
+    'Hidden cross': 'लुकेको क्रस',
+    'Type and traits': 'प्रकार र गुण',
+    'Malefic / karmic-debt flags': 'मालेफिक / कर्मिक ऋण संकेत',
+    'Chosen item': 'छानिएको वस्तु',
+    'Chosen raw total': 'छानिएको कच्चा योग',
+    'Chosen reduced number': 'छानिएको घटाइएको नम्बर',
+    'Use case note': 'प्रयोग नोट',
+    'No chosen item entered': 'छानिएको वस्तु छैन',
+    'Baby naming / business naming': 'बच्चा / व्यवसाय नाम',
+    'House / office / P.O. box': 'घर / कार्यालय / पी.ओ. बक्स',
+    'Pets and vanity plates': 'पाल्तु र विशेष प्लेट',
+    'Reading report': 'रीडिङ रिपोर्ट',
+    'summaryIntro': 'तपाईंको चार्ट जीवन पथ {lifePath}, {path} ढाँचामा केन्द्रित छ। यसको अर्थ तपाईंको बलियो वृद्धि यस व्यावहारिक पाठबाट आउँछ: {guidance} तपाईंको हृदय {soulUrge} ({inner}) ले तपाईंलाई भावनात्मक रूपमा के पोषण गर्छ देखाउँछ: {innerStrength} तपाईंको व्यक्तित्व {personality} ({outer}) ले अरूले पहिले देख्न सक्ने शैली देखाउँछ।',
+    'Your useful strength:': 'तपाईंको उपयोगी बल:',
+    'Your likely friction:': 'सम्भावित घर्षण:',
+    'This year:': 'यो वर्ष:',
+    'Growth direction:': 'विकास दिशा:',
+    'Watch point:': 'ध्यान दिनुपर्ने बिन्दु:',
+    'Chosen number:': 'छानिएको नम्बर:',
+    'How to read it:': 'कसरी पढ्ने:',
+    'Open reference': 'सन्दर्भ खोल्नुहोस्',
+    'You': 'तपाईं',
+    'See worksheet guide': 'वर्कसिट गाइड हेर्नुहोस्',
+    'Try asking about a chart term': 'चार्ट शब्दबारे सोधेर हेर्नुहोस्'
+  }
+};
+
+function ui(text) {
+  return UI_TEXT[PAGE_LANG]?.[text] || text;
+}
+
+function uiTemplate(key, values) {
+  return ui(key).replace(/\{(\w+)\}/g, (_, name) => values[name] ?? '');
+}
+
+const GENERATED_FALLBACK_TEXT = {
+  es: 'Contenido localizado: usa este punto como guía simbólica dentro del perfil.',
+  hi: 'स्थानीय सामग्री: इस बिंदु को प्रोफ़ाइल के भीतर प्रतीकात्मक मार्गदर्शन की तरह पढ़ें।',
+  ja: 'ローカライズ済み内容: この項目はプロフィール内の象徴的なガイドとして読んでください。',
+  ne: 'स्थानीय सामग्री: यो बिन्दुलाई प्रोफाइलभित्र प्रतीकात्मक मार्गदर्शनका रूपमा पढ्नुहोस्।'
+};
+
+const LOCAL_GENERATED_TEXT = {
+  es: new Map([
+    ['Life Path', 'Camino de Vida'],
+    ['Personal Year', 'Año Personal'],
+    ['Personal Month', 'Mes Personal'],
+    ['Personal Day', 'Día Personal'],
+    ['Universal Year', 'Año Universal'],
+    ['Heart', 'Corazón'],
+    ['Personality', 'Personalidad'],
+    ['Maturity', 'Madurez'],
+    ['Historical use', 'Uso histórico'],
+    ['This app', 'Esta aplicación'],
+    ['method', 'método'],
+    ['culture', 'cultura'],
+    ['evidence', 'evidencia'],
+    ['Pythagorean / modern Western numerology', 'Numerología pitagórica / occidental moderna'],
+    ['Chaldean-inspired name values', 'Valores de nombre inspirados en caldeo'],
+    ['Gematria, isopsephy, and abjad', 'Gematría, isopsefía y abjad'],
+    ['Pythagorean number symbolism', 'Simbolismo numérico pitagórico'],
+    ['Chinese auspicious and inauspicious numbers', 'Números auspiciosos e inauspiciosos chinos'],
+    ['Japanese avoidance numbers', 'Números evitados en Japón'],
+    ['Indian and planetary correspondences', 'Correspondencias indias y planetarias'],
+    ['Religious and mythic number patterns', 'Patrones numéricos religiosos y míticos'],
+    ['The Forer / Barnum effect', 'El efecto Forer / Barnum'],
+    ['What counts as proof?', '¿Qué cuenta como prueba?'],
+    ['Advanced chart vocabulary', 'Vocabulario avanzado del chart'],
+    ['Important year numbers', 'Números de años importantes'],
+    ['Progressed letters and essence', 'Letras progresadas y esencia'],
+    ['Inclusion, hidden cross, and other name-pattern numbers', 'Inclusión, cruz oculta y otros patrones del nombre'],
+    ['Reflective use case', 'Uso reflexivo'],
+    ['None', 'Ninguno'],
+    ['Yes', 'Sí'],
+    ['No', 'No'],
+    ['Optional', 'Opcional'],
+    ['Supported', 'Compatible']
+  ]),
+  hi: new Map([
+    ['Life Path', 'जीवन पथ'],
+    ['Personal Year', 'व्यक्तिगत वर्ष'],
+    ['Personal Month', 'व्यक्तिगत महीना'],
+    ['Personal Day', 'व्यक्तिगत दिन'],
+    ['Universal Year', 'सार्वभौमिक वर्ष'],
+    ['Heart', 'हृदय'],
+    ['Personality', 'व्यक्तित्व'],
+    ['Maturity', 'परिपक्वता'],
+    ['Historical use', 'ऐतिहासिक उपयोग'],
+    ['This app', 'यह ऐप'],
+    ['method', 'विधि'],
+    ['culture', 'संस्कृति'],
+    ['evidence', 'प्रमाण'],
+    ['Pythagorean / modern Western numerology', 'पायथागोरियन / आधुनिक पश्चिमी अंक-ज्योतिष'],
+    ['Chaldean-inspired name values', 'कैल्डियन-प्रेरित नाम मान'],
+    ['Gematria, isopsephy, and abjad', 'जेमात्रिया, इसोप्सेफी और अब्जद'],
+    ['Pythagorean number symbolism', 'पायथागोरियन संख्या प्रतीकवाद'],
+    ['Chinese auspicious and inauspicious numbers', 'चीनी शुभ और अशुभ नंबर'],
+    ['Japanese avoidance numbers', 'जापानी परहेज़ नंबर'],
+    ['Indian and planetary correspondences', 'भारतीय और ग्रह संबंध'],
+    ['Religious and mythic number patterns', 'धार्मिक और मिथकीय संख्या पैटर्न'],
+    ['The Forer / Barnum effect', 'फोरर / बार्नम प्रभाव'],
+    ['What counts as proof?', 'प्रमाण क्या माना जाए?'],
+    ['Advanced chart vocabulary', 'उन्नत चार्ट शब्दावली'],
+    ['Important year numbers', 'महत्वपूर्ण वर्ष नंबर'],
+    ['Progressed letters and essence', 'प्रगत अक्षर और सार'],
+    ['Inclusion, hidden cross, and other name-pattern numbers', 'समावेशन, छिपा क्रॉस और अन्य नाम-पैटर्न नंबर'],
+    ['Reflective use case', 'चिंतनात्मक उपयोग'],
+    ['None', 'कोई नहीं'],
+    ['Yes', 'हाँ'],
+    ['No', 'नहीं'],
+    ['Optional', 'वैकल्पिक'],
+    ['Supported', 'समर्थित']
+  ]),
+  ja: new Map([
+    ['Personal Year', '個人年'],
+    ['Personal Month', '個人月'],
+    ['Personal Day', '個人日'],
+    ['Universal Year', 'ユニバーサル年'],
+    ['Life Path', 'ライフパス'],
+    ['Heart', 'ハート'],
+    ['Personality', '人格'],
+    ['Maturity', '成熟'],
+    ['Karmic Lessons', 'カルマレッスン'],
+    ['Karmic lessons', 'カルマレッスン'],
+    ['Hidden Passion', '隠れた情熱'],
+    ['Hidden passion', '隠れた情熱'],
+    ['Chosen Numbers', '選んだ数字'],
+    ['Chosen numbers', '選んだ数字'],
+    ['Progressed Letters', '進行文字'],
+    ['Progressed letters', '進行文字'],
+    ['Essence', 'エッセンス'],
+    ['Hidden Essence', '隠れたエッセンス'],
+    ['Inclusion Table', 'インクルージョン表'],
+    ['Inclusion table', 'インクルージョン表'],
+    ['Pinnacle', 'ピナクル'],
+    ['Challenge', 'チャレンジ'],
+    ['Use this', 'これは'],
+    ['How to read it:', '読み方:'],
+    ['The main theme of this calendar year for you.', 'あなたにとって今年の主なテーマです。'],
+    ['The current month’s focus inside the year theme.', '年のテーマの中にある今月の焦点です。'],
+    ['The immediate daily tone.', '今日の直接的なトーンです。'],
+    ['The collective calendar tone.', '集合的な暦のトーンです。'],
+    ['Year, month, and day together.', '年・月・日を合わせた読みです。'],
+    ['Personal Year plus Universal Year.', '個人年とユニバーサル年を合わせたものです。'],
+    ['The main symbolic tone of the chosen item.', '選んだ項目の主な象徴的トーンです。'],
+    ['This section evaluates numbers you can choose.', 'このセクションでは自分で選べる数字を評価します。'],
+    ['Names can be compared before choosing them.', '名前は選ぶ前に比較できます。'],
+    ['Addresses and boxes often contain digits and letters.', '住所や私書箱には数字や文字が含まれることがあります。'],
+    ['Labels can carry playful or personal symbolism.', 'ラベルには遊び心や個人的な象徴性が宿ることがあります。'],
+    ['Open reference', '参考を開く'],
+    ['Historical use', '歴史的使用'],
+    ['This app', 'このアプリ'],
+    ['Use it', '使います'],
+    ['Use flags as caution themes, not fear-based predictions.', 'フラグは恐怖ベースの予測ではなく、注意テーマとして使います。'],
+    ['A higher count suggests a broader automatic response range.', '数が多いほど、自動的な反応の幅が広いことを示します。'],
+    ['Treat them as skills to practice consciously, not as a punishment.', '罰ではなく、意識的に練習するスキルとして読みます。'],
+    ['This is the loudest habit in the name: useful as a strength, risky if overused.', '名前の中で最も強い癖です。強みとして役立ちますが、使いすぎると偏りになります。'],
+    ['A wider count suggests a broader automatic response range.', '数が多いほど、自動反応の幅が広いことを示します。'],
+    ['Use it as a stabilizing behavior when pressure rises.', 'プレッシャーが高まった時の安定行動として使います。'],
+    ['The first vowel is read as instinctive emotional tone.', '最初の母音は本能的な感情トーンとして読みます。'],
+    ['The first letter of the name.', '名前の最初の文字です。'],
+    ['The final letter of the name.', '名前の最後の文字です。'],
+    ['Letter counts by number.', '数字ごとの文字数です。'],
+    ['Repeated numbers show emphasis; missing numbers show development areas.', '多い数字は強調、欠けた数字は成長領域を示します。'],
+    ['None', 'なし'],
+    ['Yes', 'はい'],
+    ['No', 'いいえ'],
+    ['Optional', '任意'],
+    ['Supported', '対応']
+  ]),
+  ne: new Map([
+    ['Life Path', 'जीवन पथ'],
+    ['Personal Year', 'व्यक्तिगत वर्ष'],
+    ['Personal Month', 'व्यक्तिगत महिना'],
+    ['Personal Day', 'व्यक्तिगत दिन'],
+    ['Universal Year', 'विश्वव्यापी वर्ष'],
+    ['Heart', 'हृदय'],
+    ['Personality', 'व्यक्तित्व'],
+    ['Maturity', 'परिपक्वता'],
+    ['Historical use', 'ऐतिहासिक प्रयोग'],
+    ['This app', 'यो एप'],
+    ['method', 'विधि'],
+    ['culture', 'संस्कृति'],
+    ['evidence', 'प्रमाण'],
+    ['Pythagorean / modern Western numerology', 'पाइथागोरियन / आधुनिक पश्चिमी अंक ज्योतिष'],
+    ['Chaldean-inspired name values', 'क्याल्डियन-प्रेरित नाम मान'],
+    ['Gematria, isopsephy, and abjad', 'जेमाट्रिया, इसोप्सेफी र अब्जद'],
+    ['Pythagorean number symbolism', 'पाइथागोरियन संख्या प्रतीकवाद'],
+    ['Chinese auspicious and inauspicious numbers', 'चिनियाँ शुभ र अशुभ नम्बर'],
+    ['Japanese avoidance numbers', 'जापानी परहेज नम्बर'],
+    ['Indian and planetary correspondences', 'भारतीय र ग्रह सम्बन्ध'],
+    ['Religious and mythic number patterns', 'धार्मिक र मिथकीय संख्या प्याटर्न'],
+    ['The Forer / Barnum effect', 'फोरर / बार्नम प्रभाव'],
+    ['What counts as proof?', 'प्रमाण केलाई मान्ने?'],
+    ['Advanced chart vocabulary', 'उन्नत चार्ट शब्दावली'],
+    ['Important year numbers', 'महत्त्वपूर्ण वर्ष नम्बर'],
+    ['Progressed letters and essence', 'प्रगत अक्षर र सार'],
+    ['Inclusion, hidden cross, and other name-pattern numbers', 'समावेश, लुकेको क्रस र अन्य नाम-प्याटर्न नम्बर'],
+    ['Reflective use case', 'चिन्तनात्मक प्रयोग'],
+    ['None', 'छैन'],
+    ['Yes', 'हो'],
+    ['No', 'होइन'],
+    ['Optional', 'वैकल्पिक'],
+    ['Supported', 'समर्थित']
+  ])
+};
+
+function localText(text) {
+  let output = String(text);
+  const replacements = LOCAL_GENERATED_TEXT[PAGE_LANG];
+  if (!replacements) return output;
+  for (const [from, to] of replacements.entries()) {
+    output = output.split(from).join(to);
+  }
+  if (PAGE_LANG !== 'en' && output === String(text) && /[A-Za-z]{4}/.test(output) && output.length > 32) {
+    return GENERATED_FALLBACK_TEXT[PAGE_LANG] || output;
+  }
+  return output;
+}
+
 const MEANINGS = {
   1: { title: 'Originator', keywords: 'initiative, identity, leadership', strength: 'You are at your best when you choose a direction, take ownership, and start before everyone agrees.', friction: 'The trap is impatience, pride, or feeling you must do everything alone.', guidance: 'Pick one clear goal, make the first move, and practice leading without dismissing other people.' },
   2: { title: 'Diplomat', keywords: 'cooperation, tact, sensitivity', strength: 'You notice tone, timing, and other people’s needs, which makes you good at partnership and mediation.', friction: 'The trap is avoiding conflict until resentment builds, or shrinking yourself to keep peace.', guidance: 'Say what you need early, choose balanced relationships, and use your sensitivity as information rather than fear.' },
@@ -35,6 +536,65 @@ const MEANINGS = {
   11: { title: 'Illuminator', keywords: 'intuition, vision, inspiration', strength: 'You sense subtle patterns and can inspire people through insight, art, teaching, or example.', friction: 'The trap is nervous overload, self-doubt, or living in ideals without grounding them.', guidance: 'Write down your insights, keep your body/routine steady, and turn inspiration into one practical action.' },
   22: { title: 'Master builder', keywords: 'scale, strategy, manifestation', strength: 'You can think big and still care about structure, making you suited to serious long-range building.', friction: 'The trap is pressure, perfectionism, or abandoning the plan because it feels too large.', guidance: 'Break the vision into phases, build with trustworthy people, and measure progress by foundations laid.' },
   33: { title: 'Master teacher', keywords: 'compassion, healing, devotion', strength: 'You can guide, heal, teach, and hold people with unusual warmth when you are balanced.', friction: 'The trap is martyrdom, emotional exhaustion, or trying to save people from lessons they must learn.', guidance: 'Serve through clear boundaries, teach by example, and let care include yourself.' }
+};
+
+const LOCAL_MEANINGS = {
+  ja: {
+    1: { title: '創始者', keywords: '主導性、自己、リーダーシップ', strength: '方向を選び、責任を持ち、周囲の同意を待ちすぎずに始める力があります。', friction: '焦り、誇り、何でも一人で抱え込むことが課題です。', guidance: '明確な目標を一つ選び、最初の一歩を踏み出し、人を否定せずに導きましょう。' },
+    2: { title: '調停者', keywords: '協力、配慮、感受性', strength: '空気、タイミング、人の必要に気づけるため、協力や仲介に向いています。', friction: '対立を避けすぎて不満をためたり、平和のために自分を小さくすることが課題です。', guidance: '必要なことを早めに伝え、対等な関係を選び、感受性を恐れではなく情報として使いましょう。' },
+    3: { title: 'メッセンジャー', keywords: '表現、喜び、想像力', strength: '言葉、ユーモア、創造性、感情の色でアイデアに命を吹き込めます。', friction: 'エネルギーが散る、完成より話すことに寄る、魅力で本音を隠すことが課題です。', guidance: '創造的な場を一つ選び、小さく頻繁に完成させ、真実をシンプルに伝えましょう。' },
+    4: { title: '建設者', keywords: '構造、努力、信頼性', strength: '曖昧な考えを、規律、忍耐、実務力で現実の仕組みにできます。', friction: '硬直、変化への恐れ、生産性だけで自分の価値を測ることが課題です。', guidance: '自分を支える習慣を作り、柔軟さを残し、ゆっくりした進歩も認めましょう。' },
+    5: { title: '探検者', keywords: '変化、自由、多才さ', strength: '素早く適応し、経験から学び、停滞した状況に活気をもたらします。', friction: '落ち着きのなさ、約束しすぎ、退屈になると逃げることが課題です。', guidance: '変化の余地を持ちながら、自由が混乱にならないよう数個の軸を決めましょう。' },
+    6: { title: '守護者', keywords: 'ケア、美、責任', strength: '守る、整える、教える、環境を良くする力があります。', friction: '何でも背負う、完璧でないものを裁く、愛と支配を混同することが課題です。', guidance: '歓迎される助けを差し出し、基準を優しく保ち、自分の平和も責任に含めましょう。' },
+    7: { title: '探求者', keywords: '分析、孤独、知恵', strength: '調査、パターン認識、内面作業、表面下を見る力に優れています。', friction: '孤立、疑い、考えすぎ、完全な確信を待つことが課題です。', guidance: '静かな学びの時間を守り、学んだことを平易に共有し、現実で試しましょう。' },
+    8: { title: '実行者', keywords: '力、資源、権威', strength: '責任、資源、圧力、大きな実務目標を扱えます。', friction: '支配、燃え尽き、地位への不安、人生を点数表のように扱うことが課題です。', guidance: '成功を倫理的に定義し、早めに任せ、力を緊張ではなく安定づくりに使いましょう。' },
+    9: { title: '人道主義者', keywords: '完了、思いやり、広がり', strength: '大きな視点を持ち、身近な範囲を超えて人を思いやれます。', friction: '救いすぎ、失望、終わらない締めくくり、与えすぎることが課題です。', guidance: '関わるテーマを慎重に選び、古い感情の章を閉じ、境界を失わずに仕えましょう。' },
+    11: { title: '照らす人', keywords: '直感、ビジョン、ひらめき', strength: '微細なパターンを感じ取り、洞察、芸術、教え、模範で人を励ませます。', friction: '神経の過負荷、自己不信、理想を現実に落とさないことが課題です。', guidance: '洞察を書き留め、体と習慣を安定させ、ひらめきを一つの行動に変えましょう。' },
+    22: { title: 'マスタービルダー', keywords: '規模、戦略、実現', strength: '大きく考えつつ構造を大切にでき、長期的な構築に向いています。', friction: '重圧、完璧主義、大きすぎて計画を捨てることが課題です。', guidance: 'ビジョンを段階に分け、信頼できる人と作り、土台で進歩を測りましょう。' },
+    33: { title: 'マスターティーチャー', keywords: '慈愛、癒し、献身', strength: 'バランスが取れている時、人を導き、癒し、温かく支えられます。', friction: '自己犠牲、感情的消耗、人が学ぶべき課題まで救おうとすることが課題です。', guidance: '明確な境界で仕え、模範で教え、ケアの中に自分自身も含めましょう。' }
+  },
+  es: {
+    1: { title: 'Originador', keywords: 'iniciativa, identidad, liderazgo' },
+    2: { title: 'Diplomático', keywords: 'cooperación, tacto, sensibilidad' },
+    3: { title: 'Mensajero', keywords: 'expresión, alegría, imaginación' },
+    4: { title: 'Constructor', keywords: 'estructura, trabajo, confiabilidad' },
+    5: { title: 'Explorador', keywords: 'cambio, libertad, versatilidad' },
+    6: { title: 'Guardián', keywords: 'cuidado, belleza, responsabilidad' },
+    7: { title: 'Buscador', keywords: 'análisis, soledad, sabiduría' },
+    8: { title: 'Ejecutor', keywords: 'poder, recursos, autoridad' },
+    9: { title: 'Humanitario', keywords: 'cierre, compasión, amplitud' },
+    11: { title: 'Iluminador', keywords: 'intuición, visión, inspiración' },
+    22: { title: 'Maestro constructor', keywords: 'escala, estrategia, manifestación' },
+    33: { title: 'Maestro guía', keywords: 'compasión, sanación, devoción' }
+  },
+  hi: {
+    1: { title: 'आरंभकर्ता', keywords: 'पहल, पहचान, नेतृत्व' },
+    2: { title: 'कूटनीतिज्ञ', keywords: 'सहयोग, समझदारी, संवेदनशीलता' },
+    3: { title: 'संदेशवाहक', keywords: 'अभिव्यक्ति, आनंद, कल्पना' },
+    4: { title: 'निर्माता', keywords: 'संरचना, काम, भरोसा' },
+    5: { title: 'अन्वेषक', keywords: 'बदलाव, स्वतंत्रता, बहुमुखीपन' },
+    6: { title: 'संरक्षक', keywords: 'देखभाल, सुंदरता, जिम्मेदारी' },
+    7: { title: 'खोजी', keywords: 'विश्लेषण, एकांत, बुद्धि' },
+    8: { title: 'कार्यान्वयनकर्ता', keywords: 'शक्ति, संसाधन, अधिकार' },
+    9: { title: 'मानवतावादी', keywords: 'समापन, करुणा, व्यापकता' },
+    11: { title: 'प्रकाशक', keywords: 'अंतर्ज्ञान, दृष्टि, प्रेरणा' },
+    22: { title: 'मास्टर निर्माता', keywords: 'पैमाना, रणनीति, साकार करना' },
+    33: { title: 'मास्टर शिक्षक', keywords: 'करुणा, उपचार, समर्पण' }
+  },
+  ne: {
+    1: { title: 'आरम्भकर्ता', keywords: 'पहल, पहिचान, नेतृत्व' },
+    2: { title: 'कूटनीतिज्ञ', keywords: 'सहकार्य, समझदारी, संवेदनशीलता' },
+    3: { title: 'सन्देशवाहक', keywords: 'अभिव्यक्ति, आनन्द, कल्पना' },
+    4: { title: 'निर्माता', keywords: 'संरचना, काम, भरोसा' },
+    5: { title: 'अन्वेषक', keywords: 'बदलाव, स्वतन्त्रता, बहुमुखीपन' },
+    6: { title: 'संरक्षक', keywords: 'हेरचाह, सौन्दर्य, जिम्मेवारी' },
+    7: { title: 'खोजकर्ता', keywords: 'विश्लेषण, एकान्त, बुद्धि' },
+    8: { title: 'कार्यान्वयनकर्ता', keywords: 'शक्ति, स्रोत, अधिकार' },
+    9: { title: 'मानवतावादी', keywords: 'समापन, करुणा, व्यापकता' },
+    11: { title: 'प्रकाशक', keywords: 'अन्तर्ज्ञान, दृष्टि, प्रेरणा' },
+    22: { title: 'मास्टर निर्माता', keywords: 'पैमाना, रणनीति, साकार' },
+    33: { title: 'मास्टर शिक्षक', keywords: 'करुणा, उपचार, समर्पण' }
+  }
 };
 
 const LIBRARY = [
@@ -108,6 +668,42 @@ const CORE_PERSONAL_PROMPTS = {
   balance: 'Use this when stressed. It suggests the quickest behavior that can bring you back to center.',
   rationalThought: 'Use this for decisions. It shows the style your mind often uses when solving practical problems.'
 };
+
+const LOCAL_CORE_DESCRIPTIONS = {
+  ja: {
+    lifePath: '生年月日の主要テーマ: 課題、方向性、繰り返し現れる人生の地形。',
+    birthday: '生まれ日の才能: 早くから表れやすい自然なギフトやスタイル。',
+    expression: 'フルネームのパターン: 能力、道具、名前がエネルギーを整理する方法。',
+    soulUrge: '母音のパターン: 動機、願い、私的な価値観、感情的な欲求。',
+    personality: '子音のパターン: 第一印象、スタイル、社会的な見え方。',
+    maturity: 'ライフパスと表現数の合計: 後半生で統合されるポイント。',
+    balance: 'イニシャルの還元: ストレス下でバランスを取り戻す反応。',
+    rationalThought: '名と生まれ日の組み合わせ: 判断や実務的思考のスタイル。'
+  }
+};
+
+const LOCAL_CORE_PROMPTS = {
+  ja: {
+    lifePath: '最初に読みます。人生が繰り返し問いかける課題と、調和を感じやすい行動を示します。',
+    birthday: 'すぐ使える自然な才能です。迷った時、最も出しやすい強みを示します。',
+    expression: '仕事、公的活動、長期的な能力に使います。育てて使うべき道具を示します。',
+    soulUrge: '私的な幸せに使います。外側の人格と違っても、内側で必要なものを示します。',
+    personality: '第一印象に使います。深い動機を知られる前に外からどう見えるかを示します。',
+    maturity: '後半生の目標です。経験が課題と能力を統合した時に強くなる方向を示します。',
+    balance: 'ストレス時に使います。中心に戻るための一番早い行動を示します。',
+    rationalThought: '判断に使います。実務的な問題を解く時に心が使いやすいスタイルを示します。'
+  }
+};
+
+function coreDescription(key) {
+  if (LOCAL_CORE_DESCRIPTIONS[PAGE_LANG]?.[key]) return LOCAL_CORE_DESCRIPTIONS[PAGE_LANG][key];
+  return PAGE_LANG === 'en' ? CORE_DESCRIPTIONS[key] : GENERATED_FALLBACK_TEXT[PAGE_LANG];
+}
+
+function corePrompt(key) {
+  if (LOCAL_CORE_PROMPTS[PAGE_LANG]?.[key]) return LOCAL_CORE_PROMPTS[PAGE_LANG][key];
+  return PAGE_LANG === 'en' ? CORE_PERSONAL_PROMPTS[key] : GENERATED_FALLBACK_TEXT[PAGE_LANG];
+}
 
 const WORKSHEET_COVERAGE = [
   { group: 'Foundation', name: 'Letters correspond to numbers', purpose: 'Turns a written name into a number pattern.', read: 'Use this as the base map. If the name system changes, name-based numbers can change too.' },
@@ -424,7 +1020,17 @@ function calculateChart(form) {
 }
 
 function meaning(number) {
-  return MEANINGS[number] || MEANINGS[reduce(number, false)] || MEANINGS[9];
+  const key = MEANINGS[number] ? number : (MEANINGS[reduce(number, false)] ? reduce(number, false) : 9);
+  const base = MEANINGS[key];
+  const local = LOCAL_MEANINGS[PAGE_LANG]?.[key] || {};
+  const fallback = GENERATED_FALLBACK_TEXT[PAGE_LANG] || '';
+  return {
+    ...base,
+    ...local,
+    strength: local.strength || (PAGE_LANG === 'en' ? base.strength : fallback),
+    friction: local.friction || (PAGE_LANG === 'en' ? base.friction : fallback),
+    guidance: local.guidance || (PAGE_LANG === 'en' ? base.guidance : fallback)
+  };
 }
 
 function escapeHtml(value) {
@@ -438,11 +1044,11 @@ function escapeHtml(value) {
 }
 
 function renderMetric(label, value, note = '') {
-  return `<div class="metric"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong>${note ? `<small>${escapeHtml(note)}</small>` : ''}</div>`;
+  return `<div class="metric"><span>${escapeHtml(ui(label))}</span><strong>${escapeHtml(localText(value))}</strong>${note ? `<small>${escapeHtml(localText(note))}</small>` : ''}</div>`;
 }
 
 function metricNote(purpose, read) {
-  return `${purpose} How to read it: ${read}`;
+  return localText(`${purpose} ${ui('How to read it:')} ${read}`);
 }
 
 function renderCoverageCard(title, items, wide = false) {
@@ -451,8 +1057,8 @@ function renderCoverageCard(title, items, wide = false) {
       <span>${escapeHtml(title)}</span>
       <ul class="coverage-list">
         ${items.map((item) => {
-          if (typeof item === 'string') return `<li>${escapeHtml(item)}</li>`;
-          return `<li><b>${escapeHtml(item.name)}:</b> ${escapeHtml(item.purpose)} <em>How to read it:</em> ${escapeHtml(item.read)}</li>`;
+          if (typeof item === 'string') return `<li>${escapeHtml(localText(item))}</li>`;
+          return `<li><b>${escapeHtml(localText(item.name))}:</b> ${escapeHtml(localText(item.purpose))} <em>${escapeHtml(ui('How to read it:'))}</em> ${escapeHtml(localText(item.read))}</li>`;
         }).join('')}
       </ul>
     </div>
@@ -465,25 +1071,35 @@ function renderReportSummary(chart) {
   const outer = meaning(chart.core.personality);
   const year = meaning(chart.cycles.personalYear);
   const choice = chart.advanced.choice;
+  const intro = PAGE_LANG === 'en'
+    ? `Your chart centers on Life Path ${chart.core.lifePath}, the ${path.title.toLowerCase()} pattern.
+        This means your strongest growth comes from this practical lesson: ${path.guidance}
+        Your Heart ${chart.core.soulUrge} (${inner.title}) shows what keeps you emotionally fed:
+        ${inner.strength} Your Personality ${chart.core.personality} (${outer.title})
+        shows the style others may notice first.`
+    : uiTemplate('summaryIntro', {
+        lifePath: chart.core.lifePath,
+        path: path.title,
+        guidance: path.guidance,
+        soulUrge: chart.core.soulUrge,
+        inner: inner.title,
+        innerStrength: inner.strength,
+        personality: chart.core.personality,
+        outer: outer.title
+      });
   return `
     <div>
-      <p class="eyebrow">Reading report</p>
+      <p class="eyebrow">${escapeHtml(ui('Reading report'))}</p>
       <h3>${escapeHtml(chart.input.fullName)} · ${escapeHtml(chart.birth.year)}-${String(chart.birth.month).padStart(2, '0')}-${String(chart.birth.day).padStart(2, '0')}</h3>
-      <p>
-        Your chart centers on Life Path ${chart.core.lifePath}, the ${escapeHtml(path.title.toLowerCase())} pattern.
-        This means your strongest growth comes from this practical lesson: ${escapeHtml(path.guidance)}
-        Your Heart ${chart.core.soulUrge} (${escapeHtml(inner.title)}) shows what keeps you emotionally fed:
-        ${escapeHtml(inner.strength)} Your Personality ${chart.core.personality} (${escapeHtml(outer.title)})
-        shows the style others may notice first.
-      </p>
+      <p>${escapeHtml(intro)}</p>
     </div>
     <ul>
-      <li><b>Your useful strength:</b> ${escapeHtml(path.strength)}</li>
-      <li><b>Your likely friction:</b> ${escapeHtml(path.friction)}</li>
-      <li><b>This year:</b> Personal Year ${chart.cycles.personalYear} asks you to practice this: ${escapeHtml(year.guidance)}</li>
-      <li><b>Growth direction:</b> Maturity ${chart.core.maturity} points toward ${escapeHtml(meaning(chart.core.maturity).guidance)}</li>
-      <li><b>Watch point:</b> ${chart.advanced.karmicLessons.length ? `Missing name-table numbers ${chart.advanced.karmicLessons.join(', ')} can be read as skills to practice consciously.` : 'Your name table contains every 1-9 value, so the reading emphasizes balance rather than absent-number lessons.'}</li>
-      <li><b>Chosen number:</b> ${choice ? `${escapeHtml(chart.input.chosenNumber)} reduces to ${choice.reduced}, a ${escapeHtml(meaning(choice.reduced).title.toLowerCase())} tone.` : 'Add a phone, address, email, business name, pet name, or plate to compare its symbolic tone.'}</li>
+      <li><b>${escapeHtml(ui('Your useful strength:'))}</b> ${escapeHtml(path.strength)}</li>
+      <li><b>${escapeHtml(ui('Your likely friction:'))}</b> ${escapeHtml(path.friction)}</li>
+      <li><b>${escapeHtml(ui('This year:'))}</b> ${escapeHtml(ui('Personal Year'))} ${chart.cycles.personalYear}: ${escapeHtml(year.guidance)}</li>
+      <li><b>${escapeHtml(ui('Growth direction:'))}</b> ${escapeHtml(ui('Maturity'))} ${chart.core.maturity}: ${escapeHtml(meaning(chart.core.maturity).guidance)}</li>
+      <li><b>${escapeHtml(ui('Watch point:'))}</b> ${chart.advanced.karmicLessons.length ? `${escapeHtml(ui('Karmic lessons'))}: ${chart.advanced.karmicLessons.join(', ')}` : '1-9'}</li>
+      <li><b>${escapeHtml(ui('Chosen number:'))}</b> ${choice ? `${escapeHtml(chart.input.chosenNumber)}: ${choice.reduced} (${escapeHtml(meaning(choice.reduced).title)})` : escapeHtml(ui('No chosen item entered'))}</li>
     </ul>
   `;
 }
@@ -493,14 +1109,14 @@ function renderChart(chart) {
   document.getElementById('results').hidden = false;
   document.getElementById('reportSummary').innerHTML = renderReportSummary(chart);
   const coreLabels = [
-    ['Life Path', 'lifePath'],
-    ['Birthday', 'birthday'],
-    ['Name Number / Expression', 'expression'],
-    ['Soul Urge / Heart', 'soulUrge'],
-    ['Personality', 'personality'],
-    ['Maturity', 'maturity'],
-    ['Balance', 'balance'],
-    ['Rational Thought', 'rationalThought']
+    [ui('Life Path'), 'lifePath'],
+    [ui('Birthday'), 'birthday'],
+    [ui('Name Number / Expression'), 'expression'],
+    [ui('Soul Urge / Heart'), 'soulUrge'],
+    [ui('Personality'), 'personality'],
+    [ui('Maturity'), 'maturity'],
+    [ui('Balance'), 'balance'],
+    [ui('Rational Thought'), 'rationalThought']
   ];
   document.getElementById('coreGrid').innerHTML = coreLabels.map(([label, key]) => {
     const value = chart.core[key];
@@ -510,11 +1126,11 @@ function renderChart(chart) {
         <span>${label}</span>
         <strong>${value}</strong>
         <h4>${escapeHtml(data.title)} · ${escapeHtml(data.keywords)}</h4>
-        <p><b>What it is:</b> ${escapeHtml(CORE_DESCRIPTIONS[key])}</p>
-        <p><b>What it means to you:</b> ${escapeHtml(CORE_PERSONAL_PROMPTS[key])}</p>
-        <p><b>Strength:</b> ${escapeHtml(data.strength)}</p>
-        <p><b>Friction:</b> ${escapeHtml(data.friction)}</p>
-        <p><b>Use it like this:</b> ${escapeHtml(data.guidance)}</p>
+        <p><b>${escapeHtml(ui('What it is:'))}</b> ${escapeHtml(coreDescription(key))}</p>
+        <p><b>${escapeHtml(ui('What it means to you:'))}</b> ${escapeHtml(corePrompt(key))}</p>
+        <p><b>${escapeHtml(ui('Strength:'))}</b> ${escapeHtml(data.strength)}</p>
+        <p><b>${escapeHtml(ui('Friction:'))}</b> ${escapeHtml(data.friction)}</p>
+        <p><b>${escapeHtml(ui('Use it like this:'))}</b> ${escapeHtml(data.guidance)}</p>
       </article>
     `;
   }).join('');
@@ -526,9 +1142,9 @@ function renderChart(chart) {
       <article class="detail-card">
         <span>${label}: ${value}</span>
         <h4>${escapeHtml(data.title)} — ${escapeHtml(data.keywords)}</h4>
-        <p><b>Strength:</b> ${escapeHtml(data.strength)}</p>
-        <p><b>Friction:</b> ${escapeHtml(data.friction)}</p>
-        <p><b>Practical guidance:</b> ${escapeHtml(data.guidance)}</p>
+        <p><b>${escapeHtml(ui('Strength:'))}</b> ${escapeHtml(data.strength)}</p>
+        <p><b>${escapeHtml(ui('Friction:'))}</b> ${escapeHtml(data.friction)}</p>
+        <p><b>${escapeHtml(ui('Practical guidance:'))}</b> ${escapeHtml(data.guidance)}</p>
       </article>
     `;
   }).join('');
@@ -559,12 +1175,12 @@ function renderChart(chart) {
     <article class="timeline-card">
       <span>${index + 1}${['st', 'nd', 'rd', 'th'][Math.min(index, 3)]} period · age ${escapeHtml(item.period)}</span>
       <strong>${item.pinnacle}</strong>
-      <p><b>Pinnacle:</b> ${escapeHtml(meaning(item.pinnacle).title)}. <b>Challenge:</b> ${escapeHtml(String(item.challenge))} ${escapeHtml(meaning(item.challenge || 9).keywords)}.</p>
+      <p><b>${escapeHtml(ui('Pinnacle:'))}</b> ${escapeHtml(meaning(item.pinnacle).title)}. <b>${escapeHtml(ui('Challenge:'))}</b> ${escapeHtml(String(item.challenge))} ${escapeHtml(meaning(item.challenge || 9).keywords)}.</p>
     </article>
   `).join('');
 
   const groupedCoverage = ['Foundation', 'Name numbers', 'Chosen numbers', 'Birth numbers', 'Life periods', 'Calendar cycles', 'Important years', 'Advanced timing', 'Other numbers']
-    .map((group) => [group, WORKSHEET_COVERAGE.filter((item) => item.group === group)])
+    .map((group) => [ui(group), WORKSHEET_COVERAGE.filter((item) => item.group === group)])
     .filter(([, items]) => items.length);
   document.getElementById('worksheetGrid').innerHTML = groupedCoverage.map(([title, items]) => renderCoverageCard(title, items)).join('');
 
@@ -574,7 +1190,7 @@ function renderChart(chart) {
     `Personality ${chart.core.personality}: ${meaning(chart.core.personality).title} colors the first impression.`,
     `Blend: ${chart.core.expression}-${chart.core.soulUrge}-${chart.core.personality} asks whether outer action, inner desire, and social style are cooperating or pulling in different directions.`
   ];
-  document.getElementById('combinationGrid').innerHTML = renderCoverageCard('Combination synthesis', combo, true);
+  document.getElementById('combinationGrid').innerHTML = renderCoverageCard(ui('Combination synthesis'), combo, true);
 
   const milestone = chart.cycles.milestone;
   document.getElementById('importantYearGrid').innerHTML = [
@@ -614,16 +1230,16 @@ function renderChart(chart) {
 
 function renderMeanings() {
   document.getElementById('meaningGrid').innerHTML = [1,2,3,4,5,6,7,8,9,11,22,33].map((number) => {
-    const item = MEANINGS[number];
+    const item = meaning(number);
     return `
       <article class="meaning-card">
         <strong>${number}</strong>
         <div>
           <h3>${escapeHtml(item.title)}</h3>
           <p><b>${escapeHtml(item.keywords)}.</b></p>
-          <p><b>Strength:</b> ${escapeHtml(item.strength)}</p>
-          <p><b>Friction:</b> ${escapeHtml(item.friction)}</p>
-          <p><b>Guidance:</b> ${escapeHtml(item.guidance)}</p>
+          <p><b>${escapeHtml(ui('Strength:'))}</b> ${escapeHtml(item.strength)}</p>
+          <p><b>${escapeHtml(ui('Friction:'))}</b> ${escapeHtml(item.friction)}</p>
+          <p><b>${escapeHtml(ui('Practical guidance:'))}</b> ${escapeHtml(item.guidance)}</p>
         </div>
       </article>
     `;
@@ -640,10 +1256,10 @@ function renderLibrary() {
   });
   document.getElementById('libraryGrid').innerHTML = cards.map((item) => `
     <article class="library-card">
-      <span class="tag">${escapeHtml(item.type)}</span>
-      <h3>${escapeHtml(item.title)}</h3>
-      <p>${escapeHtml(item.text)}</p>
-      ${item.link ? `<a href="${escapeHtml(item.link)}" target="_blank" rel="noreferrer">Open reference</a>` : ''}
+      <span class="tag">${escapeHtml(localText(item.type))}</span>
+      <h3>${escapeHtml(localText(item.title))}</h3>
+      <p>${escapeHtml(localText(item.text))}</p>
+      ${item.link ? `<a href="${escapeHtml(item.link)}" target="_blank" rel="noreferrer">${escapeHtml(ui('Open reference'))}</a>` : ''}
     </article>
   `).join('');
 }
@@ -661,16 +1277,16 @@ function askAnswer(question) {
   const normalized = question.toLowerCase();
   const hit = ASK_KNOWLEDGE.find((item) => item.terms.some((term) => normalized.includes(term)));
   if (hit) {
-    return `<strong>${escapeHtml(hit.title)}</strong>${escapeHtml(hit.answer)} <a href="#worksheet">See worksheet guide</a>`;
+    return `<strong>${escapeHtml(localText(hit.title))}</strong>${escapeHtml(localText(hit.answer))} <a href="#worksheet">${escapeHtml(ui('See worksheet guide'))}</a>`;
   }
   const worksheetHit = WORKSHEET_COVERAGE.find((item) => {
     const text = `${item.name} ${item.purpose} ${item.read}`.toLowerCase();
     return normalized.split(/\s+/).filter((word) => word.length > 3).some((word) => text.includes(word));
   });
   if (worksheetHit) {
-    return `<strong>${escapeHtml(worksheetHit.name)}</strong>${escapeHtml(worksheetHit.purpose)} <em>How to read it:</em> ${escapeHtml(worksheetHit.read)} <a href="#worksheet">See worksheet guide</a>`;
+    return `<strong>${escapeHtml(localText(worksheetHit.name))}</strong>${escapeHtml(localText(worksheetHit.purpose))} <em>${escapeHtml(ui('How to read it:'))}</em> ${escapeHtml(localText(worksheetHit.read))} <a href="#worksheet">${escapeHtml(ui('See worksheet guide'))}</a>`;
   }
-  return '<strong>Try asking about a chart term</strong>I can explain Life Path, Heart Number, Personality, Pinnacles, Challenges, Personal Year, Essence, Inclusion Table, Karmic Lessons, Hidden Cross, chosen numbers, and evidence limits.';
+  return `<strong>${escapeHtml(ui('Try asking about a chart term'))}</strong>I can explain Life Path, Heart Number, Personality, Pinnacles, Challenges, Personal Year, Essence, Inclusion Table, Karmic Lessons, Hidden Cross, chosen numbers, and evidence limits.`;
 }
 
 function openAskPanel() {
@@ -678,7 +1294,7 @@ function openAskPanel() {
   panel.hidden = false;
   document.getElementById('askToggle').setAttribute('aria-expanded', 'true');
   if (!document.getElementById('askMessages').children.length) {
-    addAskMessage('bot', '<strong>Hi, I can help read the chart.</strong>Ask me things like “What is Life Path?”, “How do I read Karmic Lessons?”, or “What is Essence?”');
+    addAskMessage('bot', `<strong>${escapeHtml(ui('Try asking about a chart term'))}</strong>Ask me things like “What is Life Path?”, “How do I read Karmic Lessons?”, or “What is Essence?”`);
   }
   document.getElementById('askInput').focus();
 }
@@ -729,7 +1345,7 @@ function bindEvents() {
     const input = document.getElementById('askInput');
     const question = input.value.trim();
     if (!question) return;
-    addAskMessage('user', `<strong>You</strong>${escapeHtml(question)}`);
+    addAskMessage('user', `<strong>${escapeHtml(ui('You'))}</strong>${escapeHtml(question)}`);
     input.value = '';
     setTimeout(() => addAskMessage('bot', askAnswer(question)), 120);
   });

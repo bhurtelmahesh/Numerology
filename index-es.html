@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B8 Numerología | Perfil numérico completo</title>
+  <meta name="description" content="Crea un perfil numerológico completo a partir del nombre y la fecha de nacimiento, con contexto cultural, notas de cálculo y referencias basadas en evidencia.">
+  <meta property="og:title" content="B8 Numerology">
+  <meta property="og:description" content="Un generador de perfiles numerológicos y biblioteca mundial de referencia.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%231e66c1'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial' font-size='34' font-weight='800' fill='white'%3E8%3C/text%3E%3C/svg%3E">
+  <link rel="alternate" hreflang="en" href="index.html">
+  <link rel="alternate" hreflang="es" href="index-es.html">
+  <link rel="alternate" hreflang="hi" href="index-hi.html">
+  <link rel="alternate" hreflang="ja" href="index-ja.html">
+  <link rel="alternate" hreflang="ne" href="index-ne.html">
+  <link rel="alternate" hreflang="x-default" href="index.html">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Inicio de B8 Numerología">
+      <span class="brand-mark">8</span>
+      <span>B8 Numerology</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">Menú</button>
+    <nav id="siteNav" class="site-nav" aria-label="Navegación principal">
+      <a href="#calculator">Calculadora</a>
+      <a href="#chart">Carta</a>
+      <a href="#worksheet">Hoja de trabajo</a>
+      <a href="#systems">Sistemas del mundo</a>
+      <a href="#evidence">Evidencia</a>
+      <a href="#sources">Fuentes</a>
+    </nav>
+    <nav class="language-switcher" aria-label="Idioma">
+      <a href="index.html" title="English" aria-label="English"><span aria-hidden="true">🇺🇸</span><span class="sr-only">English</span></a>
+      <a href="index-es.html" class="active" aria-current="page" title="Español" aria-label="Español"><span aria-hidden="true">🇪🇸</span><span class="sr-only">Español</span></a>
+      <a href="index-hi.html" title="हिन्दी" aria-label="हिन्दी"><span aria-hidden="true">🇮🇳</span><span class="sr-only">हिन्दी</span></a>
+      <a href="index-ja.html" title="日本語" aria-label="日本語"><span aria-hidden="true">🇯🇵</span><span class="sr-only">日本語</span></a>
+      <a href="index-ne.html" title="नेपाली" aria-label="नेपाली"><span aria-hidden="true">🇳🇵</span><span class="sr-only">नेपाली</span></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <img src="assets/numerology-hero.png" alt="Tablero luminoso de estudio numerológico con cartas, cuadrículas geométricas y números.">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Nombre, fecha de nacimiento, ciclos temporales y simbolismo cultural de los números</p>
+        <h1>Crea un perfil numerológico completo sin perder el contexto humano.</h1>
+        <p class="hero-copy">Calcula la carta principal, explora ciclos temporales, compara tradiciones culturales y lee interpretaciones con etiquetas claras de evidencia.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#calculator">Iniciar perfil</a>
+          <a class="button secondary" href="#systems">Explorar tradiciones</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="notice-band" aria-label="Nota de evidencia">
+      <strong>Lectura con evidencia:</strong>
+      <span>La numerología se presenta como una práctica simbólica y cultural. Las fuentes históricas muestran un amplio uso del simbolismo numérico; los estudios psicológicos también explican por qué las lecturas amplias pueden sentirse personalmente precisas.</span>
+    </section>
+
+    <section id="calculator" class="section profile-section">
+      <div class="section-head">
+        <p class="eyebrow">Constructor de carta completa</p>
+        <h2>Tus números</h2>
+        <p>Ingresa un nombre y una fecha para generar el perfil. La app admite valores pitagóricos del nombre, números maestros 11/22/33, pináculos, desafíos, ciclos personales y patrones avanzados del nombre.</p>
+      </div>
+
+      <form id="profileForm" class="profile-form">
+        <label>
+          <span>Nombre completo</span>
+          <input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="Ejemplo: Ada Lovelace" required>
+        </label>
+        <label>
+          <span>Fecha de nacimiento</span>
+          <input id="birthDate" name="birthDate" type="date" required>
+        </label>
+        <label>
+          <span>Fecha de lectura</span>
+          <input id="readingDate" name="readingDate" type="date" required>
+        </label>
+        <label>
+          <span>Sistema de nombre</span>
+          <select id="nameSystem" name="nameSystem">
+            <option value="pythagorean">Pitagórico / occidental moderno</option>
+            <option value="chaldean">Inspirado en caldeo</option>
+          </select>
+        </label>
+        <label class="full">
+          <span>Número de vida opcional para evaluar</span>
+          <input id="chosenNumber" name="chosenNumber" type="text" placeholder="Teléfono, correo, casa, negocio, mascota, placa...">
+        </label>
+        <button type="submit">Calcular perfil completo</button>
+      </form>
+    </section>
+
+    <section id="chart" class="section results-section">
+      <div class="section-head compact">
+        <p class="eyebrow">Resultado del perfil</p>
+        <h2>Resumen de la carta</h2>
+      </div>
+      <div id="resultsEmpty" class="empty-state">
+        <strong>Aún no hay perfil.</strong>
+        <span>Completa el formulario para desplegar la carta.</span>
+      </div>
+      <div id="results" class="results" hidden>
+        <section id="reportSummary" class="report-summary"></section>
+        <div id="coreGrid" class="number-grid"></div>
+        <div class="analysis-layout">
+          <section class="panel">
+            <div class="panel-head">
+              <h3>Interpretación</h3>
+              <span class="pill">Lectura simbólica</span>
+            </div>
+            <div id="interpretationList" class="stack"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <h3>Ciclos temporales</h3>
+              <span class="pill">Año / mes / día</span>
+            </div>
+            <div id="cycleGrid" class="cycle-grid"></div>
+          </section>
+        </div>
+        <section class="panel">
+          <div class="panel-head">
+            <h3>Números avanzados</h3>
+            <span class="pill">Patrones de nombre + fecha</span>
+          </div>
+          <div id="advancedGrid" class="advanced-grid"></div>
+        </section>
+        <section class="panel">
+          <div class="panel-head">
+            <h3>Pináculos y desafíos</h3>
+            <span class="pill">Períodos de vida</span>
+          </div>
+          <div id="timeline" class="timeline"></div>
+        </section>
+        <section id="worksheet" class="panel">
+          <div class="panel-head">
+            <h3>Cobertura completa de hoja</h3>
+            <span class="pill">Todas las familias numéricas</span>
+          </div>
+          <div id="worksheetGrid" class="worksheet-grid"></div>
+        </section>
+        <div class="analysis-layout">
+          <section class="panel">
+            <div class="panel-head">
+              <h3>Combinación de Nombre, Corazón y Personalidad</h3>
+              <span class="pill">Mezcla interior / exterior</span>
+            </div>
+            <div id="combinationGrid" class="stack"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <h3>Números de años importantes</h3>
+              <span class="pill">Hito / destacado / señalado</span>
+            </div>
+            <div id="importantYearGrid" class="cycle-grid"></div>
+          </section>
+        </div>
+        <div class="analysis-layout">
+          <section class="panel">
+            <div class="panel-head">
+              <h3>Letras progresadas y esencia</h3>
+              <span class="pill">Temporalidad avanzada</span>
+            </div>
+            <div id="progressionGrid" class="cycle-grid"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <h3>Números elegidos en la vida</h3>
+              <span class="pill">Teléfono / dirección / negocio / mascota</span>
+            </div>
+            <div id="choiceGrid" class="cycle-grid"></div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section id="systems" class="section systems-section">
+      <div class="section-head">
+        <p class="eyebrow">En todo el mundo</p>
+        <h2>Tradiciones numéricas y comparación</h2>
+        <p>Usa la búsqueda para comparar escuelas, culturas y notas de estudio. Están separadas de la calculadora para que la interpretación no se confunda con prueba.</p>
+      </div>
+      <div class="library-tools">
+        <input id="librarySearch" type="search" placeholder="Buscar pitagórico, caldeo, gematría, chino, evidencia...">
+        <div class="filter-tabs" aria-label="Filtros de referencia">
+          <button type="button" class="active" data-filter="all">Todo</button>
+          <button type="button" data-filter="method">Métodos</button>
+          <button type="button" data-filter="culture">Culturas</button>
+          <button type="button" data-filter="evidence">Evidencia</button>
+        </div>
+      </div>
+      <div id="libraryGrid" class="library-grid"></div>
+    </section>
+
+    <section class="section meanings-section">
+      <div class="section-head">
+        <p class="eyebrow">Referencia rápida</p>
+        <h2>Significados de los números 1-9 y maestros</h2>
+      </div>
+      <div id="meaningGrid" class="meaning-grid"></div>
+    </section>
+
+    <section id="evidence" class="section evidence-section">
+      <div class="section-head">
+        <p class="eyebrow">Pruebas, límites y uso responsable</p>
+        <h2>Lo que la evidencia puede y no puede decir</h2>
+      </div>
+      <div class="evidence-grid">
+        <article class="evidence-card strong">
+          <span>Fuerte</span>
+          <h3>El simbolismo numérico está históricamente extendido.</h3>
+          <p>Las referencias públicas documentan el simbolismo numérico en filosofía, religión, arte, alfabetos y números culturales de suerte o mala suerte.</p>
+        </article>
+        <article class="evidence-card moderate">
+          <span>Moderada</span>
+          <h3>Los números pueden estructurar la reflexión.</h3>
+          <p>Como marco de diario personal, la numerología puede ayudar a nombrar temas, metas, tensiones e intenciones temporales.</p>
+        </article>
+        <article class="evidence-card limited">
+          <span>Limitada</span>
+          <h3>Las afirmaciones predictivas no están establecidas científicamente.</h3>
+          <p>La investigación psicológica sobre validación personal advierte que las afirmaciones amplias de personalidad pueden sentirse únicas aunque sean genéricas.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="sources" class="section sources-section">
+      <div class="section-head">
+        <p class="eyebrow">Referencias usadas</p>
+        <h2>Fuentes y ruta de lectura</h2>
+      </div>
+      <ol class="sources-list">
+        <li><a href="https://www.britannica.com/topic/numerology" target="_blank" rel="noreferrer">Encyclopaedia Britannica: Numerology</a> — definición y relación histórica con sistemas numéricos alfabéticos.</li>
+        <li><a href="https://www.britannica.com/topic/number-symbolism" target="_blank" rel="noreferrer">Encyclopaedia Britannica: Number symbolism</a> — simbolismo numérico cultural, aritmancia, pitagorismo y números de la naturaleza.</li>
+        <li><a href="https://pubmed.ncbi.nlm.nih.gov/18110193/" target="_blank" rel="noreferrer">Forer, B. R. (1949), Journal of Abnormal Psychology</a> — registro del estudio sobre validación personal / efecto Forer.</li>
+        <li>Jean Simpson, <em>Numerology: A Beginner’s Guide to the Power of Numbers</em> — usado para cobertura temática y vocabulario de la carta, parafraseado en lugar de copiado.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>B8 Numerology</strong>
+      <p>Estudio simbólico de números, herramientas de cálculo y contexto con evidencia.</p>
+    </div>
+    <a href="#top">Volver arriba</a>
+  </footer>
+
+  <button id="askToggle" class="ask-toggle" type="button" aria-expanded="false" aria-controls="askPanel">
+    Preguntar
+  </button>
+  <aside id="askPanel" class="ask-panel" aria-label="Chat de ayuda de numerología" hidden>
+    <header>
+      <div>
+        <strong>Preguntar B8</strong>
+        <span>Guía de carta</span>
+      </div>
+      <button id="askClose" type="button" aria-label="Cerrar panel de preguntas">×</button>
+    </header>
+    <div id="askMessages" class="ask-messages" aria-live="polite"></div>
+    <form id="askForm" class="ask-form">
+      <input id="askInput" type="text" placeholder="Pregunta sobre Camino de Vida, Lecciones Kármicas, Esencia..." autocomplete="off">
+      <button type="submit">Enviar</button>
+    </form>
+  </aside>
+
+  <script src="./functions/index.js?v=lang-20260613-2"></script>
+</body>
+</html>

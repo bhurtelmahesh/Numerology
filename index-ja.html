@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B8数秘術 | 完全ナンバープロフィール</title>
+  <meta name="description" content="名前と生年月日から、文化的背景、計算メモ、根拠を意識した参照を含む完全な数秘術プロフィールを作成します。">
+  <meta property="og:title" content="B8 Numerology">
+  <meta property="og:description" content="数秘術プロフィール作成ツールと世界のリファレンスライブラリ。">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%231e66c1'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial' font-size='34' font-weight='800' fill='white'%3E8%3C/text%3E%3C/svg%3E">
+  <link rel="alternate" hreflang="en" href="index.html">
+  <link rel="alternate" hreflang="es" href="index-es.html">
+  <link rel="alternate" hreflang="hi" href="index-hi.html">
+  <link rel="alternate" hreflang="ja" href="index-ja.html">
+  <link rel="alternate" hreflang="ne" href="index-ne.html">
+  <link rel="alternate" hreflang="x-default" href="index.html">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="B8数秘術ホーム">
+      <span class="brand-mark">8</span>
+      <span>B8 Numerology</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">メニュー</button>
+    <nav id="siteNav" class="site-nav" aria-label="メインナビゲーション">
+      <a href="#calculator">計算</a>
+      <a href="#chart">チャート</a>
+      <a href="#worksheet">ワークシート</a>
+      <a href="#systems">世界の体系</a>
+      <a href="#evidence">根拠</a>
+      <a href="#sources">出典</a>
+    </nav>
+    <nav class="language-switcher" aria-label="言語">
+      <a href="index.html" title="English" aria-label="English"><span aria-hidden="true">🇺🇸</span><span class="sr-only">English</span></a>
+      <a href="index-es.html" title="Español" aria-label="Español"><span aria-hidden="true">🇪🇸</span><span class="sr-only">Español</span></a>
+      <a href="index-hi.html" title="हिन्दी" aria-label="हिन्दी"><span aria-hidden="true">🇮🇳</span><span class="sr-only">हिन्दी</span></a>
+      <a href="index-ja.html" class="active" aria-current="page" title="日本語" aria-label="日本語"><span aria-hidden="true">🇯🇵</span><span class="sr-only">日本語</span></a>
+      <a href="index-ne.html" title="नेपाली" aria-label="नेपाली"><span aria-hidden="true">🇳🇵</span><span class="sr-only">नेपाली</span></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <img src="assets/numerology-hero.png" alt="紙のチャート、幾何学グリッド、数字が並ぶ光る数秘術の学習ボード。">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">名前、生年月日、タイミング周期、文化的な数字の象徴</p>
+        <h1>人間的な文脈を失わずに、完全な数秘術プロフィールを作成します。</h1>
+        <p class="hero-copy">主要チャートを計算し、タイミング周期を探り、異文化の伝統を比較し、根拠ラベル付きの解釈を読みます。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#calculator">プロフィール開始</a>
+          <a class="button secondary" href="#systems">伝統を見る</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="notice-band" aria-label="根拠メモ">
+      <strong>根拠を意識した読み方:</strong>
+      <span>数秘術は象徴的・文化的な実践として提示しています。歴史資料は数字の象徴が広く使われてきたことを示し、心理学研究は広い読みが個人的に正確に感じられる理由も示しています。</span>
+    </section>
+
+    <section id="calculator" class="section profile-section">
+      <div class="section-head">
+        <p class="eyebrow">完全チャート作成</p>
+        <h2>あなたの数字</h2>
+        <p>名前と日付を入力してプロフィールを生成します。ピタゴラス式の名前値、マスターナンバー11/22/33、ピナクル、チャレンジ、個人周期、高度な名前パターンに対応しています。</p>
+      </div>
+
+      <form id="profileForm" class="profile-form">
+        <label>
+          <span>氏名</span>
+          <input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="例: Ada Lovelace" required>
+        </label>
+        <label>
+          <span>生年月日</span>
+          <input id="birthDate" name="birthDate" type="date" required>
+        </label>
+        <label>
+          <span>リーディング日</span>
+          <input id="readingDate" name="readingDate" type="date" required>
+        </label>
+        <label>
+          <span>名前体系</span>
+          <select id="nameSystem" name="nameSystem">
+            <option value="pythagorean">ピタゴラス式 / 現代西洋式</option>
+            <option value="chaldean">カルデア式風</option>
+          </select>
+        </label>
+        <label class="full">
+          <span>評価する任意の生活番号</span>
+          <input id="chosenNumber" name="chosenNumber" type="text" placeholder="電話、メール、住所、ビジネス名、ペット名、ナンバープレート...">
+        </label>
+        <button type="submit">完全プロフィールを計算</button>
+      </form>
+    </section>
+
+    <section id="chart" class="section results-section">
+      <div class="section-head compact">
+        <p class="eyebrow">プロフィール結果</p>
+        <h2>チャート概要</h2>
+      </div>
+      <div id="resultsEmpty" class="empty-state">
+        <strong>まだプロフィールはありません。</strong>
+        <span>上のフォームを入力するとチャートが表示されます。</span>
+      </div>
+      <div id="results" class="results" hidden>
+        <section id="reportSummary" class="report-summary"></section>
+        <div id="coreGrid" class="number-grid"></div>
+        <div class="analysis-layout">
+          <section class="panel">
+            <div class="panel-head">
+              <h3>解釈</h3>
+              <span class="pill">象徴的リーディング</span>
+            </div>
+            <div id="interpretationList" class="stack"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <h3>タイミング周期</h3>
+              <span class="pill">年 / 月 / 日</span>
+            </div>
+            <div id="cycleGrid" class="cycle-grid"></div>
+          </section>
+        </div>
+        <section class="panel">
+          <div class="panel-head">
+            <h3>高度な数字</h3>
+            <span class="pill">名前 + 日付パターン</span>
+          </div>
+          <div id="advancedGrid" class="advanced-grid"></div>
+        </section>
+        <section class="panel">
+          <div class="panel-head">
+            <h3>ピナクルとチャレンジ</h3>
+            <span class="pill">人生の期間</span>
+          </div>
+          <div id="timeline" class="timeline"></div>
+        </section>
+        <section id="worksheet" class="panel">
+          <div class="panel-head">
+            <h3>完全ワークシート</h3>
+            <span class="pill">すべての数字カテゴリ</span>
+          </div>
+          <div id="worksheetGrid" class="worksheet-grid"></div>
+        </section>
+        <div class="analysis-layout">
+          <section class="panel">
+            <div class="panel-head">
+              <h3>名前・ハート・人格の組み合わせ</h3>
+              <span class="pill">内面 / 外面のブレンド</span>
+            </div>
+            <div id="combinationGrid" class="stack"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <h3>重要な年の数字</h3>
+              <span class="pill">節目 / ハイライト / 特別年</span>
+            </div>
+            <div id="importantYearGrid" class="cycle-grid"></div>
+          </section>
+        </div>
+        <div class="analysis-layout">
+          <section class="panel">
+            <div class="panel-head">
+              <h3>進行文字とエッセンス</h3>
+              <span class="pill">高度なタイミング</span>
+            </div>
+            <div id="progressionGrid" class="cycle-grid"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <h3>生活で選ぶ数字</h3>
+              <span class="pill">電話 / 住所 / ビジネス / ペット</span>
+            </div>
+            <div id="choiceGrid" class="cycle-grid"></div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section id="systems" class="section systems-section">
+      <div class="section-head">
+        <p class="eyebrow">世界各地</p>
+        <h2>数字の伝統と比較</h2>
+        <p>検索で流派、文化、学習メモを比較できます。解釈と証明が混ざらないよう、計算機とは意図的に分けています。</p>
+      </div>
+      <div class="library-tools">
+        <input id="librarySearch" type="search" placeholder="ピタゴラス、カルデア、ゲマトリア、中国、根拠を検索...">
+        <div class="filter-tabs" aria-label="参照フィルター">
+          <button type="button" class="active" data-filter="all">すべて</button>
+          <button type="button" data-filter="method">方法</button>
+          <button type="button" data-filter="culture">文化</button>
+          <button type="button" data-filter="evidence">根拠</button>
+        </div>
+      </div>
+      <div id="libraryGrid" class="library-grid"></div>
+    </section>
+
+    <section class="section meanings-section">
+      <div class="section-head">
+        <p class="eyebrow">クイック参照</p>
+        <h2>1-9とマスターナンバーの意味</h2>
+      </div>
+      <div id="meaningGrid" class="meaning-grid"></div>
+    </section>
+
+    <section id="evidence" class="section evidence-section">
+      <div class="section-head">
+        <p class="eyebrow">証明、限界、責任ある使用</p>
+        <h2>根拠が言えること・言えないこと</h2>
+      </div>
+      <div class="evidence-grid">
+        <article class="evidence-card strong">
+          <span>強い</span>
+          <h3>数字の象徴は歴史的に広く見られます。</h3>
+          <p>公開資料には、哲学、宗教、芸術、文字体系、文化的な吉凶の数字における数字の象徴が記録されています。</p>
+        </article>
+        <article class="evidence-card moderate">
+          <span>中程度</span>
+          <h3>数字は内省を構造化できます。</h3>
+          <p>日記の枠組みとして、数秘術はテーマ、目標、葛藤、時期の意図を言語化する助けになります。</p>
+        </article>
+        <article class="evidence-card limited">
+          <span>限定的</span>
+          <h3>予測的な主張は科学的に確立されていません。</h3>
+          <p>個人的妥当化に関する心理学研究は、一般的な性格文でも自分だけに当てはまるように感じられることを警告しています。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="sources" class="section sources-section">
+      <div class="section-head">
+        <p class="eyebrow">使用した参考文献</p>
+        <h2>出典と読書ルート</h2>
+      </div>
+      <ol class="sources-list">
+        <li><a href="https://www.britannica.com/topic/numerology" target="_blank" rel="noreferrer">Encyclopaedia Britannica: Numerology</a> — アルファベット式の数体系との定義と歴史的関係。</li>
+        <li><a href="https://www.britannica.com/topic/number-symbolism" target="_blank" rel="noreferrer">Encyclopaedia Britannica: Number symbolism</a> — 文化的な数字の象徴、数占い、ピタゴラス思想、自然界の数字。</li>
+        <li><a href="https://pubmed.ncbi.nlm.nih.gov/18110193/" target="_blank" rel="noreferrer">Forer, B. R. (1949), Journal of Abnormal Psychology</a> — 個人的妥当化 / フォラー効果の研究記録。</li>
+        <li>Jean Simpson, <em>Numerology: A Beginner’s Guide to the Power of Numbers</em> — トピック範囲とチャート用語の参考として使用し、コピーではなく要約しています。</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>B8 Numerology</strong>
+      <p>象徴的な数字研究、計算ツール、根拠を意識した文脈。</p>
+    </div>
+    <a href="#top">トップへ戻る</a>
+  </footer>
+
+  <button id="askToggle" class="ask-toggle" type="button" aria-expanded="false" aria-controls="askPanel">
+    質問
+  </button>
+  <aside id="askPanel" class="ask-panel" aria-label="数秘術ヘルプチャット" hidden>
+    <header>
+      <div>
+        <strong>質問 B8</strong>
+        <span>チャートガイド</span>
+      </div>
+      <button id="askClose" type="button" aria-label="質問パネルを閉じる">×</button>
+    </header>
+    <div id="askMessages" class="ask-messages" aria-live="polite"></div>
+    <form id="askForm" class="ask-form">
+      <input id="askInput" type="text" placeholder="ライフパス、カルマレッスン、エッセンスについて質問..." autocomplete="off">
+      <button type="submit">送信</button>
+    </form>
+  </aside>
+
+  <script src="./functions/index.js?v=lang-20260613-2"></script>
+</body>
+</html>
