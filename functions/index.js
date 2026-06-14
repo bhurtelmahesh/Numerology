@@ -624,36 +624,63 @@ const LIBRARY = [
 ];
 
 const ASK_KNOWLEDGE = [
-  { terms: ['life path', 'lifepath'], title: 'Life Path', answer: 'Life Path is the first number to read. It tells you the main kind of lesson or situation life keeps bringing back. Use it to decide what behavior makes you stronger, and what pattern you should stop repeating.' },
-  { terms: ['birthday', 'birth day'], title: 'Birthday Number', answer: 'Birthday Number is your easy natural gift. It answers: “What do I already know how to do without trying too hard?” Use it when you need a quick strength to lean on.' },
-  { terms: ['name number', 'expression', 'destiny'], title: 'Name Number / Expression', answer: 'Expression shows your practical toolkit. Use it for work, public life, and skill development. It answers: “What am I meant to build, express, or become good at?”' },
-  { terms: ['heart', 'soul urge', 'vowel'], title: 'Heart / Soul Urge', answer: 'Heart Number shows private happiness. It answers: “What do I actually need inside?” If life looks successful but feels empty, check this number.' },
-  { terms: ['personality', 'consonant'], title: 'Personality Number', answer: 'Personality Number shows first impression. It answers: “How do people read me before they know me?” Use it to understand your public mask and social style.' },
-  { terms: ['maturity'], title: 'Maturity Number', answer: 'Maturity Number is the later-life target. It answers: “What do I grow into when I finally integrate my lessons and abilities?”' },
-  { terms: ['pinnacle', 'pinnacles'], title: 'Pinnacles', answer: 'Pinnacles show the main opportunity of a life period. Read each one as the kind of environment life is pushing you to grow through during that age range.' },
-  { terms: ['challenge', 'challenges'], title: 'Challenges', answer: 'Challenges show the friction inside each life period. They answer: “What skill do I need to build so this period does not keep hurting me?”' },
-  { terms: ['personal year'], title: 'Personal Year', answer: 'Personal Year is the main theme of the current year for you. Use it for planning the season: beginnings, patience, expression, discipline, change, care, study, power, or completion.' },
-  { terms: ['personal month'], title: 'Personal Month', answer: 'Personal Month is the current monthly chapter inside the Personal Year. It is useful for short-term focus.' },
-  { terms: ['personal day'], title: 'Personal Day', answer: 'Personal Day is the immediate daily tone. Treat it as a mood/action prompt, not a prediction.' },
-  { terms: ['triad'], title: 'Triad Numbers', answer: 'Triad means Personal Year / Personal Month / Personal Day together. Read left to right: background season, current chapter, today’s trigger.' },
+  { terms: ['life path', 'lifepath', 'camino de vida', 'जीवन पथ', 'ライフパス', 'जीवन मार्ग'], title: 'Life Path', answer: 'Life Path is the first number to read. It tells you the main kind of lesson or situation life keeps bringing back. Use it to decide what behavior makes you stronger, and what pattern you should stop repeating.' },
+  { terms: ['birthday', 'birth day', 'cumpleaños', 'जन्मदिन', '誕生日', 'जन्मदिन नम्बर'], title: 'Birthday Number', answer: 'Birthday Number is your easy natural gift. It answers: “What do I already know how to do without trying too hard?” Use it when you need a quick strength to lean on.' },
+  { terms: ['name number', 'expression', 'destiny', 'expresión', 'destino', 'नाम संख्या', 'अभिव्यक्ति', '名前数', '表現', '運命', 'नाम नम्बर'], title: 'Name Number / Expression', answer: 'Expression shows your practical toolkit. Use it for work, public life, and skill development. It answers: “What am I meant to build, express, or become good at?”' },
+  { terms: ['heart', 'soul urge', 'vowel', 'corazón', 'alma', 'vocal', 'हृदय', 'आत्मा', 'स्वर', 'ハート', '魂', '母音', 'मन'], title: 'Heart / Soul Urge', answer: 'Heart Number shows private happiness. It answers: “What do I actually need inside?” If life looks successful but feels empty, check this number.' },
+  { terms: ['personality', 'consonant', 'personalidad', 'consonante', 'व्यक्तित्व', 'व्यंजन', '人格', '子音'], title: 'Personality Number', answer: 'Personality Number shows first impression. It answers: “How do people read me before they know me?” Use it to understand your public mask and social style.' },
+  { terms: ['maturity', 'madurez', 'परिपक्वता', '成熟'], title: 'Maturity Number', answer: 'Maturity Number is the later-life target. It answers: “What do I grow into when I finally integrate my lessons and abilities?”' },
+  { terms: ['pinnacle', 'pinnacles', 'pináculo', 'pináculos', 'शिखर', 'ピナクル', 'पिनाकल'], title: 'Pinnacles', answer: 'Pinnacles show the main opportunity of a life period. Read each one as the kind of environment life is pushing you to grow through during that age range.' },
+  { terms: ['challenge', 'challenges', 'desafío', 'desafíos', 'चुनौती', 'チャレンジ'], title: 'Challenges', answer: 'Challenges show the friction inside each life period. They answer: “What skill do I need to build so this period does not keep hurting me?”' },
+  { terms: ['personal year', 'año personal', 'व्यक्तिगत वर्ष', '個人年'], title: 'Personal Year', answer: 'Personal Year is the main theme of the current year for you. Use it for planning the season: beginnings, patience, expression, discipline, change, care, study, power, or completion.' },
+  { terms: ['personal month', 'mes personal', 'व्यक्तिगत महीना', '個人月', 'व्यक्तिगत महिना'], title: 'Personal Month', answer: 'Personal Month is the current monthly chapter inside the Personal Year. It is useful for short-term focus.' },
+  { terms: ['personal day', 'día personal', 'व्यक्तिगत दिन', '個人日'], title: 'Personal Day', answer: 'Personal Day is the immediate daily tone. Treat it as a mood/action prompt, not a prediction.' },
+  { terms: ['triad', 'tríada', 'त्रय', 'トライアド'], title: 'Triad Numbers', answer: 'Triad means Personal Year / Personal Month / Personal Day together. Read left to right: background season, current chapter, today’s trigger.' },
   { terms: ['milestone'], title: 'Milestone Years', answer: 'Milestone years are checkpoint ages in a nine-year rhythm. Use them for review, adjustment, and noticing repeating life themes.' },
   { terms: ['highlight'], title: 'Highlight Year', answer: 'Highlight Year blends Life Path with Personal Year. It shows which core lesson is being emphasized in the current year.' },
   { terms: ['red-letter', 'red letter'], title: 'Red-letter Year', answer: 'A Red-letter Year appears when the Personal Year repeats an important core number. It suggests the year may feel more personal or noticeable.' },
   { terms: ['overtone'], title: 'Overtone Number', answer: 'Overtone blends Personal Year and Universal Year. Use it as the atmosphere around the year: personal timing plus collective timing.' },
   { terms: ['universal year'], title: 'Universal Year', answer: 'Universal Year is the reduced calendar year. It is the collective tone, useful for comparing your personal rhythm with the wider year.' },
-  { terms: ['progressed letter', 'progressed letters', 'progression'], title: 'Progressed Letters', answer: 'Progressed Letters are active name letters by age. Read them as qualities temporarily emphasized in the current life stage.' },
-  { terms: ['essence', 'hidden essence'], title: 'Essence / Hidden Essence', answer: 'Essence reduces the active progressed letters. Hidden Essence blends that with Personal Year. Read them as current atmosphere and quieter undercurrent.' },
-  { terms: ['hidden cross'], title: 'Hidden Cross', answer: 'Hidden Cross summarizes the inclusion-table cross values 2, 4, 5, 6, and 8. It gives a compact view of support, structure, change, care, and power patterns.' },
-  { terms: ['inclusion', 'inclusion table'], title: 'Inclusion Table', answer: 'Inclusion Table counts how often each 1-9 value appears in the name. Repeated numbers are emphasized habits; missing numbers are qualities to practice consciously.' },
+  { terms: ['progressed letter', 'progressed letters', 'progression', 'letras progresadas', 'प्रगत अक्षर', '進行文字', 'प्रगतिशील अक्षर'], title: 'Progressed Letters', answer: 'Progressed Letters are active name letters by age. Read them as qualities temporarily emphasized in the current life stage.' },
+  { terms: ['essence', 'hidden essence', 'esencia', 'esencia oculta', 'सार', 'छिपा सार', 'エッセンス', '隠れたエッセンス', 'लुकेको सार'], title: 'Essence / Hidden Essence', answer: 'Essence reduces the active progressed letters. Hidden Essence blends that with Personal Year. Read them as current atmosphere and quieter undercurrent.' },
+  { terms: ['hidden cross', 'cruz oculta', 'छिपा क्रॉस', '隠れたクロス', 'लुकेको क्रस'], title: 'Hidden Cross', answer: 'Hidden Cross summarizes the inclusion-table cross values 2, 4, 5, 6, and 8. It gives a compact view of support, structure, change, care, and power patterns.' },
+  { terms: ['inclusion', 'inclusion table', 'tabla de inclusión', 'समावेशन तालिका', 'インクルージョン', 'インクルージョン表', 'समावेश तालिका'], title: 'Inclusion Table', answer: 'Inclusion Table counts how often each 1-9 value appears in the name. Repeated numbers are emphasized habits; missing numbers are qualities to practice consciously.' },
   { terms: ['intensification', 'hidden passion'], title: 'Hidden Passion / Intensification', answer: 'Hidden Passion or Intensification is the most repeated value in the name. It is the loudest habit: a strength when used well, a distortion when overused.' },
-  { terms: ['karma', 'karmic', 'karmic lessons'], title: 'Karmic Lessons', answer: 'Karmic Lessons are missing values in the name table. Read them as growth skills, not as punishment or doom.' },
+  { terms: ['karma', 'karmic', 'karmic lessons', 'karma lessons', 'lecciones kármicas', 'कर्मिक', 'कर्मिक पाठ', 'カルマ', 'カルマレッスン'], title: 'Karmic Lessons', answer: 'Karmic Lessons are missing values in the name table. Read them as growth skills, not as punishment or doom.' },
   { terms: ['subconscious'], title: 'Subconscious Response', answer: 'Subconscious Response counts how many different number types appear in the name. A higher count suggests a broader automatic response range.' },
   { terms: ['point of security', 'security'], title: 'Point of Security', answer: 'Point of Security reduces the Subconscious Response. Read it as a stabilizing behavior when stress rises.' },
   { terms: ['type', 'traits', 'type and traits'], title: 'Type and Traits', answer: 'Type and Traits groups the name values into practical, mental, emotional, and intuitive planes. Strongest group shows default mode; weakest group shows a development area.' },
   { terms: ['malefic', 'debt', 'karmic debt'], title: 'Malefic / Karmic-debt Watch Numbers', answer: 'These are raw totals such as 13, 14, 16, and 19. Use them as caution themes around discipline, humility, freedom, effort, and independence, not fear-based predictions.' },
-  { terms: ['chosen', 'phone', 'email', 'house', 'address', 'business', 'pet', 'plate'], title: 'Chosen Numbers', answer: 'Chosen Numbers evaluate labels you can choose, such as phone, email, house, business, pet, or plate. Compare the reduced tone with the item’s purpose.' },
-  { terms: ['proof', 'science', 'evidence'], title: 'Evidence note', answer: 'Historical sources support that number symbolism is widespread. Scientific proof for prediction is limited, and broad readings can feel personal because of the Forer/Barnum effect. Use the chart as reflection, not certainty.' }
+  { terms: ['chosen', 'phone', 'email', 'house', 'address', 'business', 'pet', 'plate', 'elegido', 'teléfono', 'casa', 'dirección', 'negocio', 'mascota', 'चुना', 'फोन', 'ईमेल', 'घर', 'पता', 'व्यवसाय', 'ペット', '選択', '電話', 'メール', '住所', 'ビジネス', 'छानिएको'], title: 'Chosen Numbers', answer: 'Chosen Numbers evaluate labels you can choose, such as phone, email, house, business, pet, or plate. Compare the reduced tone with the item’s purpose.' },
+  { terms: ['proof', 'science', 'evidence', 'prueba', 'ciencia', 'evidencia', 'प्रमाण', 'विज्ञान', '根拠', '科学'], title: 'Evidence note', answer: 'Historical sources support that number symbolism is widespread. Scientific proof for prediction is limited, and broad readings can feel personal because of the Forer/Barnum effect. Use the chart as reflection, not certainty.' }
 ];
+
+const LOCAL_ASK_ANSWERS = {
+  es: {
+    'Life Path': 'Camino de Vida es el primer número que conviene leer. Muestra la lección principal, el tipo de situación que se repite y el comportamiento que te fortalece.',
+    'Karmic Lessons': 'Las Lecciones Kármicas son valores ausentes en la tabla del nombre. Léelas como habilidades de crecimiento, no como castigo.',
+    'Essence / Hidden Essence': 'La Esencia resume las letras progresadas activas. La Esencia Oculta la combina con el Año Personal para mostrar un trasfondo más silencioso.',
+    'Evidence note': 'La historia muestra un uso amplio del simbolismo numérico. La predicción científica es limitada; usa la carta como reflexión, no como certeza.'
+  },
+  hi: {
+    'Life Path': 'जीवन पथ पहले पढ़ने वाला नंबर है। यह मुख्य सीख, बार-बार आने वाली स्थिति और आपको मजबूत बनाने वाले व्यवहार को दिखाता है।',
+    'Karmic Lessons': 'कर्मिक पाठ नाम तालिका में अनुपस्थित मान हैं। इन्हें सजा नहीं, बल्कि अभ्यास करने योग्य विकास-कौशल की तरह पढ़ें।',
+    'Essence / Hidden Essence': 'सार सक्रिय प्रगत अक्षरों को घटाकर निकाला जाता है। छिपा सार इसे व्यक्तिगत वर्ष से जोड़कर शांत पृष्ठभूमि दिखाता है।',
+    'Evidence note': 'इतिहास में संख्या प्रतीकवाद व्यापक है। भविष्यवाणी का वैज्ञानिक प्रमाण सीमित है; चार्ट को चिंतन की तरह उपयोग करें, निश्चितता की तरह नहीं।'
+  },
+  ja: {
+    'Life Path': 'ライフパスは最初に読む中心の数字です。繰り返し現れる学び、人生が問いかける状況、あなたを強くする行動パターンを示します。',
+    'Karmic Lessons': 'カルマレッスンは名前表で欠けている値です。罰ではなく、意識して育てる成長スキルとして読みます。',
+    'Essence / Hidden Essence': 'エッセンスは現在有効な進行文字をまとめた数字です。隠れたエッセンスは個人年と重ね、静かな下地を示します。',
+    'Evidence note': '数字の象徴は歴史的に広く使われています。ただし予測の科学的証明は限定的です。確定ではなく内省の材料として使ってください。'
+  },
+  ne: {
+    'Life Path': 'जीवन पथ पहिले पढ्ने मुख्य नम्बर हो। यसले दोहोरिने सिकाइ, जीवनले ल्याउने अवस्था र तपाईंलाई बलियो बनाउने व्यवहार देखाउँछ।',
+    'Karmic Lessons': 'कर्मिक पाठ नाम तालिकामा नदेखिएका मान हुन्। यसलाई सजाय होइन, अभ्यास गर्नुपर्ने विकास-कौशलका रूपमा पढ्नुहोस्।',
+    'Essence / Hidden Essence': 'सार सक्रिय प्रगतिशील अक्षरहरूबाट आएको संख्या हो। लुकेको सारले त्यसलाई व्यक्तिगत वर्षसँग जोडेर शान्त पृष्ठभूमि देखाउँछ।',
+    'Evidence note': 'इतिहासमा संख्या प्रतीकवाद व्यापक छ। भविष्यवाणीको वैज्ञानिक प्रमाण सीमित छ; चार्टलाई निश्चितता होइन, चिंतनको सामग्रीको रूपमा प्रयोग गर्नुहोस्।'
+  }
+};
 
 const CORE_DESCRIPTIONS = {
   lifePath: 'The major birth-date theme: lessons, direction, and recurring life terrain.',
@@ -1285,7 +1312,8 @@ function askAnswer(question) {
   const normalized = question.toLowerCase();
   const hit = ASK_KNOWLEDGE.find((item) => item.terms.some((term) => normalized.includes(term)));
   if (hit) {
-    return `<strong>${escapeHtml(localText(hit.title))}</strong>${escapeHtml(localText(hit.answer))} <a href="#worksheet">${escapeHtml(ui('See worksheet guide'))}</a>`;
+    const answer = LOCAL_ASK_ANSWERS[PAGE_LANG]?.[hit.title] || (PAGE_LANG === 'en' ? hit.answer : ui('askFallback'));
+    return `<strong>${escapeHtml(localText(hit.title))}</strong>${escapeHtml(answer)} <a href="#worksheet">${escapeHtml(ui('See worksheet guide'))}</a>`;
   }
   const worksheetHit = WORKSHEET_COVERAGE.find((item) => {
     const text = `${item.name} ${item.purpose} ${item.read}`.toLowerCase();
@@ -1302,7 +1330,7 @@ function openAskPanel() {
   panel.hidden = false;
   document.getElementById('askToggle').setAttribute('aria-expanded', 'true');
   if (!document.getElementById('askMessages').children.length) {
-    addAskMessage('bot', `<strong>${escapeHtml(ui('Try asking about a chart term'))}</strong>${escapeHtml(ui('askWelcome'))}`);
+    addAskMessage('bot', `<strong>${escapeHtml(PAGE_LANG === 'ja' ? 'Ask B8に質問' : 'Ask B8')}</strong>${escapeHtml(PAGE_LANG === 'ja' ? 'チャート、数秘術、プロフィールについて自由に質問できます。' : 'Ask about your chart, numerology, or profile in your own words.')}`);
   }
   document.getElementById('askInput').focus();
 }
@@ -1318,11 +1346,79 @@ function setDefaults() {
   document.getElementById('fullName').value = 'Ada Lovelace';
 }
 
+function chartSnapshot(chart) {
+  const summary = document.getElementById('reportSummary')?.innerText.replace(/\s+/g, ' ').trim() || '';
+  return {
+    language: PAGE_LANG,
+    name: chart.input.fullName,
+    birthDate: `${chart.birth.year}-${String(chart.birth.month).padStart(2, '0')}-${String(chart.birth.day).padStart(2, '0')}`,
+    summary: summary.slice(0, 1200),
+    core: {
+      lifePath: chart.core.lifePath,
+      birthday: chart.core.birthday,
+      expression: chart.core.expression,
+      soulUrge: chart.core.soulUrge,
+      personality: chart.core.personality,
+      maturity: chart.core.maturity
+    },
+    numbers: `Life Path ${chart.core.lifePath} · Birthday ${chart.core.birthday} · Expression ${chart.core.expression} · Soul Urge ${chart.core.soulUrge} · Personality ${chart.core.personality}`
+  };
+}
+
+async function saveLatestChart(chart) {
+  const user = window.firebase?.auth?.().currentUser;
+  if (!user || !window.firebase?.firestore) return;
+  try {
+    await firebase.firestore().collection('users').doc(user.uid).collection('charts').doc('latest').set({
+      ...chartSnapshot(chart),
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    }, { merge: true });
+  } catch (error) {
+    console.warn('Could not save latest chart', error);
+  }
+}
+
+function latestGeminiContext() {
+  const chartCard = document.getElementById('reportSummary');
+  const profile = window.B8Auth?.getProfile?.() || {};
+  return {
+    lang: PAGE_LANG,
+    profile,
+    chart: {
+      summary: chartCard?.innerText || '',
+      numbers: Array.from(document.querySelectorAll('#coreGrid .number-card')).slice(0, 6).map((card) => card.innerText.replace(/\s+/g, ' ')).join(' | ')
+    }
+  };
+}
+
+function reflectSignedInProfile(profile) {
+  if (!profile) return;
+  const fullName = document.getElementById('fullName');
+  const birthDate = document.getElementById('birthDate');
+  let changed = false;
+  if (profile.displayName && fullName.value !== profile.displayName) {
+    fullName.value = profile.displayName;
+    changed = true;
+  }
+  if (profile.dob && birthDate.value !== profile.dob) {
+    birthDate.value = profile.dob;
+    changed = true;
+  }
+  if (changed) {
+    const data = Object.fromEntries(new FormData(document.getElementById('profileForm')).entries());
+    const chart = calculateChart(data);
+    renderChart(chart);
+    saveLatestChart(chart);
+  }
+}
+
 function bindEvents() {
   document.getElementById('profileForm').addEventListener('submit', (event) => {
     event.preventDefault();
     const data = Object.fromEntries(new FormData(event.currentTarget).entries());
-    renderChart(calculateChart(data));
+    const chart = calculateChart(data);
+    renderChart(chart);
+    saveLatestChart(chart);
     document.getElementById('chart').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
   document.getElementById('librarySearch').addEventListener('input', renderLibrary);
@@ -1332,15 +1428,18 @@ function bindEvents() {
     document.querySelectorAll('.filter-tabs button').forEach((item) => item.classList.toggle('active', item === button));
     renderLibrary();
   });
-  document.querySelector('.nav-toggle').addEventListener('click', (event) => {
-    const open = !document.body.classList.contains('nav-open');
-    document.body.classList.toggle('nav-open', open);
-    event.currentTarget.setAttribute('aria-expanded', String(open));
-  });
+  const navToggle = document.querySelector('.nav-toggle');
+  if (navToggle) {
+    navToggle.addEventListener('click', (event) => {
+      const open = !document.body.classList.contains('nav-open');
+      document.body.classList.toggle('nav-open', open);
+      event.currentTarget.setAttribute('aria-expanded', String(open));
+    });
+  }
   document.querySelectorAll('.site-nav a').forEach((link) => {
     link.addEventListener('click', () => {
       document.body.classList.remove('nav-open');
-      document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+      document.querySelector('.nav-toggle')?.setAttribute('aria-expanded', 'false');
     });
   });
   document.getElementById('askToggle').addEventListener('click', () => {
@@ -1348,14 +1447,30 @@ function bindEvents() {
     else closeAskPanel();
   });
   document.getElementById('askClose').addEventListener('click', closeAskPanel);
-  document.getElementById('askForm').addEventListener('submit', (event) => {
+  document.getElementById('askInput').setAttribute('data-original-placeholder', document.getElementById('askInput').placeholder);
+  document.getElementById('askForm').addEventListener('submit', async (event) => {
     event.preventDefault();
     const input = document.getElementById('askInput');
     const question = input.value.trim();
     if (!question) return;
     addAskMessage('user', `<strong>${escapeHtml(ui('You'))}</strong>${escapeHtml(question)}`);
     input.value = '';
-    setTimeout(() => addAskMessage('bot', askAnswer(question)), 120);
+    addAskMessage('bot', `<strong>${escapeHtml(PAGE_LANG === 'ja' ? '考えています' : 'Thinking')}</strong>${escapeHtml(PAGE_LANG === 'ja' ? 'Ask B8に送信しています...' : 'Sending this to Ask B8...')}`);
+    const pending = document.querySelector('#askMessages .ask-message.bot:last-child');
+    try {
+      if (!window.B8Gemini?.ask) throw new Error(PAGE_LANG === 'ja' ? 'Ask B8を読み込めませんでした。少し待って再読み込みしてください。' : 'Ask B8 did not load yet. Wait a moment, then refresh and try again.');
+      const answer = await window.B8Gemini.ask(question, latestGeminiContext());
+      pending.innerHTML = `<strong>${escapeHtml(PAGE_LANG === 'ja' ? 'Ask B8回答' : 'Ask B8 answer')}</strong>${escapeHtml(answer)}`;
+    } catch (error) {
+      const fallbackTitle = PAGE_LANG === 'ja' ? 'サイト内ガイド' : 'In-site guide';
+      const note = PAGE_LANG === 'ja'
+        ? 'Ask B8は今利用できないため、サイト内の用語ガイドで回答します。'
+        : 'Ask B8 is not available right now, so here is the in-site guide answer.';
+      pending.innerHTML = `<strong>${escapeHtml(fallbackTitle)}</strong>${escapeHtml(note)}${askAnswer(question)}`;
+    }
+  });
+  window.addEventListener('b8:auth-profile', (event) => {
+    if (event.detail?.user) reflectSignedInProfile(event.detail.profile);
   });
 }
 

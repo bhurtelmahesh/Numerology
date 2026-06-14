@@ -15,7 +15,7 @@
   <link rel="alternate" hreflang="ja" href="index-ja.html">
   <link rel="alternate" hreflang="ne" href="index-ne.html">
   <link rel="alternate" hreflang="x-default" href="index.html">
-  <link rel="stylesheet" href="index.css?v=mobile-20260613-1">
+  <link rel="stylesheet" href="index.css?v=profile-20260614-1">
 </head>
 <body>
   <header class="site-header">
@@ -23,7 +23,6 @@
       <span class="brand-mark">8</span>
       <span>B8 Numerology</span>
     </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">Menú</button>
     <nav id="siteNav" class="site-nav" aria-label="Navegación principal">
       <a href="#calculator">Calculadora</a>
       <a href="#chart">Carta</a>
@@ -32,13 +31,11 @@
       <a href="#evidence">Evidencia</a>
       <a href="#sources">Fuentes</a>
     </nav>
-    <nav class="language-switcher" aria-label="Idioma">
-      <a href="index.html" title="English" aria-label="English"><span aria-hidden="true">🇺🇸</span><span class="sr-only">English</span></a>
-      <a href="index-es.html" class="active" aria-current="page" title="Español" aria-label="Español"><span aria-hidden="true">🇪🇸</span><span class="sr-only">Español</span></a>
-      <a href="index-hi.html" title="हिन्दी" aria-label="हिन्दी"><span aria-hidden="true">🇮🇳</span><span class="sr-only">हिन्दी</span></a>
-      <a href="index-ja.html" title="日本語" aria-label="日本語"><span aria-hidden="true">🇯🇵</span><span class="sr-only">日本語</span></a>
-      <a href="index-ne.html" title="नेपाली" aria-label="नेपाली"><span aria-hidden="true">🇳🇵</span><span class="sr-only">नेपाली</span></a>
-    </nav>
+    <div class="auth-widget">
+      <button id="authOpen" class="auth-open" type="button" aria-expanded="false" aria-controls="authPanel" aria-label="Menú de cuenta">
+        <span id="authAvatar" class="auth-avatar" aria-hidden="true">8</span>
+      </button>
+    </div>
   </header>
 
   <main id="top">
@@ -50,8 +47,8 @@
         <h1>Crea un perfil numerológico completo sin perder el contexto humano.</h1>
         <p class="hero-copy">Calcula la carta principal, explora ciclos temporales, compara tradiciones culturales y lee interpretaciones con etiquetas claras de evidencia.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#calculator">Iniciar perfil</a>
-          <a class="button secondary" href="#systems">Explorar tradiciones</a>
+          <a class="button primary" href="#calculator">Iniciar cálculo</a>
+          <button class="button secondary" type="button" data-auth-trigger="create">Login / Signup</button>
         </div>
       </div>
     </section>
@@ -60,6 +57,10 @@
       <strong>Lectura con evidencia:</strong>
       <span>La numerología se presenta como una práctica simbólica y cultural. Las fuentes históricas muestran un amplio uso del simbolismo numérico; los estudios psicológicos también explican por qué las lecturas amplias pueden sentirse personalmente precisas.</span>
     </section>
+
+    <aside class="ad-shell ad-shell-top" data-ad-placement="top" aria-label="Anuncio" hidden>
+      <span>Anuncio</span>
+    </aside>
 
     <section id="calculator" class="section profile-section">
       <div class="section-head">
@@ -107,6 +108,9 @@
       </div>
       <div id="results" class="results" hidden>
         <section id="reportSummary" class="report-summary"></section>
+        <aside class="ad-shell ad-shell-results" data-ad-placement="results" aria-label="Anuncio" hidden>
+          <span>Anuncio</span>
+        </aside>
         <div id="coreGrid" class="number-grid"></div>
         <div class="analysis-layout">
           <section class="panel">
@@ -206,6 +210,10 @@
       <div id="meaningGrid" class="meaning-grid"></div>
     </section>
 
+    <aside class="ad-shell ad-shell-reference" data-ad-placement="reference" aria-label="Anuncio" hidden>
+      <span>Anuncio</span>
+    </aside>
+
     <section id="evidence" class="section evidence-section">
       <div class="section-head">
         <p class="eyebrow">Pruebas, límites y uso responsable</p>
@@ -248,6 +256,10 @@
     <div>
       <strong>B8 Numerology</strong>
       <p>Estudio simbólico de números, herramientas de cálculo y contexto con evidencia.</p>
+      <nav class="footer-links" aria-label="Enlaces legales">
+        <a href="privacy.html">Política de privacidad</a>
+        <a href="terms.html">Términos</a>
+      </nav>
     </div>
     <a href="#top">Volver arriba</a>
   </footer>
@@ -258,7 +270,7 @@
   <aside id="askPanel" class="ask-panel" aria-label="Chat de ayuda de numerología" hidden>
     <header>
       <div>
-        <strong>Preguntar B8</strong>
+        <strong>B8 Chat</strong>
         <span>Guía de carta</span>
       </div>
       <button id="askClose" type="button" aria-label="Cerrar panel de preguntas">×</button>
@@ -270,6 +282,68 @@
     </form>
   </aside>
 
-  <script src="./functions/index.js?v=lang-20260613-3"></script>
+  <aside id="authPanel" class="auth-panel" aria-label="Tu cuenta" hidden>
+    <header>
+      <div>
+        <strong data-auth-text="title">Tu cuenta</strong>
+        <span data-auth-text="subtitle">Cuenta, perfil e idioma</span>
+      </div>
+      <button id="authClose" type="button" aria-label="Cerrar panel de cuenta">×</button>
+    </header>
+    <div id="authMenu" class="auth-menu">
+      <div id="authProfile" class="auth-profile">
+        <span id="authProfileAvatar" class="auth-profile-avatar">8</span>
+        <div>
+          <strong id="authProfileName">Invitado</strong>
+          <span id="authProfileEmail">Inicia sesión o crea una cuenta.</span>
+        </div>
+      </div>
+      <button type="button" class="auth-menu-item" data-auth-menu="profile">Perfil</button>
+      <button type="button" class="auth-menu-item" data-auth-menu="settings">Configuración</button>
+      <details class="auth-language">
+        <summary>Cambiar idioma</summary>
+        <div class="auth-language-options">
+          <a href="index.html" data-lang-choice="en">🇺🇸 English</a>
+          <a href="index-es.html" class="active" data-lang-choice="es">🇪🇸 Español</a>
+          <a href="index-hi.html" data-lang-choice="hi">🇮🇳 हिन्दी</a>
+          <a href="index-ja.html" data-lang-choice="ja">🇯🇵 日本語</a>
+          <a href="index-ne.html" data-lang-choice="ne">🇳🇵 नेपाली</a>
+        </div>
+      </details>
+      <button id="authShowForm" type="button" class="auth-menu-item auth-menu-primary">Iniciar sesión / Registrarse</button>
+      <button id="authMenuSignOut" type="button" class="auth-menu-item" hidden>Cerrar sesión</button>
+      <p id="authMenuStatus" class="auth-status" aria-live="polite"></p>
+    </div>
+    <form id="authForm" class="auth-form">
+      <label>
+        <span data-auth-text="name">Nombre visible</span>
+        <input name="displayName" type="text" autocomplete="name" data-auth-placeholder="name">
+      </label>
+      <label>
+        <span data-auth-text="email">Correo</span>
+        <input name="email" type="email" autocomplete="email" required data-auth-placeholder="email">
+      </label>
+      <label>
+        <span data-auth-text="password">Contraseña</span>
+        <input name="password" type="password" autocomplete="current-password" required minlength="6" data-auth-placeholder="password">
+      </label>
+      <div class="auth-actions">
+        <button type="submit" value="signin" data-auth-text="signIn">Iniciar sesión</button>
+        <button type="submit" value="create" data-auth-text="create">Crear cuenta</button>
+      </div>
+      <p id="authStatus" class="auth-status" aria-live="polite"></p>
+    </form>
+  </aside>
+
+  <script src="./ads-config.js?v=ads-20260614-1"></script>
+  <script src="./ads.js?v=ads-20260614-1"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+  <script src="./auth-config.js?v=auth-20260614-1"></script>
+  <script src="./language-router.js?v=account-20260614-1"></script>
+  <script src="./auth.js?v=profile-page-20260614-1"></script>
+  <script src="./gemini-chat.js?v=anything-20260614-1"></script>
+  <script src="./functions/index.js?v=ask-b8-chat-20260614-1"></script>
 </body>
 </html>

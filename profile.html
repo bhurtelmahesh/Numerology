@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B8 Numerology | Profile</title>
+  <meta name="description" content="Manage your B8 Numerology profile and review your latest chart summary.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%231e66c1'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial' font-size='34' font-weight='800' fill='white'%3E8%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="index.css?v=profile-page-20260614-1">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html#top" aria-label="B8 Numerology home">
+      <span class="brand-mark">8</span>
+      <span>B8 Numerology</span>
+    </a>
+    <nav id="siteNav" class="site-nav" aria-label="Profile navigation">
+      <a href="index.html#calculator" data-profile-text="calculator">Calculator</a>
+      <a href="index.html#chart" data-profile-text="chart">Chart</a>
+      <a href="privacy.html" data-profile-text="privacy">Privacy</a>
+      <a href="terms.html" data-profile-text="terms">Terms</a>
+    </nav>
+    <div class="auth-widget">
+      <button id="authOpen" class="auth-open" type="button" aria-expanded="false" aria-controls="authPanel" aria-label="Account menu">
+        <span id="authAvatar" class="auth-avatar" aria-hidden="true">8</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top" class="profile-page">
+    <section class="profile-page-hero">
+      <p class="eyebrow" data-profile-text="eyebrow">Your account</p>
+      <h1 data-profile-text="title">Profile</h1>
+      <p data-profile-text="subtitle">Keep your details ready for the calculator and review your latest chart.</p>
+    </section>
+
+    <section class="profile-dashboard">
+      <article class="profile-card-main">
+        <div class="profile-identity">
+          <span id="profilePhoto" class="profile-page-photo">8</span>
+          <div>
+            <h2 id="profileDisplayName">Guest</h2>
+            <p id="profileEmailLine">Sign in to manage your profile.</p>
+          </div>
+        </div>
+        <dl class="profile-details">
+          <div>
+            <dt data-profile-text="dob">Date of birth</dt>
+            <dd id="profileDob">-</dd>
+          </div>
+          <div>
+            <dt data-profile-text="email">Email address</dt>
+            <dd id="profileContactEmail">-</dd>
+          </div>
+          <div>
+            <dt data-profile-text="phone">Phone</dt>
+            <dd id="profilePhone">-</dd>
+          </div>
+        </dl>
+        <div class="profile-page-actions">
+          <button id="profileEdit" type="button" data-profile-text="edit">Edit profile</button>
+          <a id="profileBack" href="index.html#calculator" data-profile-text="back">Back to calculator</a>
+        </div>
+      </article>
+
+      <form id="profilePageForm" class="profile-page-form" hidden>
+        <label class="profile-upload">
+          <span data-profile-text="photo">Profile photo</span>
+          <input id="profilePhotoInput" name="photo" type="file" accept="image/*">
+        </label>
+        <label>
+          <span data-profile-text="name">Name</span>
+          <input name="displayName" type="text" autocomplete="name">
+        </label>
+        <label>
+          <span data-profile-text="dob">Date of birth</span>
+          <input name="dob" type="date" autocomplete="bday">
+        </label>
+        <label>
+          <span data-profile-text="email">Email address</span>
+          <input name="contactEmail" type="email" autocomplete="email">
+        </label>
+        <label>
+          <span data-profile-text="phone">Phone</span>
+          <input name="phone" type="tel" autocomplete="tel">
+        </label>
+        <div class="profile-form-actions">
+          <button type="submit" data-profile-text="save">Save changes</button>
+          <button id="profileCancel" type="button" data-profile-text="cancel">Cancel</button>
+        </div>
+        <p id="profilePageStatus" class="auth-status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="profile-chart-summary">
+      <div class="section-head compact">
+        <p class="eyebrow" data-profile-text="latestEyebrow">Latest result</p>
+        <h2 data-profile-text="latestTitle">Chart summary</h2>
+      </div>
+      <article id="profileChartCard" class="profile-summary-card">
+        <strong data-profile-text="noChartTitle">No saved chart yet.</strong>
+        <p data-profile-text="noChartBody">Generate a chart from the calculator while signed in, and the summary will appear here.</p>
+      </article>
+    </section>
+  </main>
+
+  <aside id="authPanel" class="auth-panel" aria-label="Your account" hidden>
+    <header>
+      <div>
+        <strong data-auth-text="title">Your account</strong>
+        <span data-auth-text="subtitle">Account, profile, and language</span>
+      </div>
+      <button id="authClose" type="button" aria-label="Close account panel">×</button>
+    </header>
+    <div id="authMenu" class="auth-menu">
+      <div id="authProfile" class="auth-profile">
+        <span id="authProfileAvatar" class="auth-profile-avatar">8</span>
+        <div>
+          <strong id="authProfileName">Guest</strong>
+          <span id="authProfileEmail">Sign in or create an account.</span>
+        </div>
+      </div>
+      <button type="button" class="auth-menu-item" data-auth-menu="profile">Profile</button>
+      <button type="button" class="auth-menu-item" data-auth-menu="settings">Settings</button>
+      <details class="auth-language">
+        <summary>Change language</summary>
+        <div class="auth-language-options">
+          <a href="profile.html?lang=en" data-lang-choice="en">🇺🇸 English</a>
+          <a href="profile.html?lang=es" data-lang-choice="es">🇪🇸 Español</a>
+          <a href="profile.html?lang=hi" data-lang-choice="hi">🇮🇳 हिन्दी</a>
+          <a href="profile.html?lang=ja" data-lang-choice="ja">🇯🇵 日本語</a>
+          <a href="profile.html?lang=ne" data-lang-choice="ne">🇳🇵 नेपाली</a>
+        </div>
+      </details>
+      <button id="authShowForm" type="button" class="auth-menu-item auth-menu-primary">Sign in / Sign up</button>
+      <button id="authMenuSignOut" type="button" class="auth-menu-item" hidden>Sign out</button>
+      <p id="authMenuStatus" class="auth-status" aria-live="polite"></p>
+    </div>
+    <form id="authForm" class="auth-form">
+      <label>
+        <span data-auth-text="name">Display name</span>
+        <input name="displayName" type="text" autocomplete="name" data-auth-placeholder="name">
+      </label>
+      <label>
+        <span data-auth-text="email">Email</span>
+        <input name="email" type="email" autocomplete="email" required data-auth-placeholder="email">
+      </label>
+      <label>
+        <span data-auth-text="password">Password</span>
+        <input name="password" type="password" autocomplete="current-password" required minlength="6" data-auth-placeholder="password">
+      </label>
+      <div class="auth-actions">
+        <button type="submit" value="signin" data-auth-text="signIn">Sign in</button>
+        <button type="submit" value="create" data-auth-text="create">Create account</button>
+      </div>
+      <p id="authStatus" class="auth-status" aria-live="polite"></p>
+    </form>
+  </aside>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+  <script src="./auth-config.js?v=auth-20260614-1"></script>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var stored = localStorage.getItem("b8LanguageChoice");
+      var lang = params.get("lang") || stored || (navigator.language || "en").slice(0, 2);
+      if (!["en", "es", "hi", "ja", "ne"].includes(lang)) lang = "en";
+      document.documentElement.lang = lang;
+    }());
+  </script>
+  <script src="./language-router.js?v=account-20260614-1"></script>
+  <script src="./auth.js?v=profile-page-20260614-1"></script>
+  <script src="./profile.js?v=profile-page-20260614-1"></script>
+</body>
+</html>
