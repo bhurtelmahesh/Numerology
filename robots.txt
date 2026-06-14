@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /profile.html
+
+Sitemap: https://b8numerology.web.app/sitemap.xml
